@@ -356,7 +356,7 @@
             font-family: 'Orbitron', sans-serif;
             margin-bottom: -10px;
         }
-        
+
         .wounds-fatigue div {
             margin-top: 15px;
             padding-top: 10px;
@@ -371,13 +371,32 @@
             font-size: 1.1em;
             text-shadow: 0 0 3px var(--accent-purple);
         }
+        
+        .wounds-fatigue input[type="radio"] {
+            display: none;
+        }
 
-        .wounds-fatigue input[type="radio"],
+        .wounds-fatigue input[type="radio"]+label {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--accent-blue);
+            background-color: #1a1a2e;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 10px;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
         .wounds-fatigue input[type="checkbox"] {
             display: none;
         }
 
-        .wounds-fatigue input[type="radio"]+label,
         .wounds-fatigue input[type="checkbox"]+label {
             display: inline-flex;
             justify-content: center;
@@ -402,25 +421,44 @@
 
         /* Cores de status de combate */
         input[name="corpo"][value="-1"]:checked+label,
-        input[name="mente"][value="-1"]:checked+label,
+        input[name="mente"][value="-1"]:checked+label {
+            background-color: var(--color-ok);
+            border-color: var(--color-ok);
+            box-shadow: 0 0 8px var(--color-ok);
+            color: black;
+        }
+
+        input[name="corpo"][value="-2"]:checked+label,
+        input[name="mente"][value="-2"]:checked+label {
+            background-color: var(--color-alert);
+            border-color: var(--color-alert);
+            box-shadow: 0 0 8px var(--color-alert);
+            color: black;
+        }
+
+        input[name="corpo"][value="-3"]:checked+label,
+        input[name="mente"][value="-3"]:checked+label {
+            background-color: var(--color-danger);
+            border-color: var(--color-danger);
+            box-shadow: 0 0 8px var(--color-danger);
+            color: black;
+        }
+        
+        /* Estilos para o Vigor calculado */
         input[name="vigor_calc"][value="-1"]:checked+label {
             background-color: var(--color-ok);
             border-color: var(--color-ok);
             box-shadow: 0 0 8px var(--color-ok);
             color: black;
         }
-        
-        input[name="corpo"][value="-2"]:checked+label,
-        input[name="mente"][value="-2"]:checked+label,
+
         input[name="vigor_calc"][value="-2"]:checked+label {
             background-color: var(--color-alert);
             border-color: var(--color-alert);
             box-shadow: 0 0 8px var(--color-alert);
             color: black;
         }
-        
-        input[name="corpo"][value="-3"]:checked+label,
-        input[name="mente"][value="-3"]:checked+label,
+
         input[name="vigor_calc"][value="-3"]:checked+label {
             background-color: var(--color-danger);
             border-color: var(--color-danger);
@@ -611,22 +649,22 @@
             <h2><span style="color: var(--accent-blue);">&gt;</span> Recursos <span
                     style="color: var(--accent-blue);">&lt;</span></h2>
             <div class="flex-row">
-                <label for="recursos-maior">Maior Recurso:</label>
+                <label for="recursos-maior" style="color: rgb(255, 242, 0)">Estilo de Vida:</label>
                 <input type="text" id="recursos-maior" readonly placeholder="Nenhum">
             </div>
             <div class="flex-row">
                 <label>Extravagante:</label>
                 <input type="number" id="recursos-extravagante" value="0" oninput="updateCalculatedStats()">
-            </div>
-            <div class="flex-row">
+                </div>
+                <div class="flex-row">
                 <label>Rico:</label>
                 <input type="number" id="recursos-rico" value="0" oninput="updateCalculatedStats()">
             </div>
             <div class="flex-row">
                 <label>Comum:</label>
                 <input type="number" id="recursos-comum" value="0" oninput="updateCalculatedStats()">
-            </div>
-            <div class="flex-row">
+                </div>
+                <div class="flex-row">
                 <label>Modesto:</label>
                 <input type="number" id="recursos-modesto" value="0" oninput="updateCalculatedStats()">
             </div>
@@ -699,6 +737,7 @@
             const cargaBonus = parseInt(document.getElementById('carga-bonus').value) || 0;
             const vigorBonus = parseInt(document.getElementById('vigor-bonus').value) || 0;
 
+
             const baseFirewall = 2 + getDieValue(smartsDie);
             const totalFirewall = baseFirewall + firewallBonus;
 
@@ -722,7 +761,6 @@
             document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
             document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
 
-            // CÁLCULO E ATUALIZAÇÃO DO VIGOR
             const corpoValue = parseInt(document.querySelector('input[name="corpo"]:checked')?.value || '0');
             const menteValue = parseInt(document.querySelector('input[name="mente"]:checked')?.value || '0');
             const vigorTotal = corpoValue + menteValue - vigorBonus;
@@ -731,7 +769,6 @@
             document.getElementById('vigor2').checked = vigorTotal <= -2;
             document.getElementById('vigor3').checked = vigorTotal <= -3;
             
-            // ATUALIZAÇÃO DO NÍVEL DE RIQUEZA
             const recursosData = {
                 extravagante: parseInt(document.getElementById('recursos-extravagante').value) || 0,
                 rico: parseInt(document.getElementById('recursos-rico').value) || 0,
@@ -741,16 +778,22 @@
             };
 
             let highestResourceName = '';
-            let highestResourceValue = -1;
-
-            for (const name in recursosData) {
-                if (recursosData[name] > highestResourceValue) {
-                    highestResourceValue = recursosData[name];
-                    highestResourceName = name.charAt(0).toUpperCase() + name.slice(1);
-                }
+            
+            if (recursosData.extravagante > 0) {
+                highestResourceName = 'Extravagante';
+            } else if (recursosData.rico > 0) {
+                highestResourceName = 'Rico';
+            } else if (recursosData.comum > 0) {
+                highestResourceName = 'Comum';
+            } else if (recursosData.modesto > 0) {
+                highestResourceName = 'Modesto';
+            } else if (recursosData.pobre > 0) {
+                highestResourceName = 'Pobre';
+            } else {
+                highestResourceName = 'Nenhum';
             }
 
-            document.getElementById('recursos-maior').value = highestResourceValue > 0 ? highestResourceName : 'Nenhum';
+            document.getElementById('recursos-maior').value = highestResourceName;
         }
 
         function addAttributeSelectors() {
