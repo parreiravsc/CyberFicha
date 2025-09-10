@@ -1,0 +1,207 @@
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Informações de Registro <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <label for="char-name">Nome:</label><input type="text" id="char-name" placeholder="Johnny Silverhand">
+    <label for="char-race">Raça/Origem:</label><input type="text" id="char-race" placeholder="Humano, Synth, Glitch...">
+    <div class="flex-row">
+        <label for="char-rank">Nível/Patente:</label><input type="text" id="char-rank"
+            placeholder="Novato, Veterano, Elite" style="width: 100px;">
+    </div>
+    <div class="xp-group">
+        <label for="char-benes">Benes:</label><input type="number" id="char-benes" value="0">
+    </div>
+    <div class="xp-group">
+        <label for="char-xp">XP:</label><input type="number" id="char-xp" value="0">
+    </div>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Atributos Essenciais <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <label for="attr-strength">Físico:</label>
+    <div class="dice-selector" data-attr="strength"></div>
+    <label for="attr-agility">Agilidade:</label>
+    <div class="dice-selector" data-attr="agility"></div>
+    <label for="attr-smarts">Astúcia:</label>
+    <div class="dice-selector" data-attr="smarts"></div>
+    <label for="attr-charisma">Carisma:</label>
+    <div class="dice-selector" data-attr="charisma"></div>
+    <label for="attr-spirit">Espírito:</label>
+    <div class="dice-selector" data-attr="spirit"></div>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Defesas & Resistências <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="flex-row"><label>Resistência:</label><input type="number" id="resist-resistencia" readonly
+            style="width: 50px;">
+    </div>
+    <div class="flex-row"><label>Defesa:</label><input type="number" id="resist-defesa" readonly
+            style="width: 50px;"></div>
+    <div class="flex-row"><label>Convicção:</label><input type="number" id="resist-conviccao" readonly
+            style="width: 50px;"></div>
+    <div class="flex-row"><label>Percepção:</label><input type="number" id="resist-percepcao" readonly
+            style="width: 50px;"></div>
+    <div class="flex-row"><label>Destino:</label><input type="number" id="resist-destino" readonly
+            style="width: 50px;"></div>
+    <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" style="width: 50px;"
+            value="0" oninput="updateCalculatedStats()"></div>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Estatísticas Operacionais <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="flex-row">
+        <label for="stat-firewall">Firewall:</label>
+        <input type="number" id="stat-firewall" readonly style="width: 50px;" value="0">
+        <label for="firewall-bonus">Bônus:</label>
+        <input type="number" id="firewall-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Limite Cibernético:</label><input type="number" id="stat-cibernetico" readonly
+            style="width: 50px;">
+        <label for="cibernetico-bonus">Bônus:</label>
+        <input type="number" id="cibernetico-bonus" value="0" style="width: 50px;"
+            oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Velocidade (Metros/Turno):</label><input type="number" id="stat-velocidade" readonly
+            style="width: 50px;">
+        <label for="velocidade-bonus">Bônus:</label>
+        <input type="number" id="velocidade-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Carga (Peso):</label><input type="number" id="stat-carga" readonly style="width: 50px;">
+        <label for="carga-bonus">Bônus:</label>
+        <input type="number" id="carga-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+    </div>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Status de Combate <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="wounds-fatigue">
+        <div>
+            <h3>Corpo</h3>
+            <input type="radio" id="corpo1" name="corpo" value="-1" onclick="handleRadioClick(this)"><label
+                for="corpo1">1</label>
+            <input type="radio" id="corpo2" name="corpo" value="-2" onclick="handleRadioClick(this)"><label
+                for="corpo2">2</label>
+            <input type="radio" id="corpo3" name="corpo" value="-3" onclick="handleRadioClick(this)"><label
+                for="corpo3">3</label>
+        </div>
+        <div>
+            <h3>Mente</h3>
+            <input type="radio" id="mente1" name="mente" value="-1" onclick="handleRadioClick(this)"><label
+                for="mente1">1</label>
+            <input type="radio" id="mente2" name="mente" value="-2" onclick="handleRadioClick(this)"><label
+                for="mente2">2</label>
+            <input type="radio" id="mente3" name="mente" value="-3" onclick="handleRadioClick(this)"><label
+                for="mente3">3</label>
+        </div>
+        <div>
+            <h3>Vigor</h3>
+            <input type="checkbox" id="vigor1" name="vigor_calc" disabled value="-1"><label for="vigor1">1</label>
+            <input type="checkbox" id="vigor2" name="vigor_calc" disabled value="-2"><label for="vigor2">2</label>
+            <input type="checkbox" id="vigor3" name="vigor_calc" disabled value="-3"><label for="vigor3">3</label>
+            <div style="flex-grow: 1;"></div>
+            <label for="vigor-bonus">Penalidade:</label>
+            <input type="number" id="vigor-bonus" value="0" style="width: 50px;"
+                oninput="updateCalculatedStats()">
+        </div>
+    </div>
+</div>
+
+<div class="section resources-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Pool de Recursos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div>
+        <h3>Poder (Psíquico)</h3>
+        <div class="flex-row">
+            <label>Atual:</label><input type="number" id="power-current" value="0">
+        </div>
+        <div class="flex-row">
+            <label>Máximo:</label><input type="number" id="power-max" readonly>
+        </div>
+    </div>
+    <div>
+        <h3>Foco (Marcial)</h3>
+        <div class="flex-row">
+            <label>Atual:</label><input type="number" id="focus-current" value="0">
+        </div>
+        <div class="flex-row">
+            <label>Máximo:</label><input type="number" id="focus-max" readonly>
+        </div>
+    </div>
+    <div>
+        <h3>RAM (Hacker)</h3>
+        <div class="flex-row">
+            <label>Atual:</label><input type="number" id="ram-current" value="0">
+        </div>
+        <div class="flex-row">
+            <label>Máximo:</label><input type="number" id="ram-max" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="section list-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Perícias & Protocolos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div id="skills-list"></div>
+</div>
+
+<div class="section list-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Vantagens & Implantes <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div id="edges-list"></div>
+    <button class="add-button" onclick="addItem('edges')">+ Nova Vantagem</button>
+</div>
+
+<div class="section list-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Complicações & Falhas <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div id="hindrances-list"></div>
+    <button class="add-button" onclick="addItem('hindrances')">+ Nova Complicação</button>
+</div>
+
+<div class="section list-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Itens & Equipamentos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div id="items-list"></div>
+    <button class="add-button" onclick="addItem('items')">+ Novo Item</button>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Recursos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="flex-row">
+        <label for="recursos-maior" style="color: rgb(255, 242, 0)">Estilo de Vida:</label>
+        <input type="text" id="recursos-maior" readonly placeholder="Nenhum">
+    </div>
+    <div class="flex-row">
+        <label>Extravagante:</label>
+        <input type="number" id="recursos-extravagante" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Rico:</label>
+        <input type="number" id="recursos-rico" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Comum:</label>
+        <input type="number" id="recursos-comum" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Modesto:</label>
+        <input type="number" id="recursos-modesto" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Pobre:</label>
+        <input type="number" id="recursos-pobre" value="0" oninput="updateCalculatedStats()">
+    </div>
+</div>
+
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Diário de Bordo & Notas <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <textarea id="notes" placeholder="Detalhes de missões, informações de contatos, registros de danos..."></textarea>
+</div>

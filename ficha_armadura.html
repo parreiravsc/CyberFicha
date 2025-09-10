@@ -1,0 +1,28 @@
+<div class="section armor-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Armadura Cibernética <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="flex-row">
+        <label for="armor-name">Nome da Armadura:</label>
+        <input type="text" id="armor-name" placeholder="Ex: Armadura de Combate Pesada">
+    </div>
+
+    <div class="section list-section">
+        <h3><span style="color: var(--accent-blue);">&gt;</span> Estatísticas <span
+                style="color: var(--accent-blue);">&lt;</span></h3>
+        <div class="flex-row">
+            <label for="armor-value-base">Valor Base:</label>
+            <input type="number" id="armor-value-base" value="0" style="width: 50px;" oninput="updateArmorStats()">
+        </div>
+        <div class="flex-row">
+            <label for="armor-total">Total (Calculado):</label>
+            <input type="number" id="armor-total" value="0" readonly style="width: 50px;">
+        </div>
+    </div>
+
+    <div class="section list-section">
+        <h3><span style="color: var(--accent-blue);">&gt;</span> Módulos <span
+                style="color: var(--accent-blue);">&lt;</span></h3>
+        <div id="armor-mods-list"></div>
+        <button class="add-button" onclick="addArmorMod()">+ Novo Módulo</button>
+    </div>
+</div>
