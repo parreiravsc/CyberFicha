@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha Cyberpunk - Savage Worlds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         /* Variáveis CSS para fácil ajuste de cores */
         :root {
@@ -22,6 +25,7 @@
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto Mono', monospace;
             margin: 0;
@@ -54,9 +58,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                repeating-linear-gradient(0deg, rgba(0,255,255,0.05) 0px, rgba(0,255,255,0.05) 1px, transparent 1px, transparent 10px),
-                repeating-linear-gradient(90deg, rgba(255,0,255,0.05) 0px, rgba(255,0,255,0.05) 1px, transparent 1px, transparent 10px);
+            background-image:
+                repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05) 0px, rgba(0, 255, 255, 0.05) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.05) 0px, rgba(255, 0, 255, 0.05) 1px, transparent 1px, transparent 10px);
             opacity: 0.1;
             pointer-events: none;
             z-index: 0;
@@ -70,7 +74,10 @@
             position: relative;
             z-index: 1;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
             color: var(--accent-green);
@@ -80,9 +87,19 @@
             margin-bottom: 15px;
             text-shadow: 0 0 5px var(--accent-green);
         }
-        h1 { font-size: 2.2em; text-transform: uppercase; }
-        h2 { font-size: 1.6em; }
-        h3 { font-size: 1.2em; }
+
+        h1 {
+            font-size: 2.2em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        h3 {
+            font-size: 1.0em;
+        }
 
         .section {
             background-color: var(--input-bg);
@@ -91,15 +108,19 @@
             border-right: 3px solid var(--accent-purple);
             padding: 15px;
             border-radius: 2px;
-            box-shadow: 0 0 8px rgba(0,255,255,0.2), inset 0 0 5px rgba(255,0,255,0.1);
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.2), inset 0 0 5px rgba(255, 0, 255, 0.1);
             position: relative;
             z-index: 1;
         }
+
         .section::before {
             content: '';
             position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            border: 1px dashed rgba(0,255,255,0.1);
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px dashed rgba(0, 255, 255, 0.1);
             pointer-events: none;
             z-index: -1;
         }
@@ -111,7 +132,10 @@
             color: var(--accent-blue);
             text-transform: uppercase;
         }
-        input[type="text"], input[type="number"], textarea {
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
             width: calc(100% - 10px);
             padding: 8px;
             border: 1px solid var(--accent-blue);
@@ -120,41 +144,57 @@
             border-radius: 2px;
             margin-top: 5px;
             font-family: 'Roboto Mono', monospace;
-            box-shadow: inset 0 0 3px rgba(0,255,255,0.3);
+            box-shadow: inset 0 0 3px rgba(0, 255, 255, 0.3);
             transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 0.9em;
         }
-        input:focus, textarea:focus {
+
+        input:focus,
+        textarea:focus {
             border-color: var(--accent-green);
             box-shadow: inset 0 0 5px var(--accent-green), 0 0 5px var(--accent-green);
             outline: none;
         }
+
         textarea {
             resize: vertical;
             min-height: 80px;
         }
+
         .flex-row {
             display: flex;
             align-items: center;
-            gap: 15px; /* Ajustado para melhor espaçamento entre os blocos */
+            gap: 15px;
+            /* Ajustado para melhor espaçamento entre os blocos */
             margin-top: 10px;
         }
+
         .flex-row label {
             /* flex-grow: 1; Removido para evitar que o "XP" se separe da caixinha */
             margin: 0;
             color: var(--accent-purple);
         }
+
         .flex-row input {
             width: auto;
             flex-grow: 0;
         }
-        
+
         .xp-group {
             display: flex;
             align-items: center;
-            gap: 5px; /* Espaço apertado entre o nome "XP" e a caixinha */
+            gap: 5px;
+            /* Espaço apertado entre o nome "XP" e a caixinha */
         }
+
+        .xp-group label {
+            margin: 0;
+            color: var(--accent-purple);
+        }
+
         .xp-group input {
-             width: 50px; /* Tamanho fixo para a caixa de XP */
+            width: 50px;
+            /* Tamanho fixo para a caixa de XP */
         }
 
         .dice-selector {
@@ -163,9 +203,11 @@
             justify-content: space-around;
             margin-top: 10px;
         }
+
         .dice-selector input[type="radio"] {
             display: none;
         }
+
         .dice-selector label {
             display: flex;
             justify-content: center;
@@ -175,32 +217,36 @@
             border: 2px solid var(--border-light);
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1em;
+            font-size: 0.9em;
             font-weight: bold;
             background-color: var(--input-bg);
             color: var(--text-light);
             transition: all 0.2s;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
         }
+
         /* Ajuste para os botões de dado na seção de Perícias */
         .list-section .dice-selector label {
             width: auto;
             padding: 0 10px;
         }
+
         .dice-selector label:hover {
             background-color: #3f3f5a;
             border-color: var(--accent-blue);
             color: var(--accent-blue);
-            box-shadow: inset 0 0 5px var(--accent-blue), 0 0 5px rgba(0,255,255,0.3);
+            box-shadow: inset 0 0 5px var(--accent-blue), 0 0 5px rgba(0, 255, 255, 0.3);
         }
-        .dice-selector input[type="radio"]:checked + label {
+
+        .dice-selector input[type="radio"]:checked+label {
             background-color: var(--accent-blue);
             color: black;
             border-color: var(--accent-green);
-            box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0,0,0,0.8);
+            box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0, 0, 0, 0.8);
             text-shadow: none;
         }
-        .dice-selector input[type="radio"]:checked + label::before {
+
+        .dice-selector input[type="radio"]:checked+label::before {
             content: '>';
             position: absolute;
             left: 5px;
@@ -218,19 +264,23 @@
             background-color: #26263a;
             border-left: 2px solid var(--accent-purple);
             border-radius: 3px;
-            box-shadow: inset 0 0 3px rgba(255,0,255,0.1);
+            box-shadow: inset 0 0 3px rgba(255, 0, 255, 0.1);
         }
+
         .list-item input {
             flex-grow: 1;
             border: 1px dashed var(--accent-purple);
             background-color: #1a1a2e;
         }
+
         .list-item .bonus {
             width: 60px;
             text-align: center;
             color: var(--accent-green);
         }
-        .add-button, .remove-button {
+
+        .add-button,
+        .remove-button {
             background-color: var(--accent-blue);
             color: black;
             border: none;
@@ -240,22 +290,25 @@
             border-radius: 3px;
             text-transform: uppercase;
             font-weight: bold;
-            box-shadow: 0 0 5px rgba(0,255,255,0.5);
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
             transition: background-color 0.2s, box-shadow 0.2s;
         }
+
         .add-button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 8px var(--accent-green);
         }
+
         .remove-button {
             background-color: #b30000;
-            box-shadow: 0 0 5px rgba(255,0,0,0.5);
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
         }
+
         .remove-button:hover {
             background-color: #ff0000;
-            box-shadow: 0 0 8px rgba(255,0,0,0.8);
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
         }
-        
+
         .controls {
             display: flex;
             flex-direction: column;
@@ -267,7 +320,9 @@
             position: relative;
             z-index: 1;
         }
-        .controls button, .controls input[type="file"] {
+
+        .controls button,
+        .controls input[type="file"] {
             background-color: var(--accent-blue);
             color: black;
             border: none;
@@ -281,18 +336,22 @@
             box-shadow: 0 0 10px var(--accent-blue);
             transition: background-color 0.3s, box-shadow 0.3s;
         }
+
         .controls button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 15px var(--accent-green);
         }
+
         .controls input[type="file"] {
             background-color: var(--accent-purple);
             box-shadow: 0 0 10px var(--accent-purple);
         }
+
         .controls input[type="file"]:hover {
             background-color: #e000e0;
             box-shadow: 0 0 15px #e000e0;
         }
+
         .controls label {
             text-align: center;
             color: var(--text-light);
@@ -306,6 +365,7 @@
             padding-top: 10px;
             border-top: 1px dashed var(--border-light);
         }
+
         .wounds-fatigue h3 {
             border-bottom: none;
             margin-top: 5px;
@@ -314,10 +374,12 @@
             font-size: 1.1em;
             text-shadow: 0 0 3px var(--accent-purple);
         }
+
         .wounds-fatigue input[type="checkbox"] {
             display: none;
         }
-        .wounds-fatigue input[type="checkbox"] + label {
+
+        .wounds-fatigue input[type="checkbox"]+label {
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -333,7 +395,8 @@
             font-weight: bold;
             font-size: 1.1em;
         }
-        .wounds-fatigue input[type="checkbox"]:checked + label {
+
+        .wounds-fatigue input[type="checkbox"]:checked+label {
             background-color: var(--accent-green);
             border-color: var(--accent-green);
             box-shadow: 0 0 8px var(--accent-green);
@@ -342,417 +405,485 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="sheet-container">
-    <div class="header">
-        <h1>Ficha de Personagem</h1>
-        <h3>Savage Worlds</h3>
-    </div>
+    <div class="sheet-container">
+        <div class="header">
+            <h1>Ficha de Personagem</h1>
+            <h3>Savage Worlds</h3>
+        </div>
 
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Informações de Registro <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <label for="char-name">Nome:</label><input type="text" id="char-name" placeholder="Johnny Silverhand">
-        <label for="char-race">Raça/Origem:</label><input type="text" id="char-race" placeholder="Humano, Synth, Glitch...">
-        <div class="flex-row">
-            <label for="char-rank">Nível/Patente:</label><input type="text" id="char-rank" placeholder="Novato, Veterano, Elite">
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Informações de Registro <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <label for="char-name">Nome:</label><input type="text" id="char-name" placeholder="Johnny Silverhand">
+            <label for="char-race">Raça/Origem:</label><input type="text" id="char-race"
+                placeholder="Humano, Synth, Glitch...">
+            <div class="flex-row">
+                <label for="char-rank">Nível/Patente:</label><input type="text" id="char-rank"
+                    placeholder="Novato, Veterano, Elite">
+            </div>
             <div class="xp-group">
                 <label for="char-xp">XP:</label><input type="number" id="char-xp" value="0">
             </div>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Atributos Essenciais <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <label for="attr-agility">Agilidade:</label>
-        <div class="dice-selector" data-attr="agility"></div>
-        <label for="attr-smarts">Astúcia:</label>
-        <div class="dice-selector" data-attr="smarts"></div>
-        <label for="attr-spirit">Espírito:</label>
-        <div class="dice-selector" data-attr="spirit"></div>
-        <label for="attr-strength">Físico:</label>
-        <div class="dice-selector" data-attr="strength"></div>
-        <label for="attr-charisma">Carisma:</label>
-        <div class="dice-selector" data-attr="charisma"></div>
-    </div>
-    
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Defesas & Resistências <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div class="flex-row"><label>Resistência:</label><input type="number" id="resist-resistencia" readonly></div>
-        <div class="flex-row"><label>Defesa:</label><input type="number" id="resist-defesa" readonly></div>
-        <div class="flex-row"><label>Convicção:</label><input type="number" id="resist-conviccao" readonly></div>
-        <div class="flex-row"><label>Percepção:</label><input type="number" id="resist-percepcao" readonly></div>
-        <div class="flex-row"><label>Destino:</label><input type="number" id="resist-destino" readonly></div>
-        <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" value="0" oninput="updateCalculatedStats()"></div>
-    </div>
-    
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Estatísticas Operacionais <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div class="flex-row"><label>Firewall:</label><input type="number" id="stat-firewall" value="4"></div>
-        <div class="flex-row"><label>Limite Cibernético:</label><input type="number" id="stat-cibernetico" readonly></div>
-        <div class="flex-row"><label>Velocidade (Metros/Turno):</label><input type="number" id="stat-velocidade" readonly></div>
-    </div>
-    
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Status de Combate <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div class="wounds-fatigue">
+        </div>
+
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Atributos Essenciais <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <label for="attr-agility">Agilidade:</label>
+            <div class="dice-selector" data-attr="agility"></div>
+            <label for="attr-smarts">Astúcia:</label>
+            <div class="dice-selector" data-attr="smarts"></div>
+            <label for="attr-spirit">Espírito:</label>
+            <div class="dice-selector" data-attr="spirit"></div>
+            <label for="attr-strength">Físico:</label>
+            <div class="dice-selector" data-attr="strength"></div>
+            <label for="attr-charisma">Carisma:</label>
+            <div class="dice-selector" data-attr="charisma"></div>
+        </div>
+
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Defesas & Resistências <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div class="flex-row"><label>Resistência:</label><input type="number" id="resist-resistencia" readonly>
+            </div>
+            <div class="flex-row"><label>Defesa:</label><input type="number" id="resist-defesa" readonly></div>
+            <div class="flex-row"><label>Convicção:</label><input type="number" id="resist-conviccao" readonly></div>
+            <div class="flex-row"><label>Percepção:</label><input type="number" id="resist-percepcao" readonly></div>
+            <div class="flex-row"><label>Destino:</label><input type="number" id="resist-destino" readonly></div>
+            <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" value="0"
+                    oninput="updateCalculatedStats()"></div>
+        </div>
+
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Estatísticas Operacionais <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div class="flex-row"><label>Firewall:</label><input type="number" id="stat-firewall" value="4"></div>
+            <div class="flex-row"><label>Limite Cibernético:</label><input type="number" id="stat-cibernetico" readonly>
+            </div>
+            <div class="flex-row"><label>Velocidade (Metros/Turno):</label><input type="number" id="stat-velocidade"
+                    readonly></div>
+        </div>
+
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Status de Combate <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div class="wounds-fatigue">
+                <div>
+                    <h3>Ferimentos (-1 cada)</h3>
+                    <input type="checkbox" id="wound1"><label for="wound1">1</label>
+                    <input type="checkbox" id="wound2"><label for="wound2">2</label>
+                    <input type="checkbox" id="wound3"><label for="wound3">3</label>
+                </div>
+                <div>
+                    <h3>Fadiga (-1 cada)</h3>
+                    <input type="checkbox" id="fatigue1"><label for="fatigue1">1</label>
+                    <input type="checkbox" id="fatigue2"><label for="fatigue2">2</label>
+                    <input type="checkbox" id="fatigue3"><label for="fatigue3">3</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section resources-section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Pool de Recursos <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
             <div>
-                <h3>Ferimentos (-1 cada)</h3>
-                <input type="checkbox" id="wound1"><label for="wound1">1</label>
-                <input type="checkbox" id="wound2"><label for="wound2">2</label>
-                <input type="checkbox" id="wound3"><label for="wound3">3</label>
+                <h3>Poder (Psíquico)</h3>
+                <div class="flex-row">
+                    <label>Atual:</label><input type="number" id="power-current" value="0">
+                </div>
+                <div class="flex-row">
+                    <label>Máximo:</label><input type="number" id="power-max" readonly>
+                </div>
             </div>
             <div>
-                <h3>Fadiga (-1 cada)</h3>
-                <input type="checkbox" id="fatigue1"><label for="fatigue1">1</label>
-                <input type="checkbox" id="fatigue2"><label for="fatigue2">2</label>
-                <input type="checkbox" id="fatigue3"><label for="fatigue3">3</label>
+                <h3>Foco (Marcial)</h3>
+                <div class="flex-row">
+                    <label>Atual:</label><input type="number" id="focus-current" value="0">
+                </div>
+                <div class="flex-row">
+                    <label>Máximo:</label><input type="number" id="focus-max" readonly>
+                </div>
             </div>
+            <div>
+                <h3>RAM (Hacker)</h3>
+                <div class="flex-row">
+                    <label>Atual:</label><input type="number" id="ram-current" value="0">
+                </div>
+                <div class="flex-row">
+                    <label>Máximo:</label><input type="number" id="ram-max" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="section list-section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Perícias & Protocolos <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div id="skills-list"></div>
+        </div>
+
+        <div class="section list-section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Vantagens & Implantes <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div id="edges-list"></div>
+            <button class="add-button" onclick="addItem('edges')">+ Nova Vantagem</button>
+        </div>
+
+        <div class="section list-section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Complicações & Falhas <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div id="hindrances-list"></div>
+            <button class="add-button" onclick="addItem('hindrances')">+ Nova Complicação</button>
+        </div>
+
+        <div class="section list-section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Itens & Equipamentos <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div id="items-list"></div>
+            <button class="add-button" onclick="addItem('items')">+ Novo Item</button>
+        </div>
+
+        <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Diário de Bordo & Notas <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <textarea id="notes"
+                placeholder="Detalhes de missões, informações de contatos, registros de danos..."></textarea>
+        </div>
+
+        <div class="controls">
+            <button onclick="saveSheet()">Salvar Ficha .JSON</button>
+            <label>Carregar Dados de Arquivo:</label>
+            <input type="file" id="load-file" accept=".json">
+            <button onclick="loadSheet()">Carregar Ficha</button>
         </div>
     </div>
 
-    <div class="section resources-section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Pool de Recursos <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div>
-            <h3>Poder (Psíquico)</h3>
-            <div class="flex-row">
-                <label>Atual:</label><input type="number" id="power-current" value="0">
-                <label>Máximo:</label><input type="number" id="power-max" readonly>
-            </div>
-        </div>
-        <div>
-            <h3>Foco (Marcial)</h3>
-            <div class="flex-row">
-                <label>Atual:</label><input type="number" id="focus-current" value="0">
-                <label>Máximo:</label><input type="number" id="focus-max" readonly>
-            </div>
-        </div>
-        <div>
-            <h3>RAM (Hacker)</h3>
-            <div class="flex-row">
-                <label>Atual:</label><input type="number" id="ram-current" value="0">
-                <label>Máximo:</label><input type="number" id="ram-max" readonly>
-            </div>
-        </div>
-    </div>
-    
-    <div class="section list-section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Perícias & Protocolos <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div id="skills-list"></div>
-        <button class="add-button" onclick="addSkillItem()">+ Nova Perícia</button>
-    </div>
+    <script>
+        // Tipos de dados para ATRIBUTOS
+        const dieTypes = ['d4', 'd6', 'd8', 'd10', 'd12'];
+        // Tipos de dados para PERÍCIAS (inclui 1d4-2)
+        const skillDieTypes = ['1d4-2', 'd4', 'd6', 'd8', 'd10', 'd12'];
+        const attributes = ['agility', 'smarts', 'spirit', 'strength', 'charisma'];
+        // Valores numéricos dos dados, incluindo o 1d4-2 (valor 0)
+        const dieValues = { '1d4-2': 0, 'd4': 2, 'd6': 3, 'd8': 4, 'd10': 5, 'd12': 6 };
 
-    <div class="section list-section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Vantagens & Implantes <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div id="edges-list"></div>
-        <button class="add-button" onclick="addItem('edges')">+ Nova Vantagem</button>
-    </div>
-    
-    <div class="section list-section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Complicações & Falhas <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <div id="hindrances-list"></div>
-        <button class="add-button" onclick="addItem('hindrances')">+ Nova Complicação</button>
-    </div>
-    
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Inventário & Equipamento <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <textarea id="gear" placeholder="Arma: Pistola Smart, Munição x20, Ferramentas de Hacker, Datapad..."></textarea>
-    </div>
+        const baseSkills = [
+            { name: 'Atletismo', attr: 'Agilidade' }, { name: 'Briga', attr: 'Físico' },
+            { name: 'Armas Pesadas', attr: 'Físico' }, { name: 'Direção', attr: 'Agilidade' },
+            { name: 'Atirar', attr: 'Agilidade' }, { name: 'Furtividade', attr: 'Agilidade' },
+            { name: 'Ladroagem', attr: 'Agilidade' }, { name: 'Persuasão', attr: 'Carisma' },
+            { name: 'Intimidação', attr: 'Carisma' }, { name: 'Enganação', attr: 'Carisma' },
+            { name: 'Empatia', attr: 'Carisma' }, { name: 'Performance', attr: 'Carisma' },
+            { name: 'Cibernética', attr: 'Astúcia' }, { name: 'Robótica', attr: 'Astúcia' },
+            { name: 'Ciência', attr: 'Astúcia' }, { name: 'Medicina', attr: 'Astúcia' },
+            { name: 'Investigar', attr: 'Astúcia' }, { name: 'Improvisar', attr: 'Espírito' },
+            { name: 'Liderança', attr: 'Espírito' }, { name: 'Psiquismo', attr: 'Espírito' }
+        ];
 
-    <div class="section">
-        <h2><span style="color: var(--accent-blue);">&gt;</span> Diário de Bordo & Notas <span style="color: var(--accent-blue);">&lt;</span></h2>
-        <textarea id="notes" placeholder="Detalhes de missões, informações de contatos, registros de danos..."></textarea>
-    </div>
-
-    <div class="controls">
-        <button onclick="saveSheet()">Salvar Ficha .JSON</button>
-        <label>Carregar Dados de Arquivo:</label>
-        <input type="file" id="load-file" accept=".json">
-        <button onclick="loadSheet()">Carregar Ficha</button>
-    </div>
-</div>
-
-<script>
-    // Tipos de dados para ATRIBUTOS
-    const dieTypes = ['d4', 'd6', 'd8', 'd10', 'd12'];
-    // Tipos de dados para PERÍCIAS (inclui 1d4-2)
-    const skillDieTypes = ['1d4-2', 'd4', 'd6', 'd8', 'd10', 'd12'];
-    const attributes = ['agility', 'smarts', 'spirit', 'strength', 'charisma'];
-    // Valores numéricos dos dados, incluindo o 1d4-2 (valor 0)
-    const dieValues = { '1d4-2': 0, 'd4': 2, 'd6': 3, 'd8': 4, 'd10': 5, 'd12': 6 };
-
-    const baseSkills = [
-        { name: 'Atletismo', attr: 'Agilidade' }, { name: 'Briga', attr: 'Físico' },
-        { name: 'Armas Pesadas', attr: 'Físico' }, { name: 'Direção', attr: 'Agilidade' },
-        { name: 'Atirar', attr: 'Agilidade' }, { name: 'Furtividade', attr: 'Agilidade' },
-        { name: 'Ladroagem', attr: 'Agilidade' }, { name: 'Persuasão', attr: 'Carisma' },
-        { name: 'Intimidação', attr: 'Carisma' }, { name: 'Enganação', attr: 'Carisma' },
-        { name: 'Empatia', attr: 'Carisma' }, { name: 'Performance', attr: 'Carisma' },
-        { name: 'Cibernética', attr: 'Astúcia' }, { name: 'Robótica', attr: 'Astúcia' },
-        { name: 'Ciência', attr: 'Astúcia' }, { name: 'Medicina', attr: 'Astúcia' },
-        { name: 'Investigar', attr: 'Astúcia' }, { name: 'Improvisar', attr: 'Espírito' },
-        { name: 'Liderança', attr: 'Espírito' }, { name: 'Psiquismo', attr: 'Espírito' }
-    ];
-
-    function getDieValue(dieString) {
-        return dieValues[dieString] || 0;
-    }
-
-    function updateCalculatedStats() {
-        const agilityDie = document.querySelector('input[name="attr-agility"]:checked')?.value || 'd4';
-        const smartsDie = document.querySelector('input[name="attr-smarts"]:checked')?.value || 'd4';
-        const spiritDie = document.querySelector('input[name="attr-spirit"]:checked')?.value || 'd4';
-        const charismaDie = document.querySelector('input[name="attr-charisma"]:checked')?.value || 'd4';
-        const fisDie = document.querySelector('input[name="attr-strength"]:checked')?.value || 'd4';
-        const armorBonus = parseInt(document.getElementById('armor-bonus').value) || 0;
-        
-        document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
-        document.getElementById('resist-defesa').value = 2 + getDieValue(agilityDie);
-        document.getElementById('resist-conviccao').value = 2 + getDieValue(charismaDie);
-        document.getElementById('resist-percepcao').value = 2 + getDieValue(smartsDie);
-        document.getElementById('resist-destino').value = 2 + getDieValue(spiritDie);
-        
-        const atletismoSkill = Array.from(document.querySelectorAll('#skills-list .list-item'))
-            .find(item => item.querySelector('[data-skill-name]').value === 'Atletismo');
-        const atletismoDie = atletismoSkill?.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
-
-        document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie);
-        document.getElementById('stat-velocidade').value = getDieValue(fisDie) + getDieValue(atletismoDie);
-
-        document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
-        document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
-        document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
-    }
-    
-    function addAttributeSelectors() {
-        attributes.forEach(attr => {
-            const container = document.querySelector(`.dice-selector[data-attr="${attr}"]`);
-            let html = '';
-            dieTypes.forEach(die => {
-                const id = `attr-${attr}-${die}`;
-                html += `<input type="radio" id="${id}" name="attr-${attr}" value="${die}" onchange="updateCalculatedStats()">`;
-                html += `<label for="${id}">${die}</label>`;
-            });
-            container.innerHTML = html;
-        });
-    }
-
-    function addSkillItem(skillName = '', skillDie = '1d4-2', skillBonus = '0', skillAttr = '') {
-        const list = document.getElementById('skills-list');
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'list-item';
-        
-        const nameInput = document.createElement('input');
-        nameInput.type = 'text';
-        nameInput.placeholder = `Nome da Perícia (${skillAttr})`;
-        nameInput.value = skillName;
-        nameInput.dataset.skillName = skillName;
-
-        const diceSelectorContainer = document.createElement('div');
-        diceSelectorContainer.className = 'dice-selector';
-        const skillId = `skill-${list.children.length}`;
-        skillDieTypes.forEach(die => {
-            const id = `${skillId}-${die}`;
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.id = id;
-            input.name = skillId;
-            input.value = die;
-            input.onchange = updateCalculatedStats;
-            const label = document.createElement('label');
-            label.htmlFor = id;
-            label.textContent = die;
-            if (skillDie === die) input.checked = true;
-            diceSelectorContainer.appendChild(input);
-            diceSelectorContainer.appendChild(label);
-        });
-
-        const bonusInput = document.createElement('input');
-        bonusInput.type = 'number';
-        bonusInput.className = 'bonus';
-        bonusInput.placeholder = 'Bônus';
-        bonusInput.value = skillBonus;
-
-        const removeButton = document.createElement('button');
-        removeButton.className = 'remove-button';
-        removeButton.textContent = 'X';
-        removeButton.onclick = () => {
-            list.removeChild(itemDiv);
-            updateCalculatedStats();
-        };
-        
-        itemDiv.appendChild(nameInput);
-        itemDiv.appendChild(diceSelectorContainer);
-        itemDiv.appendChild(bonusInput);
-        itemDiv.appendChild(removeButton);
-        list.appendChild(itemDiv);
-    }
-    
-    function addItem(type, name = '', desc = '') {
-        const list = document.getElementById(type + '-list');
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'list-item';
-
-        const nameInput = document.createElement('input');
-        nameInput.type = 'text';
-        nameInput.placeholder = `Nome da ${type === 'edges' ? 'Vantagem' : 'Complicação'}`;
-        nameInput.value = name;
-
-        const descInput = document.createElement('input');
-        descInput.type = 'text';
-        descInput.placeholder = 'Descrição (opcional)';
-        descInput.value = desc;
-        
-        itemDiv.appendChild(nameInput);
-        itemDiv.appendChild(descInput);
-
-        const removeButton = document.createElement('button');
-        removeButton.className = 'remove-button';
-        removeButton.textContent = 'X';
-        removeButton.onclick = () => list.removeChild(itemDiv);
-        
-        itemDiv.appendChild(removeButton);
-        list.appendChild(itemDiv);
-    }
-
-    const checkboxStatus = ['wound1', 'wound2', 'wound3', 'fatigue1', 'fatigue2', 'fatigue3'];
-
-    function saveSheet() {
-        const sheetData = {
-            info: {
-                name: document.getElementById('char-name').value,
-                race: document.getElementById('char-race').value,
-                rank: document.getElementById('char-rank').value,
-                xp: document.getElementById('char-xp').value,
-            },
-            attributes: {},
-            derived: {
-                firewall: document.getElementById('stat-firewall').value
-            },
-            conditions: {},
-            resources: {
-                power: { current: document.getElementById('power-current').value },
-                focus: { current: document.getElementById('focus-current').value },
-                ram: { current: document.getElementById('ram-current').value },
-            },
-            lists: {
-                skills: [],
-                hindrances: [],
-                edges: [],
-            },
-            gear: document.getElementById('gear').value,
-            notes: document.getElementById('notes').value,
-        };
-
-        attributes.forEach(attr => {
-            const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
-            sheetData.attributes[attr] = selectedDie ? selectedDie.value : 'd4';
-        });
-
-        checkboxStatus.forEach(status => {
-            sheetData.conditions[status] = document.getElementById(status).checked;
-        });
-        
-        document.querySelectorAll('#skills-list .list-item').forEach(item => {
-            const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
-            sheetData.lists.skills.push({
-                name: item.querySelector('input[data-skill-name]').value,
-                die: dieValue,
-                bonus: item.querySelector('.bonus').value
-            });
-        });
-        
-        ['hindrances', 'edges'].forEach(type => {
-            document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
-                sheetData.lists[type].push({ 
-                    name: item.querySelector('input:nth-child(1)').value,
-                    desc: item.querySelector('input:nth-child(2)').value
-                });
-            });
-        });
-
-        const dataStr = JSON.stringify(sheetData, null, 2);
-        const blob = new Blob([dataStr], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `ficha_${sheetData.info.name || 'personagem'}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        alert('Ficha salva com sucesso! O arquivo foi baixado.');
-    }
-
-    function loadSheet() {
-        const fileInput = document.getElementById('load-file');
-        const file = fileInput.files[0];
-        if (!file) {
-            alert('Por favor, selecione um arquivo JSON para carregar.');
-            return;
+        function getDieValue(dieString) {
+            return dieValues[dieString] || 0;
         }
 
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            try {
-                const sheetData = JSON.parse(event.target.result);
-                
-                document.getElementById('char-name').value = sheetData.info.name || '';
-                document.getElementById('char-race').value = sheetData.info.race || '';
-                document.getElementById('char-rank').value = sheetData.info.rank || '';
-                document.getElementById('char-xp').value = sheetData.info.xp || '';
-                
-                attributes.forEach(attr => {
-                    const dieValue = sheetData.attributes[attr] || 'd4';
-                    const radio = document.querySelector(`input[name="attr-${attr}"][value="${dieValue}"]`);
-                    if (radio) radio.checked = true;
-                });
-                
-                document.getElementById('stat-firewall').value = sheetData.derived.firewall || '4';
+        function updateCalculatedStats() {
+            const agilityDie = document.querySelector('input[name="attr-agility"]:checked')?.value || 'd4';
+            const smartsDie = document.querySelector('input[name="attr-smarts"]:checked')?.value || 'd4';
+            const spiritDie = document.querySelector('input[name="attr-spirit"]:checked')?.value || 'd4';
+            const charismaDie = document.querySelector('input[name="attr-charisma"]:checked')?.value || 'd4';
+            const fisDie = document.querySelector('input[name="attr-strength"]:checked')?.value || 'd4';
+            const armorBonus = parseInt(document.getElementById('armor-bonus').value) || 0;
 
-                checkboxStatus.forEach(status => {
-                    document.getElementById(status).checked = sheetData.conditions[status] || false;
-                });
-                document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
-                document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
-                document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
+            document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
+            document.getElementById('resist-defesa').value = 2 + getDieValue(agilityDie);
+            document.getElementById('resist-conviccao').value = 2 + getDieValue(charismaDie);
+            document.getElementById('resist-percepcao').value = 2 + getDieValue(smartsDie);
+            document.getElementById('resist-destino').value = 2 + getDieValue(spiritDie);
 
-                document.getElementById('gear').value = sheetData.gear || '';
-                document.getElementById('notes').value = sheetData.notes || '';
-                
-                document.getElementById('skills-list').innerHTML = '';
-                if (sheetData.lists.skills) {
-                    sheetData.lists.skills.forEach(item => {
-                        addSkillItem(item.name, item.die, item.bonus, '');
-                    });
-                }
-                
-                ['hindrances', 'edges'].forEach(type => {
-                    const list = document.getElementById(type + '-list');
-                    list.innerHTML = '';
-                    if (sheetData.lists[type]) {
-                        sheetData.lists[type].forEach(item => {
-                            addItem(type, item.name, item.desc);
-                        });
-                    }
+            const atletismoSkill = Array.from(document.querySelectorAll('#skills-list .list-item'))
+                .find(item => item.querySelector('[data-skill-name]').value === 'Atletismo');
+            const atletismoDie = atletismoSkill?.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
+
+            document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie);
+            document.getElementById('stat-velocidade').value = getDieValue(fisDie) + getDieValue(atletismoDie);
+
+            document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
+            document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
+            document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
+        }
+
+        function addAttributeSelectors() {
+            attributes.forEach(attr => {
+                const container = document.querySelector(`.dice-selector[data-attr="${attr}"]`);
+                let html = '';
+                dieTypes.forEach(die => {
+                    const id = `attr-${attr}-${die}`;
+                    html += `<input type="radio" id="${id}" name="attr-${attr}" value="${die}" onchange="updateCalculatedStats()">`;
+                    html += `<label for="${id}">${die}</label>`;
+                });
+                container.innerHTML = html;
+            });
+        }
+
+        // Nova função para criar e adicionar as perícias iniciais
+        function createInitialSkills() {
+            const list = document.getElementById('skills-list');
+            baseSkills.forEach(skill => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'list-item';
+
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.placeholder = `Nome da Perícia (${skill.attr})`;
+                nameInput.value = skill.name;
+                nameInput.dataset.skillName = skill.name;
+
+                const diceSelectorContainer = document.createElement('div');
+                diceSelectorContainer.className = 'dice-selector';
+                const skillId = `skill-${skill.name}`;
+                skillDieTypes.forEach(die => {
+                    const id = `${skillId}-${die}`;
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = id;
+                    input.name = skillId;
+                    input.value = die;
+                    input.onchange = updateCalculatedStats;
+                    const label = document.createElement('label');
+                    label.htmlFor = id;
+                    label.textContent = die;
+                    if (die === '1d4-2') input.checked = true; // Define o d4-2 como padrão
+                    diceSelectorContainer.appendChild(input);
+                    diceSelectorContainer.appendChild(label);
                 });
 
-                updateCalculatedStats();
-                alert('Ficha carregada com sucesso!');
-            } catch (e) {
-                alert('Erro ao carregar a ficha. Por favor, verifique se o arquivo JSON é válido.');
-                console.error(e);
+                const bonusInput = document.createElement('input');
+                bonusInput.type = 'number';
+                bonusInput.className = 'bonus';
+                bonusInput.placeholder = 'Bônus';
+                bonusInput.value = '0';
+
+                itemDiv.appendChild(nameInput);
+                itemDiv.appendChild(diceSelectorContainer);
+                itemDiv.appendChild(bonusInput);
+                list.appendChild(itemDiv);
+            });
+        }
+
+        function addItem(type, name = '', desc = '') {
+            const list = document.getElementById(type + '-list');
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            if (type === 'items') {
+                nameInput.placeholder = 'Nome do Item';
+            } else if (type === 'edges') {
+                nameInput.placeholder = 'Nome da Vantagem';
+            } else if (type === 'hindrances') {
+                nameInput.placeholder = 'Nome da Complicação';
             }
-        };
-        reader.readAsText(file);
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        addAttributeSelectors();
-        baseSkills.forEach(skill => addSkillItem(skill.name, '1d4-2', '0', skill.attr));
-        updateCalculatedStats();
-    });
-</script>
+            nameInput.value = name;
 
+            const descInput = document.createElement('input');
+            descInput.type = 'text';
+            descInput.placeholder = 'Descrição (opcional)';
+            descInput.value = desc;
+
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(descInput);
+
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => list.removeChild(itemDiv);
+
+            itemDiv.appendChild(removeButton);
+            list.appendChild(itemDiv);
+        }
+
+        const checkboxStatus = ['wound1', 'wound2', 'wound3', 'fatigue1', 'fatigue2', 'fatigue3'];
+
+        function saveSheet() {
+            const sheetData = {
+                info: {
+                    name: document.getElementById('char-name').value,
+                    race: document.getElementById('char-race').value,
+                    rank: document.getElementById('char-rank').value,
+                    xp: document.getElementById('char-xp').value,
+                },
+                attributes: {},
+                derived: {
+                    firewall: document.getElementById('stat-firewall').value
+                },
+                conditions: {},
+                resources: {
+                    power: { current: document.getElementById('power-current').value },
+                    focus: { current: document.getElementById('focus-current').value },
+                    ram: { current: document.getElementById('ram-current').value },
+                },
+                lists: {
+                    skills: [],
+                    hindrances: [],
+                    edges: [],
+                    items: [], // Nova lista de itens
+                },
+                notes: document.getElementById('notes').value,
+            };
+
+            attributes.forEach(attr => {
+                const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
+                sheetData.attributes[attr] = selectedDie ? selectedDie.value : 'd4';
+            });
+
+            checkboxStatus.forEach(status => {
+                sheetData.conditions[status] = document.getElementById(status).checked;
+            });
+
+            // Loop para salvar as perícias estáticas
+            document.querySelectorAll('#skills-list .list-item').forEach(item => {
+                const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
+                sheetData.lists.skills.push({
+                    name: item.querySelector('input[data-skill-name]').value,
+                    die: dieValue,
+                    bonus: item.querySelector('.bonus').value
+                });
+            });
+
+            ['hindrances', 'edges', 'items'].forEach(type => {
+                document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
+                    sheetData.lists[type].push({
+                        name: item.querySelector('input:nth-child(1)').value,
+                        desc: item.querySelector('input:nth-child(2)').value
+                    });
+                });
+            });
+
+            const dataStr = JSON.stringify(sheetData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ficha_${sheetData.info.name || 'personagem'}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            alert('Ficha salva com sucesso! O arquivo foi baixado.');
+        }
+
+        function loadSheet() {
+            const fileInput = document.getElementById('load-file');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Por favor, selecione um arquivo JSON para carregar.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                try {
+                    const sheetData = JSON.parse(event.target.result);
+
+                    document.getElementById('char-name').value = sheetData.info.name || '';
+                    document.getElementById('char-race').value = sheetData.info.race || '';
+                    document.getElementById('char-rank').value = sheetData.info.rank || '';
+                    document.getElementById('char-xp').value = sheetData.info.xp || '';
+
+                    attributes.forEach(attr => {
+                        const dieValue = sheetData.attributes[attr] || 'd4';
+                        const radio = document.querySelector(`input[name="attr-${attr}"][value="${dieValue}"]`);
+                        if (radio) radio.checked = true;
+                    });
+
+                    document.getElementById('stat-firewall').value = sheetData.derived.firewall || '4';
+
+                    checkboxStatus.forEach(status => {
+                        document.getElementById(status).checked = sheetData.conditions[status] || false;
+                    });
+                    document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
+                    document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
+                    document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
+
+                    document.getElementById('notes').value = sheetData.notes || '';
+
+                    // Carrega as perícias
+                    const skillsList = document.getElementById('skills-list');
+                    skillsList.innerHTML = '';
+                    sheetData.lists.skills.forEach(skill => {
+                        // Recriar o elemento de perícia
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'list-item';
+
+                        const nameInput = document.createElement('input');
+                        nameInput.type = 'text';
+                        nameInput.value = skill.name;
+                        nameInput.dataset.skillName = skill.name;
+
+                        const diceSelectorContainer = document.createElement('div');
+                        diceSelectorContainer.className = 'dice-selector';
+                        const skillId = `skill-${skill.name}`;
+                        skillDieTypes.forEach(die => {
+                            const id = `${skillId}-${die}`;
+                            const input = document.createElement('input');
+                            input.type = 'radio';
+                            input.id = id;
+                            input.name = skillId;
+                            input.value = die;
+                            input.onchange = updateCalculatedStats;
+                            const label = document.createElement('label');
+                            label.htmlFor = id;
+                            label.textContent = die;
+                            if (skill.die === die) input.checked = true;
+                            diceSelectorContainer.appendChild(input);
+                            diceSelectorContainer.appendChild(label);
+                        });
+
+                        const bonusInput = document.createElement('input');
+                        bonusInput.type = 'number';
+                        bonusInput.className = 'bonus';
+                        bonusInput.value = skill.bonus;
+
+                        itemDiv.appendChild(nameInput);
+                        itemDiv.appendChild(diceSelectorContainer);
+                        itemDiv.appendChild(bonusInput);
+                        skillsList.appendChild(itemDiv);
+                    });
+
+                    // Limpa e carrega vantagens, complicações e itens
+                    document.getElementById('edges-list').innerHTML = '';
+                    sheetData.lists.edges.forEach(item => addItem('edges', item.name, item.desc));
+                    document.getElementById('hindrances-list').innerHTML = '';
+                    sheetData.lists.hindrances.forEach(item => addItem('hindrances', item.name, item.desc));
+                    document.getElementById('items-list').innerHTML = '';
+                    sheetData.lists.items.forEach(item => addItem('items', item.name, item.desc));
+
+                    updateCalculatedStats();
+                    alert('Ficha carregada com sucesso!');
+
+                } catch (error) {
+                    alert('Erro ao processar o arquivo. Certifique-se de que é um arquivo JSON válido.');
+                    console.error('Erro ao carregar a ficha:', error);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        window.onload = function () {
+            addAttributeSelectors();
+            createInitialSkills(); // Carrega as perícias pré-definidas
+            updateCalculatedStats();
+
+            // Salva a ficha automaticamente quando qualquer campo é alterado
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('change', updateCalculatedStats);
+                input.addEventListener('input', updateCalculatedStats);
+            });
+        };
+    </script>
 </body>
+
 </html>
