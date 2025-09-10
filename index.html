@@ -425,6 +425,9 @@
                     placeholder="Novato, Veterano, Elite" style="width: 100px;">
             </div>
             <div class="xp-group">
+                <label for="char-benes">Benes:</label><input type="number" id="char-benes" value="0">
+            </div>
+            <div class="xp-group">
                 <label for="char-xp">XP:</label><input type="number" id="char-xp" value="0">
             </div>
 
@@ -712,7 +715,9 @@
                     name: document.getElementById('char-name').value,
                     race: document.getElementById('char-race').value,
                     rank: document.getElementById('char-rank').value,
+                    bene: document.getElementById('char-benes').value,
                     xp: document.getElementById('char-xp').value,
+
                 },
                 attributes: {},
                 derived: {
@@ -790,6 +795,7 @@
                     document.getElementById('char-name').value = sheetData.info.name || '';
                     document.getElementById('char-race').value = sheetData.info.race || '';
                     document.getElementById('char-rank').value = sheetData.info.rank || '';
+                    document.getElementById('char-benes').value = sheetData.info.bene || '0';
                     document.getElementById('char-xp').value = sheetData.info.xp || '';
 
                     attributes.forEach(attr => {
