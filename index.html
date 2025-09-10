@@ -342,11 +342,6 @@
             box-shadow: 0 0 15px var(--accent-green);
         }
 
-        .controls input[type="file"] {
-            background-color: var(--accent-purple);
-            box-shadow: 0 0 10px var(--accent-purple);
-        }
-
         .controls input[type="file"]:hover {
             background-color: #e000e0;
             box-shadow: 0 0 15px #e000e0;
@@ -436,39 +431,64 @@
         <div class="section">
             <h2><span style="color: var(--accent-blue);">&gt;</span> Atributos Essenciais <span
                     style="color: var(--accent-blue);">&lt;</span></h2>
+
+
+            <label for="attr-strength">Físico:</label>
+            <div class="dice-selector" data-attr="strength"></div>
             <label for="attr-agility">Agilidade:</label>
             <div class="dice-selector" data-attr="agility"></div>
             <label for="attr-smarts">Astúcia:</label>
             <div class="dice-selector" data-attr="smarts"></div>
-            <label for="attr-spirit">Espírito:</label>
-            <div class="dice-selector" data-attr="spirit"></div>
-            <label for="attr-strength">Físico:</label>
-            <div class="dice-selector" data-attr="strength"></div>
             <label for="attr-charisma">Carisma:</label>
             <div class="dice-selector" data-attr="charisma"></div>
+            <label for="attr-spirit">Espírito:</label>
+            <div class="dice-selector" data-attr="spirit"></div>
         </div>
 
         <div class="section">
             <h2><span style="color: var(--accent-blue);">&gt;</span> Defesas & Resistências <span
                     style="color: var(--accent-blue);">&lt;</span></h2>
-            <div class="flex-row"><label>Resistência:</label><input type="number" id="resist-resistencia" readonly>
+            <div class="flex-row"><label>Resistência:</label><input type="number" id="resist-resistencia" readonly
+                    style="width: 50px;">
             </div>
-            <div class="flex-row"><label>Defesa:</label><input type="number" id="resist-defesa" readonly></div>
-            <div class="flex-row"><label>Convicção:</label><input type="number" id="resist-conviccao" readonly></div>
-            <div class="flex-row"><label>Percepção:</label><input type="number" id="resist-percepcao" readonly></div>
-            <div class="flex-row"><label>Destino:</label><input type="number" id="resist-destino" readonly></div>
-            <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" value="0"
-                    oninput="updateCalculatedStats()"></div>
+            <div class="flex-row"><label>Defesa:</label><input type="number" id="resist-defesa" readonly
+                    style="width: 50px;"></div>
+            <div class="flex-row"><label>Convicção:</label><input type="number" id="resist-conviccao" readonly
+                    style="width: 50px;"></div>
+            <div class="flex-row"><label>Percepção:</label><input type="number" id="resist-percepcao" readonly
+                    style="width: 50px;"></div>
+            <div class="flex-row"><label>Destino:</label><input type="number" id="resist-destino" readonly
+                    style="width: 50px;"></div>
+            <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" style="width: 50px;"
+                    value="0" oninput="updateCalculatedStats()"></div>
         </div>
 
         <div class="section">
             <h2><span style="color: var(--accent-blue);">&gt;</span> Estatísticas Operacionais <span
                     style="color: var(--accent-blue);">&lt;</span></h2>
-            <div class="flex-row"><label>Firewall:</label><input type="number" id="stat-firewall" value="4"></div>
-            <div class="flex-row"><label>Limite Cibernético:</label><input type="number" id="stat-cibernetico" readonly>
+            <div class="flex-row">
+                <label for="stat-firewall">Firewall:</label>
+                <input type="number" id="stat-firewall" readonly style="width: 50px;" value="0">
+                <label for="firewall-bonus">Bônus:</label>
+                <input type="number" id="firewall-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
             </div>
-            <div class="flex-row"><label>Velocidade (Metros/Turno):</label><input type="number" id="stat-velocidade"
-                    readonly></div>
+            <div class="flex-row">
+                <label>Limite Cibernético:</label><input type="number" id="stat-cibernetico" readonly
+                    style="width: 50px;">
+                <label for="cibernetico-bonus">Bônus:</label>
+                <input type="number" id="cibernetico-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+            </div>
+            <div class="flex-row">
+                <label>Velocidade (Metros/Turno):</label><input type="number" id="stat-velocidade" readonly
+                    style="width: 50px;">
+                <label for="velocidade-bonus">Bônus:</label>
+                <input type="number" id="velocidade-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+            </div>
+            <div class="flex-row">
+                <label>Carga (Peso):</label><input type="number" id="stat-carga" readonly style="width: 50px;">
+                <label for="carga-bonus">Bônus:</label>
+                <input type="number" id="carga-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
+            </div>
         </div>
 
         <div class="section">
@@ -597,7 +617,16 @@
             const charismaDie = document.querySelector('input[name="attr-charisma"]:checked')?.value || 'd4';
             const fisDie = document.querySelector('input[name="attr-strength"]:checked')?.value || 'd4';
             const armorBonus = parseInt(document.getElementById('armor-bonus').value) || 0;
+            const firewallBonus = parseInt(document.getElementById('firewall-bonus').value) || 0;
+            const ciberneticoBonus = parseInt(document.getElementById('cibernetico-bonus').value) || 0;
+            const velocidadeBonus = parseInt(document.getElementById('velocidade-bonus').value) || 0;
+            const cargaBonus = parseInt(document.getElementById('carga-bonus').value) || 0;
 
+
+            // Lógica CORRETA para o Firewall
+            const totalFirewall = 2 + getDieValue(smartsDie) + firewallBonus;
+
+            document.getElementById('stat-firewall').value = totalFirewall;
             document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
             document.getElementById('resist-defesa').value = 2 + getDieValue(agilityDie);
             document.getElementById('resist-conviccao').value = 2 + getDieValue(charismaDie);
@@ -608,8 +637,10 @@
                 .find(item => item.querySelector('[data-skill-name]').value === 'Atletismo');
             const atletismoDie = atletismoSkill?.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
 
-            document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie);
-            document.getElementById('stat-velocidade').value = getDieValue(fisDie) + getDieValue(atletismoDie);
+            document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie) + ciberneticoBonus;
+            document.getElementById('stat-velocidade').value = getDieValue(fisDie) + getDieValue(atletismoDie) + velocidadeBonus;
+            document.getElementById('stat-carga').value = 2 + getDieValue(fisDie) + cargaBonus;
+
 
             document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
             document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
@@ -721,7 +752,10 @@
                 },
                 attributes: {},
                 derived: {
-                    firewall: document.getElementById('stat-firewall').value
+                    firewallBonus: document.getElementById('firewall-bonus').value,
+                    ciberneticoBonus: document.getElementById('cibernetico-bonus').value,
+                    velocidadeBonus: document.getElementById('velocidade-bonus').value,
+                    cargaBonus: document.getElementById('carga-bonus').value,
                 },
                 conditions: {},
                 resources: {
@@ -797,14 +831,21 @@
                     document.getElementById('char-rank').value = sheetData.info.rank || '';
                     document.getElementById('char-benes').value = sheetData.info.bene || '0';
                     document.getElementById('char-xp').value = sheetData.info.xp || '';
+                    document.getElementById('armor-bonus').value = sheetData.derived.armorBonus || '0';
+                    document.getElementById('firewall-bonus').value = sheetData.derived.firewallBonus || '0';
+                    document.getElementById('cibernetico-bonus').value = sheetData.derived.ciberneticoBonus || '0';
+                    document.getElementById('velocidade-bonus').value = sheetData.derived.velocidadeBonus || '0';
+                    document.getElementById('carga-bonus').value = sheetData.derived.cargaBonus || '0';
+                    document.getElementById('notes').value = sheetData.notes || '';
+
 
                     attributes.forEach(attr => {
                         const dieValue = sheetData.attributes[attr] || 'd4';
                         const radio = document.querySelector(`input[name="attr-${attr}"][value="${dieValue}"]`);
-                        if (radio) radio.checked = true;
+                        if (radio) {
+                            radio.checked = true;
+                        }
                     });
-
-                    document.getElementById('stat-firewall').value = sheetData.derived.firewall || '4';
 
                     checkboxStatus.forEach(status => {
                         document.getElementById(status).checked = sheetData.conditions[status] || false;
@@ -813,58 +854,30 @@
                     document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
                     document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
 
-                    document.getElementById('notes').value = sheetData.notes || '';
 
                     // Carrega as perícias
                     const skillsList = document.getElementById('skills-list');
                     skillsList.innerHTML = '';
-                    sheetData.lists.skills.forEach(skill => {
-                        // Recriar o elemento de perícia
-                        const itemDiv = document.createElement('div');
-                        itemDiv.className = 'list-item';
-
-                        const nameInput = document.createElement('input');
-                        nameInput.type = 'text';
-                        nameInput.value = skill.name;
-                        nameInput.dataset.skillName = skill.name;
-
-                        const diceSelectorContainer = document.createElement('div');
-                        diceSelectorContainer.className = 'dice-selector';
-                        const skillId = `skill-${skill.name}`;
-                        skillDieTypes.forEach(die => {
-                            const id = `${skillId}-${die}`;
-                            const input = document.createElement('input');
-                            input.type = 'radio';
-                            input.id = id;
-                            input.name = skillId;
-                            input.value = die;
-                            input.onchange = updateCalculatedStats;
-                            const label = document.createElement('label');
-                            label.htmlFor = id;
-                            label.textContent = die;
-                            if (skill.die === die) input.checked = true;
-                            diceSelectorContainer.appendChild(input);
-                            diceSelectorContainer.appendChild(label);
-                        });
-
-                        const bonusInput = document.createElement('input');
-                        bonusInput.type = 'number';
-                        bonusInput.className = 'bonus';
-                        bonusInput.value = skill.bonus;
-
-                        itemDiv.appendChild(nameInput);
-                        itemDiv.appendChild(diceSelectorContainer);
-                        itemDiv.appendChild(bonusInput);
+                    (sheetData.lists.skills || baseSkills).forEach(skill => {
+                        const itemDiv = createSkillItem(skill.name, skill.die, skill.bonus);
                         skillsList.appendChild(itemDiv);
                     });
 
                     // Limpa e carrega vantagens, complicações e itens
                     document.getElementById('edges-list').innerHTML = '';
-                    sheetData.lists.edges.forEach(item => addItem('edges', item.name, item.desc));
+                    (sheetData.lists.edges || []).forEach(edge => {
+                        addItem('edges', edge.name, edge.desc);
+                    });
+
                     document.getElementById('hindrances-list').innerHTML = '';
-                    sheetData.lists.hindrances.forEach(item => addItem('hindrances', item.name, item.desc));
+                    (sheetData.lists.hindrances || []).forEach(hindrance => {
+                        addItem('hindrances', hindrance.name, hindrance.desc);
+                    });
+
                     document.getElementById('items-list').innerHTML = '';
-                    sheetData.lists.items.forEach(item => addItem('items', item.name, item.desc));
+                    (sheetData.lists.items || []).forEach(item => {
+                        addItem('items', item.name, item.desc);
+                    });
 
                     updateCalculatedStats();
                     alert('Ficha carregada com sucesso!');
@@ -891,5 +904,4 @@
         };
     </script>
 </body>
-
 </html>
