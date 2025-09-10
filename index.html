@@ -20,6 +20,9 @@
             --border-light: #555;
             --input-bg: #2d2d44;
             --hover-light: #007bff;
+            --color-ok: #008000;
+            --color-alert: #cccc00;
+            --color-danger: #800000;
         }
 
         * {
@@ -343,8 +346,8 @@
         }
 
         .controls input[type="file"]:hover {
-            background-color: #e000e0;
-            box-shadow: 0 0 15px #e000e0;
+            background-color: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
         }
 
         .controls label {
@@ -353,8 +356,7 @@
             font-family: 'Orbitron', sans-serif;
             margin-bottom: -10px;
         }
-
-        /* Checkboxes Cyberpunk */
+        
         .wounds-fatigue div {
             margin-top: 15px;
             padding-top: 10px;
@@ -370,10 +372,12 @@
             text-shadow: 0 0 3px var(--accent-purple);
         }
 
+        .wounds-fatigue input[type="radio"],
         .wounds-fatigue input[type="checkbox"] {
             display: none;
         }
 
+        .wounds-fatigue input[type="radio"]+label,
         .wounds-fatigue input[type="checkbox"]+label {
             display: inline-flex;
             justify-content: center;
@@ -391,12 +395,37 @@
             font-size: 1.1em;
         }
 
-        .wounds-fatigue input[type="checkbox"]:checked+label {
-            background-color: var(--accent-green);
-            border-color: var(--accent-green);
-            box-shadow: 0 0 8px var(--accent-green);
-            color: black;
+        input[type="radio"]:checked+label,
+        input[type="checkbox"]:checked+label {
             transform: scale(1.1);
+        }
+
+        /* Cores de status de combate */
+        input[name="corpo"][value="-1"]:checked+label,
+        input[name="mente"][value="-1"]:checked+label,
+        input[name="vigor_calc"][value="-1"]:checked+label {
+            background-color: var(--color-ok);
+            border-color: var(--color-ok);
+            box-shadow: 0 0 8px var(--color-ok);
+            color: black;
+        }
+        
+        input[name="corpo"][value="-2"]:checked+label,
+        input[name="mente"][value="-2"]:checked+label,
+        input[name="vigor_calc"][value="-2"]:checked+label {
+            background-color: var(--color-alert);
+            border-color: var(--color-alert);
+            box-shadow: 0 0 8px var(--color-alert);
+            color: black;
+        }
+        
+        input[name="corpo"][value="-3"]:checked+label,
+        input[name="mente"][value="-3"]:checked+label,
+        input[name="vigor_calc"][value="-3"]:checked+label {
+            background-color: var(--color-danger);
+            border-color: var(--color-danger);
+            box-shadow: 0 0 8px var(--color-danger);
+            color: black;
         }
     </style>
 </head>
@@ -496,16 +525,25 @@
                     style="color: var(--accent-blue);">&lt;</span></h2>
             <div class="wounds-fatigue">
                 <div>
-                    <h3>Ferimentos (-1 cada)</h3>
-                    <input type="checkbox" id="wound1"><label for="wound1">1</label>
-                    <input type="checkbox" id="wound2"><label for="wound2">2</label>
-                    <input type="checkbox" id="wound3"><label for="wound3">3</label>
+                    <h3>Corpo</h3>
+                    <input type="radio" id="corpo1" name="corpo" value="-1" onclick="handleRadioClick(this)"><label for="corpo1">1</label>
+                    <input type="radio" id="corpo2" name="corpo" value="-2" onclick="handleRadioClick(this)"><label for="corpo2">2</label>
+                    <input type="radio" id="corpo3" name="corpo" value="-3" onclick="handleRadioClick(this)"><label for="corpo3">3</label>
                 </div>
                 <div>
-                    <h3>Fadiga (-1 cada)</h3>
-                    <input type="checkbox" id="fatigue1"><label for="fatigue1">1</label>
-                    <input type="checkbox" id="fatigue2"><label for="fatigue2">2</label>
-                    <input type="checkbox" id="fatigue3"><label for="fatigue3">3</label>
+                    <h3>Mente</h3>
+                    <input type="radio" id="mente1" name="mente" value="-1" onclick="handleRadioClick(this)"><label for="mente1">1</label>
+                    <input type="radio" id="mente2" name="mente" value="-2" onclick="handleRadioClick(this)"><label for="mente2">2</label>
+                    <input type="radio" id="mente3" name="mente" value="-3" onclick="handleRadioClick(this)"><label for="mente3">3</label>
+                </div>
+                <div>
+                    <h3>Vigor</h3>
+                    <input type="checkbox" id="vigor1" name="vigor_calc" disabled value="-1"><label for="vigor1">1</label>
+                    <input type="checkbox" id="vigor2" name="vigor_calc" disabled value="-2"><label for="vigor2">2</label>
+                    <input type="checkbox" id="vigor3" name="vigor_calc" disabled value="-3"><label for="vigor3">3</label>
+                    <div style="flex-grow: 1;"></div>
+                    <label for="vigor-bonus">Penalidade:</label>
+                    <input type="number" id="vigor-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
                 </div>
             </div>
         </div>
@@ -570,6 +608,31 @@
         </div>
 
         <div class="section">
+            <h2><span style="color: var(--accent-blue);">&gt;</span> Recursos <span
+                    style="color: var(--accent-blue);">&lt;</span></h2>
+            <div class="flex-row">
+                <label for="recursos-maior">Maior Recurso:</label>
+                <input type="text" id="recursos-maior" readonly placeholder="Nenhum">
+            </div>
+            <div class="flex-row">
+                <label>Extravagante:</label>
+                <input type="number" id="recursos-extravagante" value="0" oninput="updateCalculatedStats()">
+                <label>Rico:</label>
+                <input type="number" id="recursos-rico" value="0" oninput="updateCalculatedStats()">
+            </div>
+            <div class="flex-row">
+                <label>Comum:</label>
+                <input type="number" id="recursos-comum" value="0" oninput="updateCalculatedStats()">
+                <label>Modesto:</label>
+                <input type="number" id="recursos-modesto" value="0" oninput="updateCalculatedStats()">
+            </div>
+            <div class="flex-row">
+                <label>Pobre:</label>
+                <input type="number" id="recursos-pobre" value="0" oninput="updateCalculatedStats()">
+            </div>
+        </div>
+
+        <div class="section">
             <h2><span style="color: var(--accent-blue);">&gt;</span> Diário de Bordo & Notas <span
                     style="color: var(--accent-blue);">&lt;</span></h2>
             <textarea id="notes"
@@ -585,12 +648,21 @@
     </div>
 
     <script>
-        // Tipos de dados para ATRIBUTOS
+        let lastCheckedRadio = {};
+        function handleRadioClick(clickedRadio) {
+            const radioName = clickedRadio.name;
+            if (lastCheckedRadio[radioName] === clickedRadio) {
+                clickedRadio.checked = false;
+                lastCheckedRadio[radioName] = null;
+            } else {
+                lastCheckedRadio[radioName] = clickedRadio;
+            }
+            updateCalculatedStats();
+        }
+
         const dieTypes = ['d4', 'd6', 'd8', 'd10', 'd12'];
-        // Tipos de dados para PERÍCIAS (inclui 1d4-2)
         const skillDieTypes = ['1d4-2', 'd4', 'd6', 'd8', 'd10', 'd12'];
         const attributes = ['agility', 'smarts', 'spirit', 'strength', 'charisma'];
-        // Valores numéricos dos dados, incluindo o 1d4-2 (valor 0)
         const dieValues = { '1d4-2': 0, 'd4': 2, 'd6': 3, 'd8': 4, 'd10': 5, 'd12': 6 };
 
         const baseSkills = [
@@ -621,10 +693,10 @@
             const ciberneticoBonus = parseInt(document.getElementById('cibernetico-bonus').value) || 0;
             const velocidadeBonus = parseInt(document.getElementById('velocidade-bonus').value) || 0;
             const cargaBonus = parseInt(document.getElementById('carga-bonus').value) || 0;
+            const vigorBonus = parseInt(document.getElementById('vigor-bonus').value) || 0;
 
-
-            // Lógica CORRETA para o Firewall
-            const totalFirewall = 2 + getDieValue(smartsDie) + firewallBonus;
+            const baseFirewall = 2 + getDieValue(smartsDie);
+            const totalFirewall = baseFirewall + firewallBonus;
 
             document.getElementById('stat-firewall').value = totalFirewall;
             document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
@@ -645,6 +717,36 @@
             document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
             document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
             document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
+
+            // CÁLCULO E ATUALIZAÇÃO DO VIGOR
+            const corpoValue = parseInt(document.querySelector('input[name="corpo"]:checked')?.value || '0');
+            const menteValue = parseInt(document.querySelector('input[name="mente"]:checked')?.value || '0');
+            const vigorTotal = corpoValue + menteValue - vigorBonus;
+
+            document.getElementById('vigor1').checked = vigorTotal <= -1;
+            document.getElementById('vigor2').checked = vigorTotal <= -2;
+            document.getElementById('vigor3').checked = vigorTotal <= -3;
+            
+            // ATUALIZAÇÃO DO NÍVEL DE RIQUEZA
+            const recursosData = {
+                extravagante: parseInt(document.getElementById('recursos-extravagante').value) || 0,
+                rico: parseInt(document.getElementById('recursos-rico').value) || 0,
+                comum: parseInt(document.getElementById('recursos-comum').value) || 0,
+                modesto: parseInt(document.getElementById('recursos-modesto').value) || 0,
+                pobre: parseInt(document.getElementById('recursos-pobre').value) || 0,
+            };
+
+            let highestResourceName = '';
+            let highestResourceValue = -1;
+
+            for (const name in recursosData) {
+                if (recursosData[name] > highestResourceValue) {
+                    highestResourceValue = recursosData[name];
+                    highestResourceName = name.charAt(0).toUpperCase() + name.slice(1);
+                }
+            }
+
+            document.getElementById('recursos-maior').value = highestResourceValue > 0 ? highestResourceName : 'Nenhum';
         }
 
         function addAttributeSelectors() {
@@ -738,8 +840,6 @@
             list.appendChild(itemDiv);
         }
 
-        const checkboxStatus = ['wound1', 'wound2', 'wound3', 'fatigue1', 'fatigue2', 'fatigue3'];
-
         function saveSheet() {
             const sheetData = {
                 info: {
@@ -748,7 +848,11 @@
                     rank: document.getElementById('char-rank').value,
                     bene: document.getElementById('char-benes').value,
                     xp: document.getElementById('char-xp').value,
-
+                    recursosExtravagante: document.getElementById('recursos-extravagante').value,
+                    recursosRico: document.getElementById('recursos-rico').value,
+                    recursosComum: document.getElementById('recursos-comum').value,
+                    recursosModesto: document.getElementById('recursos-modesto').value,
+                    recursosPobre: document.getElementById('recursos-pobre').value,
                 },
                 attributes: {},
                 derived: {
@@ -756,8 +860,13 @@
                     ciberneticoBonus: document.getElementById('cibernetico-bonus').value,
                     velocidadeBonus: document.getElementById('velocidade-bonus').value,
                     cargaBonus: document.getElementById('carga-bonus').value,
+                    armorBonus: document.getElementById('armor-bonus').value,
+                    vigorBonus: document.getElementById('vigor-bonus').value,
                 },
-                conditions: {},
+                conditions: {
+                    corpo: document.querySelector('input[name="corpo"]:checked')?.value || '0',
+                    mente: document.querySelector('input[name="mente"]:checked')?.value || '0',
+                },
                 resources: {
                     power: { current: document.getElementById('power-current').value },
                     focus: { current: document.getElementById('focus-current').value },
@@ -775,10 +884,6 @@
             attributes.forEach(attr => {
                 const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
                 sheetData.attributes[attr] = selectedDie ? selectedDie.value : 'd4';
-            });
-
-            checkboxStatus.forEach(status => {
-                sheetData.conditions[status] = document.getElementById(status).checked;
             });
 
             // Loop para salvar as perícias estáticas
@@ -831,11 +936,18 @@
                     document.getElementById('char-rank').value = sheetData.info.rank || '';
                     document.getElementById('char-benes').value = sheetData.info.bene || '0';
                     document.getElementById('char-xp').value = sheetData.info.xp || '';
+                    document.getElementById('recursos-extravagante').value = sheetData.info.recursosExtravagante || '0';
+                    document.getElementById('recursos-rico').value = sheetData.info.recursosRico || '0';
+                    document.getElementById('recursos-comum').value = sheetData.info.recursosComum || '0';
+                    document.getElementById('recursos-modesto').value = sheetData.info.recursosModesto || '0';
+                    document.getElementById('recursos-pobre').value = sheetData.info.recursosPobre || '0';
+
                     document.getElementById('armor-bonus').value = sheetData.derived.armorBonus || '0';
                     document.getElementById('firewall-bonus').value = sheetData.derived.firewallBonus || '0';
                     document.getElementById('cibernetico-bonus').value = sheetData.derived.ciberneticoBonus || '0';
                     document.getElementById('velocidade-bonus').value = sheetData.derived.velocidadeBonus || '0';
                     document.getElementById('carga-bonus').value = sheetData.derived.cargaBonus || '0';
+                    document.getElementById('vigor-bonus').value = sheetData.derived.vigorBonus || '0';
                     document.getElementById('notes').value = sheetData.notes || '';
 
 
@@ -847,9 +959,17 @@
                         }
                     });
 
-                    checkboxStatus.forEach(status => {
-                        document.getElementById(status).checked = sheetData.conditions[status] || false;
-                    });
+                    // Carrega os valores dos radio buttons de status
+                    if (sheetData.conditions.corpo) {
+                         const radio = document.querySelector(`input[name="corpo"][value="${sheetData.conditions.corpo}"]`);
+                         if (radio) radio.checked = true;
+                    }
+                    if (sheetData.conditions.mente) {
+                         const radio = document.querySelector(`input[name="mente"][value="${sheetData.conditions.mente}"]`);
+                         if (radio) radio.checked = true;
+                    }
+
+
                     document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
                     document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
                     document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
@@ -904,4 +1024,5 @@
         };
     </script>
 </body>
+
 </html>
