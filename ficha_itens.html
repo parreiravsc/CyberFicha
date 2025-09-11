@@ -1,0 +1,35 @@
+<div class="section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Recursos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div class="flex-row">
+        <label for="recursos-maior" style="color: rgb(255, 242, 0)">Estilo de Vida:</label>
+        <input type="text" id="recursos-maior" readonly placeholder="Nenhum">
+    </div>
+    <div class="flex-row">
+        <label>Extravagante:</label>
+        <input type="number" id="recursos-extravagante" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Rico:</label>
+        <input type="number" id="recursos-rico" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Comum:</label>
+        <input type="number" id="recursos-comum" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Modesto:</label>
+        <input type="number" id="recursos-modesto" value="0" oninput="updateCalculatedStats()">
+    </div>
+    <div class="flex-row">
+        <label>Pobre:</label>
+        <input type="number" id="recursos-pobre" value="0" oninput="updateCalculatedStats()">
+    </div>
+</div>
+
+<div class="section list-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Itens & Equipamentos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    <div id="items-list"></div>
+    <button class="add-button" onclick="addItem('items')">+ Novo Item</button>
+</div>

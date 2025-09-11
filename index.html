@@ -279,7 +279,7 @@
             text-align: center;
             color: var(--accent-green);
         }
-        
+
         .list-item .weapon-info {
             width: 100%;
             display: flex;
@@ -290,7 +290,7 @@
         .weapon-info .flex-row input {
             flex-grow: 1;
         }
-        
+
         .weapon-controls {
             display: flex;
             flex-wrap: wrap;
@@ -500,6 +500,37 @@
             color: black;
         }
 
+        /* Estilos para o Escudo Cibernético */
+        .wounds-fatigue input[name="shield"] {
+            display: none;
+        }
+
+        .wounds-fatigue input[name="shield"]+label {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--accent-blue);
+            background-color: transparent;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 10px;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .wounds-fatigue input[name="shield"]:checked+label {
+            background-color: var(--accent-blue);
+            color: black;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0, 0, 0, 0.8);
+            text-shadow: none;
+            transform: scale(1.1);
+        }
+
         /* Estilos para as abas */
         .tab-buttons {
             display: flex;
@@ -556,11 +587,15 @@
             <button class="tab-button" onclick="showTab('armor-sheet', 'ficha_armadura.html', this)">Armadura</button>
             <button class="tab-button" onclick="showTab('weapons-sheet', 'ficha_armas.html', this)">Armas</button>
         </div>
+        <div class="tab-buttons">
+            <button class="tab-button" onclick="showTab('items-sheet', 'ficha_itens.html', this)">Itens</button>
+        </div>
 
         <div id="main-sheet" class="tab-content active"></div>
         <div id="assistant-sheet" class="tab-content"></div>
         <div id="armor-sheet" class="tab-content"></div>
         <div id="weapons-sheet" class="tab-content"></div>
+        <div id="items-sheet" class="tab-content"></div>
 
         <div class="controls">
             <button onclick="saveSheet()">Salvar Ficha .JSON</button>
@@ -626,6 +661,8 @@
                             initializeArmorSheet();
                         } else if (tabId === 'weapons-sheet') {
                             initializeWeaponsSheet();
+                        } else if (tabId === 'items-sheet') {
+                            initializeItemsSheet();
                         }
                     });
             }
@@ -661,7 +698,7 @@
             });
             updateAllSheets();
         }
-        
+
         function initializeWeaponsSheet() {
             const inputs = document.querySelectorAll('#weapons-sheet input, #weapons-sheet textarea, #weapons-sheet select');
             inputs.forEach(input => {
@@ -670,7 +707,16 @@
             });
             updateAllSheets();
         }
-        
+
+        function initializeItemsSheet() {
+            const inputs = document.querySelectorAll('#items-sheet input, #items-sheet textarea, #items-sheet select');
+            inputs.forEach(input => {
+                input.addEventListener('change', updateAllSheets);
+                input.addEventListener('input', updateAllSheets);
+            });
+            updateAllSheets();
+        }
+
         function updateAllSheets() {
             updateCalculatedStats();
             updateAssistantStats();
@@ -794,7 +840,7 @@
             const armorBase = parseInt(document.getElementById('armor-value-base')?.value) || 0;
             const modsBonus = Array.from(document.querySelectorAll('#armor-mods-list .mod-bonus')).reduce((sum, mod) => sum + (parseInt(mod.value) || 0), 0);
             const totalArmor = armorBase + modsBonus;
-            
+
             if (document.getElementById('armor-total')) {
                 document.getElementById('armor-total').value = totalArmor;
                 const armorBonusInput = document.getElementById('armor-bonus');
@@ -924,7 +970,7 @@
             list.appendChild(itemDiv);
         }
 
-        function addWeapon(name = '', damage = '', weight = '', value = '', notes = '', mods = []) {
+        function addWeapon(name = '', damage = '', weight = '', value = '', notes = '', mods = [], quantity = 1) {
             const list = document.getElementById('weapons-list');
             if (!list) return;
             const weaponId = 'weapon-' + Date.now();
@@ -940,9 +986,11 @@
                         <label>Peso:</label>
                         <input type="text" placeholder="Kg" style="width: 50px;" value="${weight}">
                     </div>
-                        <div class="flex-row">
+                    <div class="flex-row">
                         <label>Valor:</label>
-                        <input type="text" placeholder="modesto" style="width: 60px;" value="${value}">
+                        <input type="text" placeholder="cr" style="width: 60px;" value="${value}">
+                        <label>Qtd:</label>
+                        <input type="number" placeholder="1" style="width: 40px;" value="${quantity}">
                     </div>
                     <textarea placeholder="Notas sobre a arma..." style="min-height: 50px;" >${notes}</textarea>
                 </div>
@@ -986,11 +1034,26 @@
             list.appendChild(itemDiv);
         }
 
-        function addItem(type, name = '', desc = '') {
+        function addItem(type, name = '', desc = '', quantity = 1) {
             const list = document.getElementById(type + '-list');
             if (!list) return;
             const itemDiv = document.createElement('div');
             itemDiv.className = 'list-item';
+
+            const quantityContainer = document.createElement('div');
+            quantityContainer.style.display = 'flex';
+            quantityContainer.style.alignItems = 'center';
+            quantityContainer.style.gap = '5px';
+            const quantityLabel = document.createElement('label');
+            quantityLabel.textContent = 'Qtd:';
+            quantityLabel.style.width = '30px';
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.className = 'item-quantity';
+            quantityInput.style.width = '50px';
+            quantityInput.value = quantity;
+            quantityContainer.appendChild(quantityLabel);
+            quantityContainer.appendChild(quantityInput);
 
             const nameInput = document.createElement('input');
             nameInput.type = 'text';
@@ -1013,6 +1076,7 @@
             removeButton.textContent = 'X';
             removeButton.onclick = () => list.removeChild(itemDiv);
 
+            itemDiv.appendChild(quantityContainer);
             itemDiv.appendChild(nameInput);
             itemDiv.appendChild(descInput);
 
@@ -1048,9 +1112,24 @@
                     damage: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(2)').value,
                     weight: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(4)').value,
                     value: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(6)').value,
+                    quantity: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(8)').value,
                     notes: weaponDiv.querySelector('.weapon-info textarea').value,
                     mods: mods
                 });
+            });
+            const shieldStatus = Array.from(document.querySelectorAll('#main-sheet .shield-box')).map(box => box.checked);
+            
+            const itemLists = {};
+            ['hindrances', 'edges', 'items'].forEach(type => {
+                const list = [];
+                document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
+                    list.push({
+                        name: item.querySelector('input[type="text"]:nth-child(2)').value,
+                        desc: item.querySelector('input[type="text"]:nth-child(3)').value,
+                        quantity: item.querySelector('.item-quantity')?.value || '1'
+                    });
+                });
+                itemLists[type] = list;
             });
 
             const sheetData = {
@@ -1078,6 +1157,7 @@
                 conditions: {
                     corpo: document.querySelector('input[name="corpo"]:checked')?.value || '0',
                     mente: document.querySelector('input[name="mente"]:checked')?.value || '0',
+                    shield: shieldStatus
                 },
                 resources: {
                     power: { current: document.getElementById('power-current')?.value || '0' },
@@ -1086,9 +1166,9 @@
                 },
                 lists: {
                     skills: [],
-                    hindrances: [],
-                    edges: [],
-                    items: [],
+                    hindrances: itemLists.hindrances,
+                    edges: itemLists.edges,
+                    items: itemLists.items,
                 },
                 notes: document.getElementById('notes')?.value || '',
                 assistant: {
@@ -1135,15 +1215,6 @@
                     name: item.querySelector('input[data-skill-name]').value,
                     die: dieValue,
                     bonus: item.querySelector('.bonus').value
-                });
-            });
-
-            ['hindrances', 'edges', 'items'].forEach(type => {
-                document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
-                    sheetData.lists[type].push({
-                        name: item.querySelector('input:nth-child(1)').value,
-                        desc: item.querySelector('input:nth-child(2)').value
-                    });
                 });
             });
 
@@ -1205,6 +1276,15 @@
                         const radio = document.querySelector(`input[name="mente"][value="${sheetData.conditions.mente}"]`);
                         if (radio) radio.checked = true;
                     }
+                    if (sheetData.conditions?.shield) {
+                        const shieldBoxes = document.querySelectorAll('#main-sheet .shield-box');
+                        sheetData.conditions.shield.forEach((isChecked, index) => {
+                            if (shieldBoxes[index]) {
+                                shieldBoxes[index].checked = isChecked;
+                            }
+                        });
+                    }
+
                     document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
                     document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
                     document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
@@ -1221,7 +1301,7 @@
                     document.getElementById('hindrances-list').innerHTML = '';
                     (sheetData.lists?.hindrances || []).forEach(hindrance => addItem('hindrances', hindrance.name, hindrance.desc));
                     document.getElementById('items-list').innerHTML = '';
-                    (sheetData.lists?.items || []).forEach(item => addItem('items', item.name, item.desc));
+                    (sheetData.lists?.items || []).forEach(item => addItem('items', item.name, item.desc, item.quantity));
 
                     if (sheetData.assistant) {
                         document.getElementById('assistant-name').value = sheetData.assistant?.name || '';
@@ -1263,7 +1343,7 @@
                     if (weaponsList) {
                         weaponsList.innerHTML = '';
                         (sheetData.weapons || []).forEach(weapon => {
-                            addWeapon(weapon.name, weapon.damage, weapon.weight, weapon.value, weapon.notes, weapon.mods);
+                            addWeapon(weapon.name, weapon.damage, weapon.weight, weapon.value, weapon.notes, weapon.mods, weapon.quantity);
                         });
                     }
 
