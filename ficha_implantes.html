@@ -1,0 +1,44 @@
+<div class="section implants-section">
+    <h2><span style="color: var(--accent-blue);">&gt;</span> Implantes Cibernéticos <span
+            style="color: var(--accent-blue);">&lt;</span></h2>
+    
+    <div class="flex-row" style="justify-content: space-around;">
+        <div class="flex-row">
+            <label>Limite Cibernético</label>
+            <span style="font-size: 0.8em; color: var(--text-light);">(da ficha base)</span>
+            <input type="number" id="base-ciber-limit" readonly style="width: 70px;">
+        </div>
+        <div class="flex-row">
+            <label>Custo Total</label>
+            <span style="font-size: 0.8em; color: var(--text-light);">(implantes ativos)</span>
+            <input type="number" id="total-implant-cost" readonly style="width: 70px;">
+        </div>
+    </div>
+    
+    <div class="body-map">
+        <svg class="human-figure" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <g id="body-parts-base">
+                <path d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" />
+                <path d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" />
+                <path d="M70 70 C80 70 80 120 70 120 Z" />
+                <path d="M130 70 C120 70 120 120 130 120 Z" />
+                <path d="M80 150 C90 150 90 250 80 250 Z" />
+                <path d="M120 150 C110 150 110 250 120 250 Z" />
+            </g>
+            <g id="body-parts-active">
+                <path id="cortex-path" d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" data-part="córtex" />
+                <path id="organs-path" d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" data-part="órgãos" />
+                <path id="arms-path" d="M70 70 C80 70 80 120 70 120 Z M130 70 C120 70 120 120 130 120 Z" data-part="braços" />
+                <path id="legs-path" d="M80 150 C90 150 90 250 80 250 Z M120 150 C110 150 110 250 120 250 Z" data-part="pernas" />
+                <path id="face-path" d="M100 20 C115 25 115 35 100 40 C85 35 85 25 100 20 Z" data-part="face" />
+                <path id="skin-path" d="M100 20 C130 20 130 280 100 280 C70 280 70 20 100 20 Z" data-part="pele" />
+                <path id="neural-path" d="M98 45 C102 45 102 270 98 270 C94 270 94 45 98 45 Z" data-part="neural" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="list-section">
+        <div id="implants-list"></div>
+        <button class="add-button" onclick="addImplant()">+ Novo Implante</button>
+    </div>
+</div>
