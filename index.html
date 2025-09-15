@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +27,9 @@
             --implant-face: #ff0000;   /* Vermelho para face */
             --implant-neural: #ffa500; /* Laranja para neural */
         }
-
         * {
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Roboto Mono', monospace;
             margin: 0;
@@ -41,7 +38,6 @@
             line-height: 1.6;
             text-shadow: 0 0 2px var(--accent-blue);
         }
-
         /* Container principal com layout vertical */
         .sheet-container {
             max-width: 600px;
@@ -56,7 +52,6 @@
             position: relative;
             overflow: hidden;
         }
-
         /* Efeito de glitch sutil no fundo */
         .sheet-container::before {
             content: '';
@@ -72,7 +67,6 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .header {
             text-align: center;
             border-bottom: 2px solid var(--accent-purple);
@@ -81,7 +75,6 @@
             position: relative;
             z-index: 1;
         }
-
         h1,
         h2,
         h3 {
@@ -94,20 +87,16 @@
             margin-bottom: 15px;
             text-shadow: 0 0 5px var(--accent-green);
         }
-
         h1 {
             font-size: 2.2em;
             text-transform: uppercase;
         }
-
         h2 {
             font-size: 1.2em;
         }
-
         h3 {
             font-size: 1.0em;
         }
-
         .section {
             background-color: var(--input-bg);
             border: 1px solid var(--border-light);
@@ -119,7 +108,6 @@
             position: relative;
             z-index: 1;
         }
-
         .section::before {
             content: '';
             position: absolute;
@@ -131,7 +119,6 @@
             pointer-events: none;
             z-index: -1;
         }
-
         label {
             display: block;
             margin-top: 10px;
@@ -139,7 +126,6 @@
             color: var(--accent-blue);
             text-transform: uppercase;
         }
-
         input[type="text"],
         input[type="number"],
         textarea,
@@ -156,7 +142,6 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             font-size: 0.9em;
         }
-
         input:focus,
         textarea:focus,
         select:focus {
@@ -164,55 +149,45 @@
             box-shadow: inset 0 0 5px var(--accent-green), 0 0 5px var(--accent-green);
             outline: none;
         }
-
         textarea {
             resize: vertical;
             min-height: 80px;
         }
-
         .flex-row {
             display: flex;
             align-items: center;
             gap: 15px;
             margin-top: 10px;
         }
-
         .flex-row label {
             margin: 0;
             color: var(--accent-purple);
         }
-
         .flex-row input {
             width: auto;
             flex-grow: 0;
         }
-
         .xp-group {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
         .xp-group label {
             margin: 0;
             color: var(--accent-purple);
         }
-
         .xp-group input {
             width: 50px;
         }
-
         .dice-selector {
             display: flex;
             gap: 5px;
             justify-content: space-around;
             margin-top: 10px;
         }
-
         .dice-selector input[type="radio"] {
             display: none;
         }
-
         .dice-selector label {
             display: flex;
             justify-content: center;
@@ -229,20 +204,17 @@
             transition: all 0.2s;
             box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
         }
-
         .list-section .dice-selector label,
         .assistant-section .dice-selector label {
             width: auto;
             padding: 0 10px;
         }
-
         .dice-selector label:hover {
             background-color: #3f3f5a;
             border-color: var(--accent-blue);
             color: var(--accent-blue);
             box-shadow: inset 0 0 5px var(--accent-blue), 0 0 5px rgba(0, 255, 255, 0.3);
         }
-
         .dice-selector input[type="radio"]:checked+label {
             background-color: var(--accent-blue);
             color: black;
@@ -250,7 +222,6 @@
             box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0, 0, 0, 0.8);
             text-shadow: none;
         }
-
         .dice-selector input[type="radio"]:checked+label::before {
             content: '>';
             position: absolute;
@@ -258,7 +229,6 @@
             color: var(--accent-purple);
             font-size: 0.8em;
         }
-
         .list-item {
             display: flex;
             flex-wrap: wrap;
@@ -271,30 +241,25 @@
             border-radius: 3px;
             box-shadow: inset 0 0 3px rgba(255, 0, 255, 0.1);
         }
-
         .list-item input {
             flex-grow: 1;
             border: 1px dashed var(--accent-purple);
             background-color: #1a1a2e;
         }
-
         .list-item .bonus {
             width: 60px;
             text-align: center;
             color: var(--accent-green);
         }
-
         .list-item .weapon-info {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
-
         .weapon-info .flex-row input {
             flex-grow: 1;
         }
-
         .weapon-controls {
             display: flex;
             flex-wrap: wrap;
@@ -302,13 +267,11 @@
             justify-content: flex-end;
             margin-top: 10px;
         }
-
         .mods-section {
             margin-top: 15px;
             padding-top: 10px;
             border-top: 1px dashed var(--border-light);
         }
-
         .section-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -318,8 +281,6 @@
             margin-bottom: 10px;
             font-size: 0.9em;
         }
-
-
         .add-button,
         .remove-button {
             background-color: var(--accent-blue);
@@ -334,22 +295,18 @@
             box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
             transition: background-color 0.2s, box-shadow 0.2s;
         }
-
         .add-button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 8px var(--accent-green);
         }
-
         .remove-button {
             background-color: #b30000;
             box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
         }
-
         .remove-button:hover {
             background-color: #ff0000;
             box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
         }
-
         .controls {
             display: flex;
             flex-direction: column;
@@ -361,7 +318,6 @@
             position: relative;
             z-index: 1;
         }
-
         .controls button,
         .controls input[type="file"] {
             background-color: var(--accent-blue);
@@ -377,30 +333,25 @@
             box-shadow: 0 0 10px var(--accent-blue);
             transition: background-color 0.3s, box-shadow 0.3s;
         }
-
         .controls button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 15px var(--accent-green);
         }
-
         .controls input[type="file"]:hover {
             background-color: var(--accent-purple);
             box-shadow: 0 0 10px var(--accent-purple);
         }
-
         .controls label {
             text-align: center;
             color: var(--text-light);
             font-family: 'Orbitron', sans-serif;
             margin-bottom: -10px;
         }
-
         .wounds-fatigue div {
             margin-top: 15px;
             padding-top: 10px;
             border-top: 1px dashed var(--border-light);
         }
-
         .wounds-fatigue h3 {
             border-bottom: none;
             margin-top: 5px;
@@ -409,11 +360,9 @@
             font-size: 1.1em;
             text-shadow: 0 0 3px var(--accent-purple);
         }
-
         .wounds-fatigue input[type="radio"] {
             display: none;
         }
-
         .wounds-fatigue input[type="radio"]+label {
             display: inline-flex;
             justify-content: center;
@@ -430,11 +379,9 @@
             font-weight: bold;
             font-size: 1.1em;
         }
-
         .wounds-fatigue input[type="checkbox"] {
             display: none;
         }
-
         .wounds-fatigue input[type="checkbox"]+label {
             display: inline-flex;
             justify-content: center;
@@ -451,12 +398,10 @@
             font-weight: bold;
             font-size: 1.1em;
         }
-
         input[type="radio"]:checked+label,
         input[type="checkbox"]:checked+label {
             transform: scale(1.1);
         }
-
         /* Cores de status de combate */
         input[name="corpo"][value="-1"]:checked+label,
         input[name="mente"][value="-1"]:checked+label {
@@ -465,7 +410,6 @@
             box-shadow: 0 0 8px var(--color-ok);
             color: black;
         }
-
         input[name="corpo"][value="-2"]:checked+label,
         input[name="mente"][value="-2"]:checked+label {
             background-color: var(--color-alert);
@@ -473,7 +417,6 @@
             box-shadow: 0 0 8px var(--color-alert);
             color: black;
         }
-
         input[name="corpo"][value="-3"]:checked+label,
         input[name="mente"][value="-3"]:checked+label {
             background-color: var(--color-danger);
@@ -481,7 +424,6 @@
             box-shadow: 0 0 8px var(--color-danger);
             color: black;
         }
-
         /* Estilos para o Vigor calculado */
         input[name="vigor_calc"][value="-1"]:checked+label {
             background-color: var(--color-ok);
@@ -489,26 +431,22 @@
             box-shadow: 0 0 8px var(--color-ok);
             color: black;
         }
-
         input[name="vigor_calc"][value="-2"]:checked+label {
             background-color: var(--color-alert);
             border-color: var(--color-alert);
             box-shadow: 0 0 8px var(--color-alert);
             color: black;
         }
-
         input[name="vigor_calc"][value="-3"]:checked+label {
             background-color: var(--color-danger);
             border-color: var(--color-danger);
             box-shadow: 0 0 8px var(--color-danger);
             color: black;
         }
-
         /* Estilos para o Escudo Cibernético */
         .wounds-fatigue input[name="shield"] {
             display: none;
         }
-
         .wounds-fatigue input[name="shield"]+label {
             display: inline-flex;
             justify-content: center;
@@ -525,7 +463,6 @@
             font-weight: bold;
             font-size: 1.1em;
         }
-
         .wounds-fatigue input[name="shield"]:checked+label {
             background-color: var(--accent-blue);
             color: black;
@@ -566,7 +503,6 @@
         #face-path.body-part-active { fill: var(--implant-face); }
         #skin-path.body-part-active { fill: var(--accent-green); }
         #neural-path.body-part-active { fill: var(--implant-neural); }
-
         .implant-active-toggle {
             display: flex;
             align-items: center;
@@ -640,7 +576,6 @@
             width: 100%;
             min-height: 50px;
         }
-
         /* Estilos para as abas */
         .tab-buttons {
             display: flex;
@@ -648,7 +583,6 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-
         .tab-button {
             flex-grow: 1;
             background-color: var(--input-bg);
@@ -662,7 +596,6 @@
             text-transform: uppercase;
             box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
-
         .tab-button.active {
             background-color: var(--accent-blue);
             color: black;
@@ -670,19 +603,15 @@
             box-shadow: 0 0 10px var(--accent-green);
             text-shadow: none;
         }
-
         .tab-content {
             display: none;
         }
-
         .tab-content.active {
             display: block;
         }
     </style>
 </head>
-
 <body>
-
     <div class="sheet-container">
         <div class="header">
             <h1>Ficha de Personagem</h1>
@@ -697,7 +626,6 @@
             <button class="tab-button" onclick="showTab('weapons-sheet', this)">Armas</button>
             <button class="tab-button" onclick="showTab('implants-sheet', this)">Implantes</button>
         </div>
-
         <div id="main-sheet" class="tab-content active">
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Informações de Registro <span
@@ -716,7 +644,6 @@
                     <label for="char-xp">XP:</label><input type="number" id="char-xp" value="0">
                 </div>
             </div>
-
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Atributos Essenciais <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -731,7 +658,6 @@
                 <label for="attr-spirit">Espírito:</label>
                 <div class="dice-selector" data-attr="spirit"></div>
             </div>
-
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Defesas & Resistências <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -749,7 +675,6 @@
                 <div class="flex-row"><label>Armadura Bônus:</label><input type="number" id="armor-bonus" style="width: 50px;"
                         value="0" oninput="updateCalculatedStats()"></div>
             </div>
-
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Estatísticas Operacionais <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -777,7 +702,6 @@
                     <input type="number" id="carga-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
                 </div>
             </div>
-
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Status de Combate <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -813,7 +737,6 @@
                         <input type="number" id="vigor-bonus" value="0" style="width: 50px;" oninput="updateCalculatedStats()">
                     </div>
                 </div>
-
                 <div class="wounds-fatigue">
                     <div>
                         <h3>Escudo Cibernético</h3>
@@ -826,7 +749,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="section resources-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Pool de Recursos <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -858,27 +780,23 @@
                     </div>
                 </div>
             </div>
-
             <div class="section list-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Perícias & Protocolos <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
                 <div id="skills-list"></div>
             </div>
-
             <div class="section list-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Vantagens & Implantes <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
                 <div id="edges-list"></div>
                 <button class="add-button" onclick="addItem('edges')">+ Nova Vantagem</button>
             </div>
-
             <div class="section list-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Complicações & Falhas <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
                 <div id="hindrances-list"></div>
                 <button class="add-button" onclick="addItem('hindrances')">+ Nova Complicação</button>
             </div>
-
             <div class="section list-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Recursos <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -907,15 +825,12 @@
                     <input type="number" id="recursos-pobre" value="0" oninput="updateCalculatedStats()">
                 </div>
             </div>
-
             <div class="section list-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Itens & Equipamentos <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
                 <div id="items-list"></div>
                 <button class="add-button" onclick="addItem('items')">+ Novo Item</button>
             </div>
-
-
             <div class="section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Diário de Bordo & Notas <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
@@ -923,7 +838,6 @@
                     placeholder="Detalhes de missões, informações de contatos, registros de danos..."></textarea>
             </div>
         </div>
-
         <div id="assistant-sheet" class="tab-content">
             <div class="section assistant-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Assistente Cibernético <span
@@ -942,7 +856,6 @@
                         <option value="experimental">Assistente Experimental</option>
                     </select>
                 </div>
-
                 <div class="section">
                     <h3><span style="color: var(--accent-blue);">&gt;</span> Estatísticas <span
                             style="color: var(--accent-blue);">&lt;</span></h3>
@@ -973,811 +886,736 @@
                         <input type="number" id="assistant-ram-current" style="width: 50px;" value="0">
                     </div>
                 </div>
-
                 <div class="section list-section">
                     <h3><span style="color: var(--accent-blue);">&gt;</span> Nós <span
                             style="color: var(--accent-blue);">&lt;</span></h3>
                     <label for="assistant-nodes">Nós (separados por vírgula):</label>
                     <input type="text" id="assistant-nodes" placeholder="0, A, B, C">
                 </div>
-
                 <div class="section list-section">
                     <h3><span style="color: var(--accent-blue);">&gt;</span> Perícias do Assistente <span
                             style="color: var(--accent-blue);">&lt;</span></h3>
                     <div id="assistant-skills-list"></div>
                 </div>
-
                 <div class="section">
                     <h3><span style="color: var(--accent-blue);">&gt;</span> Mods Instalados <span
                             style="color: var(--accent-blue);">&lt;</span></h3>
-                        <label for="assistant-mod1">Mod 1:</label>
-                        <textarea id="assistant-mod1" placeholder="Ex: Módulo de Defesa (3 RAM)"></textarea>
-                        <label for="assistant-mod2">Mod 2:</label>
-                        <textarea id="assistant-mod2" placeholder="Ex: Compilador de Código (2 RAM)"></textarea>
-                        <label for="assistant-mod3">Mod 3:</label>
-                        <textarea id="assistant-mod3" placeholder="Ex: Protocolos de Ataque (1 RAM)"></textarea>
-                    </div>
+                    <label for="assistant-mod1">Mod 1:</label>
+                    <textarea id="assistant-mod1" placeholder="Ex: Módulo de Defesa (3 RAM)"></textarea>
+                    <label for="assistant-mod2">Mod 2:</label>
+                    <textarea id="assistant-mod2" placeholder="Ex: Compilador de Código (2 RAM)"></textarea>
+                    <label for="assistant-mod3">Mod 3:</label>
+                    <textarea id="assistant-mod3" placeholder="Ex: Protocolos de Ataque (1 RAM)"></textarea>
                 </div>
-            </div>
-
-            <div id="armor-sheet" class="tab-content">
-                <div class="section armor-section">
-                    <h2><span style="color: var(--accent-blue);">&gt;</span> Armadura Cibernética <span
-                            style="color: var(--accent-blue);">&lt;</span></h2>
-                    <div class="flex-row">
-                        <label for="armor-name">Nome da Armadura:</label>
-                        <input type="text" id="armor-name" placeholder="Ex: Armadura de Combate Pesada">
-                    </div>
-
-                    <div class="section list-section">
-                        <h3><span style="color: var(--accent-blue);">&gt;</span> Estatísticas <span
-                                style="color: var(--accent-blue);">&lt;</span></h3>
-                        <div class="flex-row">
-                            <label for="armor-value-base">Valor Base:</label>
-                            <input type="number" id="armor-value-base" value="0" style="width: 50px;" oninput="updateArmorStats()">
-                        </div>
-                        <div class="flex-row">
-                            <label for="armor-total">Total (Calculado):</label>
-                            <input type="number" id="armor-total" value="0" readonly style="width: 50px;">
-                        </div>
-                    </div>
-
-                    <div class="section list-section">
-                        <h3><span style="color: var(--accent-blue);">&gt;</span> Módulos <span
-                                style="color: var(--accent-blue);">&lt;</span></h3>
-                        <div id="armor-mods-list"></div>
-                        <button class="add-button" onclick="addArmorMod()">+ Novo Módulo</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="weapons-sheet" class="tab-content">
-                <div class="section weapons-section">
-                    <h2><span style="color: var(--accent-blue);">&gt;</span> Arsenal <span
-                            style="color: var(--accent-blue);">&lt;</span></h2>
-                    <div id="weapons-list"></div>
-                    <button class="add-button" onclick="addWeapon()">+ Adicionar Arma</button>
-                </div>
-            </div>
-
-            <div id="implants-sheet" class="tab-content">
-                <div class="section implants-section">
-                    <h2><span style="color: var(--accent-blue);">&gt;</span> Implantes Cibernéticos <span
-                            style="color: var(--accent-blue);">&lt;</span></h2>
-                    
-                    <div class="flex-row" style="justify-content: space-around;">
-                        <div class="flex-row">
-                            <label>Limite Cibernético</label>
-                            <span style="font-size: 0.8em; color: var(--text-light);">(da ficha base)</span>
-                            <input type="number" id="base-ciber-limit" readonly style="width: 70px;">
-                        </div>
-                        <div class="flex-row">
-                            <label>Custo Total</label>
-                            <span style="font-size: 0.8em; color: var(--text-light);">(implantes ativos)</span>
-                            <input type="number" id="total-implant-cost" readonly style="width: 70px;">
-                        </div>
-                    </div>
-                    
-                    <div class="body-map">
-                        <svg class="human-figure" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-                            <g id="body-parts-base">
-                                <path d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" />
-                                <path d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" />
-                                <path d="M70 70 C80 70 80 120 70 120 Z" />
-                                <path d="M130 70 C120 70 120 120 130 120 Z" />
-                                <path d="M80 150 C90 150 90 250 80 250 Z" />
-                                <path d="M120 150 C110 150 110 250 120 250 Z" />
-                            </g>
-                            <g id="body-parts-active">
-                                <path id="cortex-path" d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" data-part="córtex" />
-                                <path id="organs-path" d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" data-part="órgãos" />
-                                <path id="arms-path" d="M70 70 C80 70 80 120 70 120 Z M130 70 C120 70 120 120 130 120 Z" data-part="braços" />
-                                <path id="legs-path" d="M80 150 C90 150 90 250 80 250 Z M120 150 C110 150 110 250 120 250 Z" data-part="pernas" />
-                                <path id="face-path" d="M100 20 C115 25 115 35 100 40 C85 35 85 25 100 20 Z" data-part="face" />
-                                <path id="skin-path" d="M100 20 C130 20 130 280 100 280 C70 280 70 20 100 20 Z" data-part="pele" />
-                                <path id="neural-path" d="M98 45 C102 45 102 270 98 270 C94 270 94 45 98 45 Z" data-part="neural" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    <div class="list-section">
-                        <div id="implants-list"></div>
-                        <button class="add-button" onclick="addImplant()">+ Novo Implante</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="controls">
-                <button onclick="saveSheet()">Salvar Ficha .JSON</button>
-                <label>Carregar Dados de Arquivo:</label>
-                <input type="file" id="load-file" accept=".json">
-                <button onclick="loadSheet()">Carregar Ficha</button>
             </div>
         </div>
-
-        <script>
-            let lastCheckedRadio = {};
-
-            const dieTypes = ['d4', 'd6', 'd8', 'd10', 'd12'];
-            const skillDieTypes = ['1d4-2', 'd4', 'd6', 'd8', 'd10', 'd12'];
-            const attributes = ['agility', 'smarts', 'spirit', 'strength', 'charisma'];
-            const dieValues = { '1d4-2': 0, 'd4': 2, 'd6': 3, 'd8': 4, 'd10': 5, 'd12': 6 };
-
-            const baseSkills = [
-                { name: 'Atletismo', attr: 'Agilidade' }, { name: 'Briga', attr: 'Físico' },
-                { name: 'Armas Pesadas', attr: 'Físico' }, { name: 'Direção', attr: 'Agilidade' },
-                { name: 'Atirar', attr: 'Agilidade' }, { name: 'Furtividade', attr: 'Agilidade' },
-                { name: 'Ladroagem', attr: 'Agilidade' }, { name: 'Persuasão', attr: 'Carisma' },
-                { name: 'Intimidação', attr: 'Carisma' }, { name: 'Enganação', attr: 'Carisma' },
-                { name: 'Empatia', attr: 'Carisma' }, { name: 'Performance', attr: 'Carisma' },
-                { name: 'Cibernética', attr: 'Astúcia' }, { name: 'Robótica', attr: 'Astúcia' },
-                { name: 'Ciência', attr: 'Astúcia' }, { name: 'Medicina', attr: 'Astúcia' },
-                { name: 'Investigar', attr: 'Astúcia' }, { name: 'Improvisar', attr: 'Espírito' },
-                { name: 'Liderança', attr: 'Espírito' }, { name: 'Psiquismo', attr: 'Espírito' }
-            ];
-
-            const baseAssistantSkills = [
-                { name: 'Programar' },
-                { name: 'Interface' },
-                { name: 'Percepção' }
-            ];
-
-            function getDieValue(dieString) {
-                return dieValues[dieString] || 0;
-            }
-
-            function showTab(tabId, button) {
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.querySelectorAll('.tab-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-
-                document.getElementById(tabId).classList.add('active');
-                button.classList.add('active');
+        <div id="armor-sheet" class="tab-content">
+            <div class="section armor-section">
+                <h2><span style="color: var(--accent-blue);">&gt;</span> Armadura Cibernética <span
+                        style="color: var(--accent-blue);">&lt;</span></h2>
+                <div class="flex-row">
+                    <label for="armor-name">Nome da Armadura:</label>
+                    <input type="text" id="armor-name" placeholder="Ex: Armadura de Combate Pesada">
+                </div>
+                <div class="section list-section">
+                    <h3><span style="color: var(--accent-blue);">&gt;</span> Estatísticas <span
+                            style="color: var(--accent-blue);">&lt;</span></h3>
+                    <div class="flex-row">
+                        <label for="armor-value-base">Valor Base:</label>
+                        <input type="number" id="armor-value-base" value="0" style="width: 50px;" oninput="updateArmorStats()">
+                    </div>
+                    <div class="flex-row">
+                        <label for="armor-total">Total (Calculado):</label>
+                        <input type="number" id="armor-total" value="0" readonly style="width: 50px;">
+                    </div>
+                </div>
+                <div class="section list-section">
+                    <h3><span style="color: var(--accent-blue);">&gt;</span> Módulos <span
+                            style="color: var(--accent-blue);">&lt;</span></h3>
+                    <div id="armor-mods-list"></div>
+                    <button class="add-button" onclick="addArmorMod()">+ Novo Módulo</button>
+                </div>
+            </div>
+        </div>
+        <div id="weapons-sheet" class="tab-content">
+            <div class="section weapons-section">
+                <h2><span style="color: var(--accent-blue);">&gt;</span> Arsenal <span
+                        style="color: var(--accent-blue);">&lt;</span></h2>
+                <div class="list-section">
+                    <h3>Armas de Longo Alcance</h3>
+                    <div id="ranged-weapons-list"></div>
+                    <button class="add-button" onclick="addWeapon('ranged')">+ Adicionar Arma de Longo Alcance</button>
+                </div>
+                <div class="list-section" style="margin-top: 20px;">
+                    <h3>Armas Corpo a Corpo</h3>
+                    <div id="melee-weapons-list"></div>
+                    <button class="add-button" onclick="addWeapon('melee')">+ Adicionar Arma Corpo a Corpo</button>
+                </div>
+            </div>
+        </div>
+        <div id="implants-sheet" class="tab-content">
+            <div class="section implants-section">
+                <h2><span style="color: var(--accent-blue);">&gt;</span> Implantes Cibernéticos <span
+                        style="color: var(--accent-blue);">&lt;</span></h2>
                 
-                updateAllSheets();
+                <div class="flex-row" style="justify-content: space-around;">
+                    <div class="flex-row">
+                        <label>Limite Cibernético</label>
+                        <span style="font-size: 0.8em; color: var(--text-light);">(da ficha base)</span>
+                        <input type="number" id="base-ciber-limit" readonly style="width: 70px;">
+                    </div>
+                    <div class="flex-row">
+                        <label>Custo Total</label>
+                        <span style="font-size: 0.8em; color: var(--text-light);">(implantes ativos)</span>
+                        <input type="number" id="total-implant-cost" readonly style="width: 70px;">
+                    </div>
+                </div>
+                
+                <div class="body-map">
+                    <svg class="human-figure" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                        <g id="body-parts-base">
+                            <path d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" />
+                            <path d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" />
+                            <path d="M70 70 C80 70 80 120 70 120 Z" />
+                            <path d="M130 70 C120 70 120 120 130 120 Z" />
+                            <path d="M80 150 C90 150 90 250 80 250 Z" />
+                            <path d="M120 150 C110 150 110 250 120 250 Z" />
+                        </g>
+                        <g id="body-parts-active">
+                            <path id="cortex-path" d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" data-part="córtex" />
+                            <path id="organs-path" d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" data-part="órgãos" />
+                            <path id="arms-path" d="M70 70 C80 70 80 120 70 120 Z M130 70 C120 70 120 120 130 120 Z" data-part="braços" />
+                            <path id="legs-path" d="M80 150 C90 150 90 250 80 250 Z M120 150 C110 150 110 250 120 250 Z" data-part="pernas" />
+                            <path id="face-path" d="M100 20 C115 25 115 35 100 40 C85 35 85 25 100 20 Z" data-part="face" />
+                            <path id="skin-path" d="M100 20 C130 20 130 280 100 280 C70 280 70 20 100 20 Z" data-part="pele" />
+                            <path id="neural-path" d="M98 45 C102 45 102 270 98 270 C94 270 94 45 98 45 Z" data-part="neural" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="list-section">
+                    <div id="implants-list"></div>
+                    <button class="add-button" onclick="addImplant()">+ Novo Implante</button>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="saveSheet()">Salvar Ficha .JSON</button>
+            <label>Carregar Dados de Arquivo:</label>
+            <input type="file" id="load-file" accept=".json">
+            <button onclick="loadSheet()">Carregar Ficha</button>
+        </div>
+    </div>
+    <script>
+        let lastCheckedRadio = {};
+        const dieTypes = ['d4', 'd6', 'd8', 'd10', 'd12'];
+        const skillDieTypes = ['1d4-2', 'd4', 'd6', 'd8', 'd10', 'd12'];
+        const attributes = ['agility', 'smarts', 'spirit', 'strength', 'charisma'];
+        const dieValues = { '1d4-2': 0, 'd4': 2, 'd6': 3, 'd8': 4, 'd10': 5, 'd12': 6 };
+        const baseSkills = [
+            { name: 'Atletismo', attr: 'Agilidade' }, { name: 'Briga', attr: 'Físico' },
+            { name: 'Armas Pesadas', attr: 'Físico' }, { name: 'Direção', attr: 'Agilidade' },
+            { name: 'Atirar', attr: 'Agilidade' }, { name: 'Furtividade', attr: 'Agilidade' },
+            { name: 'Ladroagem', attr: 'Agilidade' }, { name: 'Persuasão', attr: 'Carisma' },
+            { name: 'Intimidação', attr: 'Carisma' }, { name: 'Enganação', attr: 'Carisma' },
+            { name: 'Empatia', attr: 'Carisma' }, { name: 'Performance', attr: 'Carisma' },
+            { name: 'Cibernética', attr: 'Astúcia' }, { name: 'Robótica', attr: 'Astúcia' },
+            { name: 'Ciência', attr: 'Astúcia' }, { name: 'Medicina', attr: 'Astúcia' },
+            { name: 'Investigar', attr: 'Astúcia' }, { name: 'Improvisar', attr: 'Espírito' },
+            { name: 'Liderança', attr: 'Espírito' }, { name: 'Psiquismo', attr: 'Espírito' }
+        ];
+        const baseAssistantSkills = [
+            { name: 'Programar' },
+            { name: 'Interface' },
+            { name: 'Percepção' }
+        ];
+        function getDieValue(dieString) {
+            return dieValues[dieString] || 0;
+        }
+        function showTab(tabId, button) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            button.classList.add('active');
+            
+            updateAllSheets();
+        }
+        function updateAllSheets() {
+            updateCalculatedStats();
+            updateAssistantStats();
+            updateArmorStats();
+            updateBodyMap();
+        }
+        function handleRadioClick(clickedRadio) {
+            const radioName = clickedRadio.name;
+            if (lastCheckedRadio[radioName] === clickedRadio) {
+                clickedRadio.checked = false;
+                lastCheckedRadio[radioName] = null;
+            } else {
+                lastCheckedRadio[radioName] = clickedRadio;
             }
-
-            function updateAllSheets() {
-                updateCalculatedStats();
-                updateAssistantStats();
-                updateArmorStats();
-                updateBodyMap();
-            }
-
-
-            function handleRadioClick(clickedRadio) {
-                const radioName = clickedRadio.name;
-                if (lastCheckedRadio[radioName] === clickedRadio) {
-                    clickedRadio.checked = false;
-                    lastCheckedRadio[radioName] = null;
-                } else {
-                    lastCheckedRadio[radioName] = clickedRadio;
-                }
-                updateAllSheets();
-            }
-
-            function updateCalculatedStats() {
-                const agilityDie = document.querySelector('input[name="attr-agility"]:checked')?.value || 'd4';
-                const smartsDie = document.querySelector('input[name="attr-smarts"]:checked')?.value || 'd4';
-                const spiritDie = document.querySelector('input[name="attr-spirit"]:checked')?.value || 'd4';
-                const charismaDie = document.querySelector('input[name="attr-charisma"]:checked')?.value || 'd4';
-                const fisDie = document.querySelector('input[name="attr-strength"]:checked')?.value || 'd4';
-                const armorBonus = parseInt(document.getElementById('armor-bonus')?.value) || 0;
-                const firewallBonus = parseInt(document.getElementById('firewall-bonus')?.value) || 0;
-                const ciberneticoBonus = parseInt(document.getElementById('cibernetico-bonus')?.value) || 0;
-                const velocidadeBonus = parseInt(document.getElementById('velocidade-bonus')?.value) || 0;
-                const cargaBonus = parseInt(document.getElementById('carga-bonus')?.value) || 0;
-                const vigorBonus = parseInt(document.getElementById('vigor-bonus')?.value) || 0;
-
-
-                const baseFirewall = 2 + getDieValue(smartsDie);
-                const totalFirewall = baseFirewall + firewallBonus;
-
-                if (document.getElementById('stat-firewall')) {
-                    document.getElementById('stat-firewall').value = totalFirewall;
-                    document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
-                    document.getElementById('resist-defesa').value = 2 + getDieValue(agilityDie);
-                    document.getElementById('resist-conviccao').value = 2 + getDieValue(charismaDie);
-                    document.getElementById('resist-percepcao').value = 2 + getDieValue(smartsDie);
-                    document.getElementById('resist-destino').value = 2 + getDieValue(spiritDie);
-
-                    const atletismoSkill = Array.from(document.querySelectorAll('#skills-list .list-item'))
-                        .find(item => item.querySelector('[data-skill-name]').value === 'Atletismo');
-                    const atletismoDie = atletismoSkill?.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
-
-                    document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie) + ciberneticoBonus;
-                    document.getElementById('stat-velocidade').value = 2 + getDieValue(fisDie) + getDieValue(atletismoDie) + velocidadeBonus;
-                    document.getElementById('stat-carga').value = 2 + getDieValue(fisDie) + cargaBonus;
-
-
-                    document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
-                    document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
-                    document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
-
-                    const corpoValue = parseInt(document.querySelector('input[name="corpo"]:checked')?.value || '0');
-                    const menteValue = parseInt(document.querySelector('input[name="mente"]:checked')?.value || '0');
-                    const vigorTotal = corpoValue + menteValue - vigorBonus;
-
-                    document.getElementById('vigor1').checked = vigorTotal <= -1;
-                    document.getElementById('vigor2').checked = vigorTotal <= -2;
-                    document.getElementById('vigor3').checked = vigorTotal <= -3;
-
-                    const recursosData = {
-                        extravagante: parseInt(document.getElementById('recursos-extravagante').value) || 0,
-                        rico: parseInt(document.getElementById('recursos-rico').value) || 0,
-                        comum: parseInt(document.getElementById('recursos-comum').value) || 0,
-                        modesto: parseInt(document.getElementById('recursos-modesto').value) || 0,
-                        pobre: parseInt(document.getElementById('recursos-pobre').value) || 0,
-                    };
-
-                    let highestResourceName = '';
-
-                    if (recursosData.extravagante > 0) {
-                        highestResourceName = 'Extravagante';
-                    } else if (recursosData.rico > 0) {
-                        highestResourceName = 'Rico';
-                    } else if (recursosData.comum > 0) {
-                        highestResourceName = 'Comum';
-                    } else if (recursosData.modesto > 0) {
-                        highestResourceName = 'Modesto';
-                    } else if (recursosData.pobre > 0) {
-                        highestResourceName = 'Pobre';
-                    } else {
-                        highestResourceName = 'Nenhum';
-                    }
-                    document.getElementById('recursos-maior').value = highestResourceName;
-                }
-            }
-
-            function updateAssistantStats() {
-                const assistantType = document.getElementById('assistant-type')?.value;
-                if (!assistantType) return;
-                const firewallBonus = parseInt(document.getElementById('assistant-firewall-bonus')?.value) || 0;
-                const processingBonus = parseInt(document.getElementById('assistant-processing-bonus')?.value) || 0;
-                const ramMaxInput = document.getElementById('assistant-ram-max');
-
-                let firewall = 5 + firewallBonus;
-                let processing = 2 + processingBonus;
-
-                if (assistantType === 'military') {
-                    ramMaxInput.removeAttribute('readonly');
-                    ramMaxInput.placeholder = "4 ou 5";
-                } else if (assistantType === 'experimental') {
-                    ramMaxInput.removeAttribute('readonly');
-                    ramMaxInput.placeholder = "1 a 6";
-                } else {
-                    ramMaxInput.setAttribute('readonly', true);
-                    ramMaxInput.value = 3;
-                    ramMaxInput.placeholder = "";
-                }
-
-                if (document.getElementById('assistant-firewall')) {
-                    document.getElementById('assistant-firewall').value = firewall;
-                    document.getElementById('assistant-processing').value = processing;
-                }
-            }
-
-            function updateArmorStats() {
-                const armorBase = parseInt(document.getElementById('armor-value-base')?.value) || 0;
-                const modsBonus = Array.from(document.querySelectorAll('#armor-mods-list .mod-bonus')).reduce((sum, mod) => sum + (parseInt(mod.value) || 0), 0);
-                const totalArmor = armorBase + modsBonus;
-
-                if (document.getElementById('armor-total')) {
-                    document.getElementById('armor-total').value = totalArmor;
-                    const armorBonusInput = document.getElementById('armor-bonus');
-                    if (armorBonusInput) {
-                        armorBonusInput.value = totalArmor;
-                        updateCalculatedStats();
-                    }
-                }
-            }
-
-            function updateBodyMap() {
-                const bodyParts = {
-                    'córtex': document.querySelector('[data-part="córtex"]'),
-                    'face': document.querySelector('[data-part="face"]'),
-                    'órgãos': document.querySelector('[data-part="órgãos"]'),
-                    'braços': document.querySelector('[data-part="braços"]'),
-                    'pernas': document.querySelector('[data-part="pernas"]'),
-                    'pele': document.querySelector('[data-part="pele"]'),
-                    'neural': document.querySelector('[data-part="neural"]')
+            updateAllSheets();
+        }
+        function updateCalculatedStats() {
+            const agilityDie = document.querySelector('input[name="attr-agility"]:checked')?.value || 'd4';
+            const smartsDie = document.querySelector('input[name="attr-smarts"]:checked')?.value || 'd4';
+            const spiritDie = document.querySelector('input[name="attr-spirit"]:checked')?.value || 'd4';
+            const charismaDie = document.querySelector('input[name="attr-charisma"]:checked')?.value || 'd4';
+            const fisDie = document.querySelector('input[name="attr-strength"]:checked')?.value || 'd4';
+            const armorBonus = parseInt(document.getElementById('armor-bonus')?.value) || 0;
+            const firewallBonus = parseInt(document.getElementById('firewall-bonus')?.value) || 0;
+            const ciberneticoBonus = parseInt(document.getElementById('cibernetico-bonus')?.value) || 0;
+            const velocidadeBonus = parseInt(document.getElementById('velocidade-bonus')?.value) || 0;
+            const cargaBonus = parseInt(document.getElementById('carga-bonus')?.value) || 0;
+            const vigorBonus = parseInt(document.getElementById('vigor-bonus')?.value) || 0;
+            const baseFirewall = 2 + getDieValue(smartsDie);
+            const totalFirewall = baseFirewall + firewallBonus;
+            if (document.getElementById('stat-firewall')) {
+                document.getElementById('stat-firewall').value = totalFirewall;
+                document.getElementById('resist-resistencia').value = 2 + getDieValue(fisDie) + armorBonus;
+                document.getElementById('resist-defesa').value = 2 + getDieValue(agilityDie);
+                document.getElementById('resist-conviccao').value = 2 + getDieValue(charismaDie);
+                document.getElementById('resist-percepcao').value = 2 + getDieValue(smartsDie);
+                document.getElementById('resist-destino').value = 2 + getDieValue(spiritDie);
+                const atletismoSkill = Array.from(document.querySelectorAll('#skills-list .list-item'))
+                    .find(item => item.querySelector('[data-skill-name]').value === 'Atletismo');
+                const atletismoDie = atletismoSkill?.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
+                document.getElementById('stat-cibernetico').value = getDieValue(fisDie) + getDieValue(spiritDie) + ciberneticoBonus;
+                document.getElementById('stat-velocidade').value = 2 + getDieValue(fisDie) + getDieValue(atletismoDie) + velocidadeBonus;
+                document.getElementById('stat-carga').value = 2 + getDieValue(fisDie) + cargaBonus;
+                document.getElementById('power-max').value = 2 + getDieValue(spiritDie);
+                document.getElementById('focus-max').value = 2 + getDieValue(fisDie);
+                document.getElementById('ram-max').value = 2 + getDieValue(smartsDie);
+                const corpoValue = parseInt(document.querySelector('input[name="corpo"]:checked')?.value || '0');
+                const menteValue = parseInt(document.querySelector('input[name="mente"]:checked')?.value || '0');
+                const vigorTotal = corpoValue + menteValue - vigorBonus;
+                document.getElementById('vigor1').checked = vigorTotal <= -1;
+                document.getElementById('vigor2').checked = vigorTotal <= -2;
+                document.getElementById('vigor3').checked = vigorTotal <= -3;
+                const recursosData = {
+                    extravagante: parseInt(document.getElementById('recursos-extravagante').value) || 0,
+                    rico: parseInt(document.getElementById('recursos-rico').value) || 0,
+                    comum: parseInt(document.getElementById('recursos-comum').value) || 0,
+                    modesto: parseInt(document.getElementById('recursos-modesto').value) || 0,
+                    pobre: parseInt(document.getElementById('recursos-pobre').value) || 0,
                 };
-        
-                for (const partName in bodyParts) {
-                    const partElement = bodyParts[partName];
+                let highestResourceName = '';
+                if (recursosData.extravagante > 0) {
+                    highestResourceName = 'Extravagante';
+                } else if (recursosData.rico > 0) {
+                    highestResourceName = 'Rico';
+                } else if (recursosData.comum > 0) {
+                    highestResourceName = 'Comum';
+                } else if (recursosData.modesto > 0) {
+                    highestResourceName = 'Modesto';
+                } else if (recursosData.pobre > 0) {
+                    highestResourceName = 'Pobre';
+                } else {
+                    highestResourceName = 'Nenhum';
+                }
+                document.getElementById('recursos-maior').value = highestResourceName;
+            }
+        }
+        function updateAssistantStats() {
+            const assistantType = document.getElementById('assistant-type')?.value;
+            if (!assistantType) return;
+            const firewallBonus = parseInt(document.getElementById('assistant-firewall-bonus')?.value) || 0;
+            const processingBonus = parseInt(document.getElementById('assistant-processing-bonus')?.value) || 0;
+            const ramMaxInput = document.getElementById('assistant-ram-max');
+            let firewall = 5 + firewallBonus;
+            let processing = 2 + processingBonus;
+            if (assistantType === 'military') {
+                ramMaxInput.removeAttribute('readonly');
+                ramMaxInput.placeholder = "4 ou 5";
+            } else if (assistantType === 'experimental') {
+                ramMaxInput.removeAttribute('readonly');
+                ramMaxInput.placeholder = "1 a 6";
+            } else {
+                ramMaxInput.setAttribute('readonly', true);
+                ramMaxInput.value = 3;
+                ramMaxInput.placeholder = "";
+            }
+            if (document.getElementById('assistant-firewall')) {
+                document.getElementById('assistant-firewall').value = firewall;
+                document.getElementById('assistant-processing').value = processing;
+            }
+        }
+        function updateArmorStats() {
+            const armorBase = parseInt(document.getElementById('armor-value-base')?.value) || 0;
+            const modsBonus = Array.from(document.querySelectorAll('#armor-mods-list .mod-bonus')).reduce((sum, mod) => sum + (parseInt(mod.value) || 0), 0);
+            const totalArmor = armorBase + modsBonus;
+            if (document.getElementById('armor-total')) {
+                document.getElementById('armor-total').value = totalArmor;
+                const armorBonusInput = document.getElementById('armor-bonus');
+                if (armorBonusInput) {
+                    armorBonusInput.value = totalArmor;
+                    updateCalculatedStats();
+                }
+            }
+        }
+        function updateBodyMap() {
+            const bodyParts = {
+                'córtex': document.querySelector('[data-part="córtex"]'),
+                'face': document.querySelector('[data-part="face"]'),
+                'órgãos': document.querySelector('[data-part="órgãos"]'),
+                'braços': document.querySelector('[data-part="braços"]'),
+                'pernas': document.querySelector('[data-part="pernas"]'),
+                'pele': document.querySelector('[data-part="pele"]'),
+                'neural': document.querySelector('[data-part="neural"]')
+            };
+            for (const partName in bodyParts) {
+                const partElement = bodyParts[partName];
+                if (partElement) {
+                    partElement.classList.remove('body-part-active');
+                }
+            }
+            const activeImplants = document.querySelectorAll('#implants-list input[type="checkbox"]:checked');
+            activeImplants.forEach(checkbox => {
+                const locationSelect = checkbox.closest('.list-item').querySelector('.implant-location');
+                if (locationSelect) {
+                    const location = locationSelect.value;
+                    const partElement = bodyParts[location];
                     if (partElement) {
-                        partElement.classList.remove('body-part-active');
+                        partElement.classList.add('body-part-active');
                     }
                 }
+            });
+            const baseCiberLimit = document.getElementById('stat-cibernetico')?.value || 0;
+            const totalCiberCost = Array.from(document.querySelectorAll('#implants-list .implant-cost')).reduce((sum, costInput) => {
+                const checkbox = costInput.closest('.list-item').querySelector('input[type="checkbox"]');
+                return sum + (checkbox?.checked ? (parseInt(costInput.value) || 0) : 0);
+            }, 0);
             
-                const activeImplants = document.querySelectorAll('#implants-list input[type="checkbox"]:checked');
-                activeImplants.forEach(checkbox => {
-                    const locationSelect = checkbox.closest('.list-item').querySelector('.implant-location');
-                    if (locationSelect) {
-                        const location = locationSelect.value;
-                        const partElement = bodyParts[location];
-                        if (partElement) {
-                            partElement.classList.add('body-part-active');
-                        }
-                    }
-                });
-
-                const baseCiberLimit = document.getElementById('stat-cibernetico')?.value || 0;
-                const totalCiberCost = Array.from(document.querySelectorAll('#implants-list .implant-cost')).reduce((sum, costInput) => {
-                    const checkbox = costInput.closest('.list-item').querySelector('input[type="checkbox"]');
-                    return sum + (checkbox?.checked ? (parseInt(costInput.value) || 0) : 0);
-                }, 0);
-                
-                if (document.getElementById('base-ciber-limit')) {
-                    document.getElementById('base-ciber-limit').value = baseCiberLimit;
-                }
-                if (document.getElementById('total-implant-cost')) {
-                    document.getElementById('total-implant-cost').value = totalCiberCost;
-                }
+            if (document.getElementById('base-ciber-limit')) {
+                document.getElementById('base-ciber-limit').value = baseCiberLimit;
             }
-
-            function addAttributeSelectors() {
-                attributes.forEach(attr => {
-                    const container = document.querySelector(`.dice-selector[data-attr="${attr}"]`);
-                    if (!container) return;
-                    let html = '';
-                    dieTypes.forEach(die => {
-                        const id = `attr-${attr}-${die}`;
-                        html += `<input type="radio" id="${id}" name="attr-${attr}" value="${die}" onchange="updateAllSheets()">`;
-                        html += `<label for="${id}">${die}</label>`;
-                    });
-                    container.innerHTML = html;
-                });
+            if (document.getElementById('total-implant-cost')) {
+                document.getElementById('total-implant-cost').value = totalCiberCost;
             }
-
-            function addAssistantSelectors() {
-                const iceContainer = document.querySelector('.dice-selector[data-attr="ice-passivo"]');
-                if (!iceContainer) return;
-                let iceHtml = '';
+        }
+        function addAttributeSelectors() {
+            attributes.forEach(attr => {
+                const container = document.querySelector(`.dice-selector[data-attr="${attr}"]`);
+                if (!container) return;
+                let html = '';
                 dieTypes.forEach(die => {
-                    const id = `assistant-ice-passivo-${die}`;
-                    iceHtml += `<input type="radio" id="${id}" name="assistant-ice-passivo" value="${die}" onchange="updateAllSheets()">`;
-                    iceHtml += `<label for="${id}">${die}</label>`;
+                    const id = `attr-${attr}-${die}`;
+                    html += `<input type="radio" id="${id}" name="attr-${attr}" value="${die}" onchange="updateAllSheets()">`;
+                    html += `<label for="${id}">${die}</label>`;
                 });
-                iceContainer.innerHTML = iceHtml;
-            }
-
-            function createSkillItem(name, die = '1d4-2', bonus = '0', containerId) {
-                const list = document.getElementById(containerId);
-                if (!list) return;
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const nameInput = document.createElement('input');
-                nameInput.type = 'text';
-                nameInput.placeholder = `Nome da Perícia`;
-                nameInput.value = name;
-                nameInput.dataset.skillName = name;
-                nameInput.oninput = updateAllSheets;
-
-                const diceSelectorContainer = document.createElement('div');
-                diceSelectorContainer.className = 'dice-selector';
-                const skillId = `skill-${name.replace(/\s/g, '-')}`;
-                skillDieTypes.forEach(d => {
-                    const id = `${skillId}-${d}`;
-                    const input = document.createElement('input');
-                    input.type = 'radio';
-                    input.id = id;
-                    input.name = skillId;
-                    input.value = d;
-                    input.onchange = updateAllSheets;
-                    const label = document.createElement('label');
-                    label.htmlFor = id;
-                    label.textContent = d;
-                    if (d === die) input.checked = true;
-                    diceSelectorContainer.appendChild(input);
-                    diceSelectorContainer.appendChild(label);
-                });
-
-                const bonusInput = document.createElement('input');
-                bonusInput.type = 'number';
-                bonusInput.className = 'bonus';
-                bonusInput.placeholder = 'Bônus';
-                bonusInput.value = bonus;
-                bonusInput.oninput = updateAllSheets;
-
-                itemDiv.appendChild(nameInput);
-                itemDiv.appendChild(diceSelectorContainer);
-                itemDiv.appendChild(bonusInput);
-                list.appendChild(itemDiv);
-            }
-
-            function createInitialSkills() {
-                const list = document.getElementById('skills-list');
-                if (!list) return;
-                list.innerHTML = '';
-                baseSkills.forEach(skill => {
-                    createSkillItem(skill.name, '1d4-2', '0', 'skills-list');
-                });
-            }
-
-            function createAssistantSkills() {
-                const list = document.getElementById('assistant-skills-list');
-                if (!list) return;
-                list.innerHTML = '';
-                baseAssistantSkills.forEach(skill => {
-                    createSkillItem(skill.name, 'd4', '0', 'assistant-skills-list');
-                });
-            }
-
-            function addArmorMod(name = '', bonus = 0) {
-                const list = document.getElementById('armor-mods-list');
-                if (!list) return;
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const nameInput = document.createElement('input');
-                nameInput.type = 'text';
-                nameInput.placeholder = 'Nome do Módulo';
-                nameInput.value = name;
-                nameInput.oninput = updateAllSheets;
-
-                const bonusInput = document.createElement('input');
-                bonusInput.type = 'number';
-                bonusInput.className = 'bonus mod-bonus';
-                bonusInput.placeholder = 'Bônus';
-                bonusInput.value = bonus;
-                bonusInput.oninput = updateAllSheets;
-                
-                const removeButton = document.createElement('button');
-                removeButton.className = 'remove-button';
-                removeButton.textContent = 'X';
-                removeButton.onclick = () => {
-                    list.removeChild(itemDiv);
-                    updateAllSheets();
-                };
-
-                itemDiv.appendChild(nameInput);
-                itemDiv.appendChild(bonusInput);
-                itemDiv.appendChild(removeButton);
-                list.appendChild(itemDiv);
-            }
-
-            function addWeapon(name = '', damage = '', weight = '', value = '', notes = '', mods = [], quantity = 1) {
-                const list = document.getElementById('weapons-list');
-                if (!list) return;
-                const weaponId = 'weapon-' + Date.now();
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const weaponInfo = document.createElement('div');
-                weaponInfo.className = 'weapon-info';
-
-                const nameInput = document.createElement('input');
-                nameInput.type = 'text';
-                nameInput.placeholder = 'Nome da Arma';
-                nameInput.value = name;
-                nameInput.oninput = updateAllSheets;
-
-                const flexRow = document.createElement('div');
-                flexRow.className = 'flex-row';
-                
-                const damageLabel = document.createElement('label');
-                damageLabel.textContent = 'Dano:';
-                const damageInput = document.createElement('input');
-                damageInput.type = 'text';
-                damageInput.placeholder = 'Ex: 2d6+1';
-                damageInput.style.width = '80px';
-                damageInput.value = damage;
-                damageInput.oninput = updateAllSheets;
-                
-                const weightLabel = document.createElement('label');
-                weightLabel.textContent = 'Peso:';
-                const weightInput = document.createElement('input');
-                weightInput.type = 'text';
-                weightInput.placeholder = 'Kg';
-                weightInput.style.width = '50px';
-                weightInput.value = weight;
-                weightInput.oninput = updateAllSheets;
-
-                const valueLabel = document.createElement('label');
-                valueLabel.textContent = 'Valor:';
-                const valueInput = document.createElement('input');
-                valueInput.type = 'text';
-                valueInput.placeholder = 'cr';
-                valueInput.style.width = '60px';
-                valueInput.value = value;
-                valueInput.oninput = updateAllSheets;
-
-                const quantityLabel = document.createElement('label');
-                quantityLabel.textContent = 'Qtd:';
-                const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.placeholder = '1';
-                quantityInput.style.width = '40px';
-                quantityInput.value = quantity;
-                quantityInput.oninput = updateAllSheets;
-
-                flexRow.appendChild(damageLabel);
-                flexRow.appendChild(damageInput);
-                flexRow.appendChild(weightLabel);
-                flexRow.appendChild(weightInput);
-                flexRow.appendChild(valueLabel);
-                flexRow.appendChild(valueInput);
-                flexRow.appendChild(quantityLabel);
-                flexRow.appendChild(quantityInput);
-
-                const notesTextarea = document.createElement('textarea');
-                notesTextarea.placeholder = 'Notas sobre a arma...';
-                notesTextarea.style.minHeight = '50px';
-                notesTextarea.value = notes;
-                notesTextarea.oninput = updateAllSheets;
-                
-                weaponInfo.appendChild(nameInput);
-                weaponInfo.appendChild(flexRow);
-                weaponInfo.appendChild(notesTextarea);
-                
-                const weaponControls = document.createElement('div');
-                weaponControls.className = 'weapon-controls';
-                
-                const toggleModsButton = document.createElement('button');
-                toggleModsButton.className = 'add-button';
-                toggleModsButton.textContent = 'Mods (+)';
-                toggleModsButton.onclick = () => toggleMods(weaponId);
-
-                const removeButton = document.createElement('button');
-                removeButton.className = 'remove-button';
-                removeButton.textContent = 'Remover';
-                removeButton.onclick = () => itemDiv.remove();
-
-                weaponControls.appendChild(toggleModsButton);
-                weaponControls.appendChild(removeButton);
-
-                const modsSection = document.createElement('div');
-                modsSection.id = weaponId;
-                modsSection.className = 'mods-section';
-                modsSection.style.display = 'none';
-
-                const sectionTitle = document.createElement('div');
-                sectionTitle.className = 'section-title';
-                sectionTitle.textContent = 'Mods';
-
-                const modsList = document.createElement('div');
-                modsList.id = `${weaponId}-mods-list`;
-
-                const addModButton = document.createElement('button');
-                addModButton.className = 'add-button';
-                addModButton.textContent = '+ Novo Mod';
-                addModButton.onclick = () => addWeaponMod(weaponId);
-
-                modsSection.appendChild(sectionTitle);
-                modsSection.appendChild(modsList);
-                modsSection.appendChild(addModButton);
-
-                itemDiv.appendChild(weaponInfo);
-                itemDiv.appendChild(weaponControls);
-                itemDiv.appendChild(modsSection);
-                list.appendChild(itemDiv);
-
-                mods.forEach(mod => addWeaponMod(weaponId, mod.name, mod.desc));
-                updateAllSheets();
-            }
-
-            function toggleMods(weaponId) {
-                const modsSection = document.getElementById(weaponId);
-                const toggleButton = modsSection.previousElementSibling.querySelector('.add-button');
-                if (modsSection.style.display === 'none') {
-                    modsSection.style.display = 'block';
-                    toggleButton.textContent = 'Mods (-)';
-                } else {
-                    modsSection.style.display = 'none';
-                    toggleButton.textContent = 'Mods (+)';
-                }
-            }
-
-            function addWeaponMod(weaponId, name = '', desc = '') {
-                const list = document.getElementById(weaponId + '-mods-list');
-                if (!list) return;
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const nameInput = document.createElement('input');
-                nameInput.type = 'text';
-                nameInput.placeholder = 'Nome do Mod';
-                nameInput.value = name;
-                nameInput.oninput = updateAllSheets;
-
-                const descInput = document.createElement('input');
-                descInput.type = 'text';
-                descInput.placeholder = 'Descrição do Mod';
-                descInput.value = desc;
-                descInput.oninput = updateAllSheets;
-
-                const removeButton = document.createElement('button');
-                removeButton.className = 'remove-button';
-                removeButton.textContent = 'X';
-                removeButton.onclick = () => itemDiv.remove();
-
-                itemDiv.appendChild(nameInput);
-                itemDiv.appendChild(descInput);
-                itemDiv.appendChild(removeButton);
-                list.appendChild(itemDiv);
-            }
+                container.innerHTML = html;
+            });
+        }
+        function addAssistantSelectors() {
+            const iceContainer = document.querySelector('.dice-selector[data-attr="ice-passivo"]');
+            if (!iceContainer) return;
+            let iceHtml = '';
+            dieTypes.forEach(die => {
+                const id = `assistant-ice-passivo-${die}`;
+                iceHtml += `<input type="radio" id="${id}" name="assistant-ice-passivo" value="${die}" onchange="updateAllSheets()">`;
+                iceHtml += `<label for="${id}">${die}</label>`;
+            });
+            iceContainer.innerHTML = iceHtml;
+        }
+        function createSkillItem(name, die = '1d4-2', bonus = '0', containerId) {
+            const list = document.getElementById(containerId);
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = `Nome da Perícia`;
+            nameInput.value = name;
+            nameInput.dataset.skillName = name;
+            nameInput.oninput = updateAllSheets;
+            const diceSelectorContainer = document.createElement('div');
+            diceSelectorContainer.className = 'dice-selector';
+            const skillId = `skill-${name.replace(/\s/g, '-')}`;
+            skillDieTypes.forEach(d => {
+                const id = `${skillId}-${d}`;
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.id = id;
+                input.name = skillId;
+                input.value = d;
+                input.onchange = updateAllSheets;
+                const label = document.createElement('label');
+                label.htmlFor = id;
+                label.textContent = d;
+                if (d === die) input.checked = true;
+                diceSelectorContainer.appendChild(input);
+                diceSelectorContainer.appendChild(label);
+            });
+            const bonusInput = document.createElement('input');
+            bonusInput.type = 'number';
+            bonusInput.className = 'bonus';
+            bonusInput.placeholder = 'Bônus';
+            bonusInput.value = bonus;
+            bonusInput.oninput = updateAllSheets;
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(diceSelectorContainer);
+            itemDiv.appendChild(bonusInput);
+            list.appendChild(itemDiv);
+        }
+        function createInitialSkills() {
+            const list = document.getElementById('skills-list');
+            if (!list) return;
+            list.innerHTML = '';
+            baseSkills.forEach(skill => {
+                createSkillItem(skill.name, '1d4-2', '0', 'skills-list');
+            });
+        }
+        function createAssistantSkills() {
+            const list = document.getElementById('assistant-skills-list');
+            if (!list) return;
+            list.innerHTML = '';
+            baseAssistantSkills.forEach(skill => {
+                createSkillItem(skill.name, 'd4', '0', 'assistant-skills-list');
+            });
+        }
+        function addArmorMod(name = '', bonus = 0) {
+            const list = document.getElementById('armor-mods-list');
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = 'Nome do Módulo';
+            nameInput.value = name;
+            nameInput.oninput = updateAllSheets;
+            const bonusInput = document.createElement('input');
+            bonusInput.type = 'number';
+            bonusInput.className = 'bonus mod-bonus';
+            bonusInput.placeholder = 'Bônus';
+            bonusInput.value = bonus;
+            bonusInput.oninput = updateAllSheets;
             
-            function addImplant(name = '', location = 'córtex', value = 'Comum', ciberCost = 1, notes = '', active = true) {
-                const list = document.getElementById('implants-list');
-                if (!list) return;
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const implantName = document.createElement('input');
-                implantName.type = 'text';
-                implantName.placeholder = 'Nome do Implante';
-                implantName.value = name;
-                implantName.oninput = updateAllSheets;
-
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => {
+                list.removeChild(itemDiv);
+                updateAllSheets();
+            };
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(bonusInput);
+            itemDiv.appendChild(removeButton);
+            list.appendChild(itemDiv);
+        }
+        function addWeapon(type, name = '', damage = '', weight = '', value = '', notes = '', mods = [], quantity = 1) {
+            const listId = type === 'ranged' ? 'ranged-weapons-list' : 'melee-weapons-list';
+            const list = document.getElementById(listId);
+            if (!list) return;
+            const weaponId = `weapon-${Date.now()}-${type}`;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            itemDiv.dataset.weaponType = type;
+            const weaponInfo = document.createElement('div');
+            weaponInfo.className = 'weapon-info';
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = type === 'ranged' ? 'Nome da Arma de Longo Alcance' : 'Nome da Arma Corpo a Corpo';
+            nameInput.value = name;
+            nameInput.oninput = updateAllSheets;
+            const flexRow = document.createElement('div');
+            flexRow.className = 'flex-row';
+            
+            const damageLabel = document.createElement('label');
+            damageLabel.textContent = 'Dano:';
+            const damageInput = document.createElement('input');
+            damageInput.type = 'text';
+            damageInput.placeholder = 'Ex: 2d6+1';
+            damageInput.style.width = '80px';
+            damageInput.value = damage;
+            damageInput.oninput = updateAllSheets;
+            
+            const weightLabel = document.createElement('label');
+            weightLabel.textContent = 'Peso:';
+            const weightInput = document.createElement('input');
+            weightInput.type = 'text';
+            weightInput.placeholder = 'Kg';
+            weightInput.style.width = '50px';
+            weightInput.value = weight;
+            weightInput.oninput = updateAllSheets;
+            const valueLabel = document.createElement('label');
+            valueLabel.textContent = 'Valor:';
+            const valueInput = document.createElement('input');
+            valueInput.type = 'text';
+            valueInput.placeholder = 'cr';
+            valueInput.style.width = '60px';
+            valueInput.value = value;
+            valueInput.oninput = updateAllSheets;
+            const quantityLabel = document.createElement('label');
+            quantityLabel.textContent = 'Qtd:';
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.placeholder = '1';
+            quantityInput.style.width = '40px';
+            quantityInput.value = quantity;
+            quantityInput.oninput = updateAllSheets;
+            flexRow.appendChild(damageLabel);
+            flexRow.appendChild(damageInput);
+            flexRow.appendChild(weightLabel);
+            flexRow.appendChild(weightInput);
+            flexRow.appendChild(valueLabel);
+            flexRow.appendChild(valueInput);
+            flexRow.appendChild(quantityLabel);
+            flexRow.appendChild(quantityInput);
+            const notesTextarea = document.createElement('textarea');
+            notesTextarea.placeholder = 'Notas sobre a arma...';
+            notesTextarea.style.minHeight = '50px';
+            notesTextarea.value = notes;
+            notesTextarea.oninput = updateAllSheets;
+            
+            weaponInfo.appendChild(nameInput);
+            weaponInfo.appendChild(flexRow);
+            weaponInfo.appendChild(notesTextarea);
+            
+            const weaponControls = document.createElement('div');
+            weaponControls.className = 'weapon-controls';
+            
+            const toggleModsButton = document.createElement('button');
+            toggleModsButton.className = 'add-button';
+            toggleModsButton.textContent = 'Mods (+)';
+            toggleModsButton.onclick = () => toggleMods(weaponId);
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'Remover';
+            removeButton.onclick = () => itemDiv.remove();
+            weaponControls.appendChild(toggleModsButton);
+            weaponControls.appendChild(removeButton);
+            const modsSection = document.createElement('div');
+            modsSection.id = weaponId;
+            modsSection.className = 'mods-section';
+            modsSection.style.display = 'none';
+            const sectionTitle = document.createElement('div');
+            sectionTitle.className = 'section-title';
+            sectionTitle.textContent = 'Mods';
+            const modsList = document.createElement('div');
+            modsList.id = `${weaponId}-mods-list`;
+            const addModButton = document.createElement('button');
+            addModButton.className = 'add-button';
+            addModButton.textContent = '+ Novo Mod';
+            addModButton.onclick = () => addWeaponMod(weaponId, type);
+            modsSection.appendChild(sectionTitle);
+            modsSection.appendChild(modsList);
+            modsSection.appendChild(addModButton);
+            itemDiv.appendChild(weaponInfo);
+            itemDiv.appendChild(weaponControls);
+            itemDiv.appendChild(modsSection);
+            list.appendChild(itemDiv);
+            mods.forEach(mod => addWeaponMod(weaponId, type, mod.name, mod.desc, mod.location));
+            updateAllSheets();
+        }
+        function toggleMods(weaponId) {
+            const modsSection = document.getElementById(weaponId);
+            const toggleButton = modsSection.previousElementSibling.querySelector('.add-button');
+            if (modsSection.style.display === 'none') {
+                modsSection.style.display = 'block';
+                toggleButton.textContent = 'Mods (-)';
+            } else {
+                modsSection.style.display = 'none';
+                toggleButton.textContent = 'Mods (+)';
+            }
+        }
+        function addWeaponMod(weaponId, weaponType, name = '', desc = '', location = '') {
+            const list = document.getElementById(weaponId + '-mods-list');
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = 'Nome do Mod';
+            nameInput.value = name;
+            nameInput.oninput = updateAllSheets;
+            const descInput = document.createElement('input');
+            descInput.type = 'text';
+            descInput.placeholder = 'Descrição do Mod';
+            descInput.value = desc;
+            descInput.oninput = updateAllSheets;
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => itemDiv.remove();
+            itemDiv.appendChild(nameInput);
+            if (weaponType === 'ranged') {
                 const locationSelect = document.createElement('select');
-                locationSelect.className = 'implant-location';
+                locationSelect.className = 'mod-location';
                 locationSelect.innerHTML = `
-                    <option value="córtex">Córtex</option>
-                    <option value="face">Face</option>
-                    <option value="órgãos">Órgãos</option>
-                    <option value="braços">Braços</option>
-                    <option value="pernas">Pernas</option>
-                    <option value="pele">Pele</option>
-                    <option value="neural">Neural</option>
+                    <option value="">Local</option>
+                    <option value="sight">Mira</option>
+                    <option value="body">Corpo</option>
+                    <option value="system">Sistema</option>
                 `;
                 locationSelect.value = location;
                 locationSelect.onchange = updateAllSheets;
-                
-                const valueSelect = document.createElement('select');
-                valueSelect.className = 'implant-value';
-                valueSelect.innerHTML = `
-                    <option value="Extravagante">Extravagante</option>
-                    <option value="Rico">Rico</option>
-                    <option value="Comum">Comum</option>
-                    <option value="Modesto">Modesto</option>
-                    <option value="Pobre">Pobre</option>
-                `;
-                valueSelect.value = value;
-                valueSelect.onchange = updateAllSheets;
-
-                const ciberCostInput = document.createElement('input');
-                ciberCostInput.type = 'number';
-                ciberCostInput.className = 'implant-cost';
-                ciberCostInput.placeholder = 'Custo';
-                ciberCostInput.value = ciberCost;
-                ciberCostInput.oninput = updateAllSheets;
-
-                const ciberCostLabel = document.createElement('label');
-                ciberCostLabel.textContent = 'Custo Ciber:';
-                ciberCostLabel.style.width = 'auto';
-
-                const notesTextarea = document.createElement('textarea');
-                notesTextarea.placeholder = 'Notas sobre o implante...';
-                notesTextarea.value = notes;
-                notesTextarea.oninput = updateAllSheets;
-
-                const activeToggle = document.createElement('div');
-                activeToggle.className = 'implant-active-toggle';
-                const activeCheckbox = document.createElement('input');
-                activeCheckbox.type = 'checkbox';
-                const toggleId = 'implant-toggle-' + Date.now();
-                activeCheckbox.id = toggleId;
-                activeCheckbox.checked = active;
-                activeCheckbox.onchange = updateAllSheets;
-                const activeLabel = document.createElement('label');
-                activeLabel.htmlFor = toggleId;
-
-                const removeButton = document.createElement('button');
-                removeButton.className = 'remove-button';
-                removeButton.textContent = 'X';
-                removeButton.onclick = () => {
-                    list.removeChild(itemDiv);
-                    updateAllSheets();
-                };
-                
-                activeToggle.appendChild(activeCheckbox);
-                activeToggle.appendChild(activeLabel);
-
-                const row1 = document.createElement('div');
-                row1.className = 'implant-item-row';
-                row1.appendChild(implantName);
-                row1.appendChild(locationSelect);
-                row1.appendChild(valueSelect);
-                
-                const row2 = document.createElement('div');
-                row2.className = 'implant-item-row';
-                const ciberCostGroup = document.createElement('div');
-                ciberCostGroup.className = 'implant-cost-group';
-                ciberCostGroup.appendChild(ciberCostLabel);
-                ciberCostGroup.appendChild(ciberCostInput);
-                row2.appendChild(ciberCostGroup);
-                row2.appendChild(activeToggle);
-                row2.appendChild(removeButton);
-
-                itemDiv.appendChild(row1);
-                itemDiv.appendChild(notesTextarea);
-                itemDiv.appendChild(row2);
-
-                list.appendChild(itemDiv);
+                itemDiv.appendChild(locationSelect);
+            }
+            itemDiv.appendChild(descInput);
+            itemDiv.appendChild(removeButton);
+            list.appendChild(itemDiv);
+        }
+        
+        function addImplant(name = '', location = 'córtex', value = 'Comum', ciberCost = 1, notes = '', active = true) {
+            const list = document.getElementById('implants-list');
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            const implantName = document.createElement('input');
+            implantName.type = 'text';
+            implantName.placeholder = 'Nome do Implante';
+            implantName.value = name;
+            implantName.oninput = updateAllSheets;
+            const locationSelect = document.createElement('select');
+            locationSelect.className = 'implant-location';
+            locationSelect.innerHTML = `
+                <option value="córtex">Córtex</option>
+                <option value="face">Face</option>
+                <option value="órgãos">Órgãos</option>
+                <option value="braços">Braços</option>
+                <option value="pernas">Pernas</option>
+                <option value="pele">Pele</option>
+                <option value="neural">Neural</option>
+            `;
+            locationSelect.value = location;
+            locationSelect.onchange = updateAllSheets;
+            
+            const valueSelect = document.createElement('select');
+            valueSelect.className = 'implant-value';
+            valueSelect.innerHTML = `
+                <option value="Extravagante">Extravagante</option>
+                <option value="Rico">Rico</option>
+                <option value="Comum">Comum</option>
+                <option value="Modesto">Modesto</option>
+                <option value="Pobre">Pobre</option>
+            `;
+            valueSelect.value = value;
+            valueSelect.onchange = updateAllSheets;
+            const ciberCostInput = document.createElement('input');
+            ciberCostInput.type = 'number';
+            ciberCostInput.className = 'implant-cost';
+            ciberCostInput.placeholder = 'Custo';
+            ciberCostInput.value = ciberCost;
+            ciberCostInput.oninput = updateAllSheets;
+            const ciberCostLabel = document.createElement('label');
+            ciberCostLabel.textContent = 'Custo Ciber:';
+            ciberCostLabel.style.width = 'auto';
+            const notesTextarea = document.createElement('textarea');
+            notesTextarea.placeholder = 'Notas sobre o implante...';
+            notesTextarea.value = notes;
+            notesTextarea.oninput = updateAllSheets;
+            const activeToggle = document.createElement('div');
+            activeToggle.className = 'implant-active-toggle';
+            const activeCheckbox = document.createElement('input');
+            activeCheckbox.type = 'checkbox';
+            const toggleId = 'implant-toggle-' + Date.now();
+            activeCheckbox.id = toggleId;
+            activeCheckbox.checked = active;
+            activeCheckbox.onchange = updateAllSheets;
+            const activeLabel = document.createElement('label');
+            activeLabel.htmlFor = toggleId;
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => {
+                list.removeChild(itemDiv);
                 updateAllSheets();
+            };
+            
+            activeToggle.appendChild(activeCheckbox);
+            activeToggle.appendChild(activeLabel);
+            const row1 = document.createElement('div');
+            row1.className = 'implant-item-row';
+            row1.appendChild(implantName);
+            row1.appendChild(locationSelect);
+            row1.appendChild(valueSelect);
+            
+            const row2 = document.createElement('div');
+            row2.className = 'implant-item-row';
+            const ciberCostGroup = document.createElement('div');
+            ciberCostGroup.className = 'implant-cost-group';
+            ciberCostGroup.appendChild(ciberCostLabel);
+            ciberCostGroup.appendChild(ciberCostInput);
+            row2.appendChild(ciberCostGroup);
+            row2.appendChild(activeToggle);
+            row2.appendChild(removeButton);
+            itemDiv.appendChild(row1);
+            itemDiv.appendChild(notesTextarea);
+            itemDiv.appendChild(row2);
+            list.appendChild(itemDiv);
+            updateAllSheets();
+        }
+        function addItem(type, name = '', desc = '', quantity = 1) {
+            const list = document.getElementById(type + '-list');
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            const quantityContainer = document.createElement('div');
+            quantityContainer.style.display = 'flex';
+            quantityContainer.style.alignItems = 'center';
+            quantityContainer.style.gap = '5px';
+            const quantityLabel = document.createElement('label');
+            quantityLabel.textContent = 'Qtd:';
+            quantityLabel.style.width = '30px';
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.className = 'item-quantity';
+            quantityInput.style.width = '50px';
+            quantityInput.value = quantity;
+            quantityContainer.appendChild(quantityLabel);
+            quantityContainer.appendChild(quantityInput);
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            if (type === 'items') {
+                nameInput.placeholder = 'Nome do Item';
+            } else if (type === 'edges') {
+                nameInput.placeholder = 'Nome da Vantagem';
             }
-
-            function addItem(type, name = '', desc = '', quantity = 1) {
-                const list = document.getElementById(type + '-list');
-                if (!list) return;
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'list-item';
-
-                const quantityContainer = document.createElement('div');
-                quantityContainer.style.display = 'flex';
-                quantityContainer.style.alignItems = 'center';
-                quantityContainer.style.gap = '5px';
-                const quantityLabel = document.createElement('label');
-                quantityLabel.textContent = 'Qtd:';
-                quantityLabel.style.width = '30px';
-                const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.className = 'item-quantity';
-                quantityInput.style.width = '50px';
-                quantityInput.value = quantity;
-                quantityContainer.appendChild(quantityLabel);
-                quantityContainer.appendChild(quantityInput);
-
-                const nameInput = document.createElement('input');
-                nameInput.type = 'text';
-                if (type === 'items') {
-                    nameInput.placeholder = 'Nome do Item';
-                } else if (type === 'edges') {
-                    nameInput.placeholder = 'Nome da Vantagem';
-                }
-                nameInput.value = name;
-
-                const descInput = document.createElement('input');
-                descInput.type = 'text';
-                descInput.placeholder = 'Descrição (opcional)';
-                descInput.value = desc;
-
-                const removeButton = document.createElement('button');
-                removeButton.className = 'remove-button';
-                removeButton.textContent = 'X';
-                removeButton.onclick = () => list.removeChild(itemDiv);
-
-                itemDiv.appendChild(quantityContainer);
-                itemDiv.appendChild(nameInput);
-                itemDiv.appendChild(descInput);
-
-                if (type !== 'skills' && type !== 'assistant-skills') {
-                    itemDiv.appendChild(removeButton);
-                }
-                list.appendChild(itemDiv);
+            nameInput.value = name;
+            const descInput = document.createElement('input');
+            descInput.type = 'text';
+            descInput.placeholder = 'Descrição (opcional)';
+            descInput.value = desc;
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => list.removeChild(itemDiv);
+            itemDiv.appendChild(quantityContainer);
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(descInput);
+            if (type !== 'skills' && type !== 'assistant-skills') {
+                itemDiv.appendChild(removeButton);
             }
-
-            function saveSheet() {
-                const armorMods = [];
-                document.querySelectorAll('#armor-mods-list .list-item').forEach(item => {
-                    armorMods.push({
-                        name: item.querySelector('input:nth-child(1)').value,
-                        bonus: item.querySelector('input:nth-child(2)').value
-                    });
+            list.appendChild(itemDiv);
+        }
+        function saveSheet() {
+            const armorMods = [];
+            document.querySelectorAll('#armor-mods-list .list-item').forEach(item => {
+                armorMods.push({
+                    name: item.querySelector('input:nth-child(1)').value,
+                    bonus: item.querySelector('input:nth-child(2)').value
                 });
-
-                const weapons = [];
-                document.querySelectorAll('#weapons-list > .list-item').forEach(weaponDiv => {
+            });
+            const weapons = [];
+            ['ranged-weapons-list', 'melee-weapons-list'].forEach(listId => {
+                document.querySelectorAll(`#${listId} > .list-item`).forEach(weaponDiv => {
+                    const weaponType = weaponDiv.dataset.weaponType;
                     const weaponId = weaponDiv.querySelector('.mods-section')?.id;
                     const mods = [];
                     if (weaponId) {
                         document.querySelectorAll(`#${weaponId}-mods-list .list-item`).forEach(modDiv => {
                             mods.push({
                                 name: modDiv.querySelector('input:nth-child(1)').value,
-                                desc: modDiv.querySelector('input:nth-child(2)').value
+                                location: weaponType === 'ranged' ? modDiv.querySelector('.mod-location').value : null,
+                                desc: modDiv.querySelector('input:last-of-type').value
                             });
                         });
                     }
                     weapons.push({
+                        type: weaponType,
                         name: weaponDiv.querySelector('.weapon-info input:nth-child(1)').value,
                         damage: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(2)').value,
                         weight: weaponDiv.querySelector('.weapon-info .flex-row input:nth-child(4)').value,
@@ -1787,277 +1625,265 @@
                         mods: mods
                     });
                 });
-                const shieldStatus = Array.from(document.querySelectorAll('#main-sheet .shield-box')).map(box => box.checked);
-                
-                const itemLists = {};
-                ['hindrances', 'edges', 'items'].forEach(type => {
-                    const list = [];
-                    document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
-                        list.push({
-                            name: item.querySelector('input:nth-child(2)').value,
-                            desc: item.querySelector('input:nth-child(3)').value,
-                            quantity: item.querySelector('.item-quantity')?.value || '1'
-                        });
-                    });
-                    itemLists[type] = list;
-                });
-                
-                const implants = [];
-                document.querySelectorAll('#implants-list .list-item').forEach(item => {
-                    implants.push({
-                        name: item.querySelector('input:nth-child(1)').value,
-                        location: item.querySelector('select:nth-child(2)').value,
-                        value: item.querySelector('select:nth-child(3)').value,
-                        ciberCost: item.querySelector('input:nth-child(4)').value,
-                        notes: item.querySelector('textarea:nth-child(6)').value,
-                        active: item.querySelector('input[type="checkbox"]').checked
+            });
+            const shieldStatus = Array.from(document.querySelectorAll('#main-sheet .shield-box')).map(box => box.checked);
+            
+            const itemLists = {};
+            ['hindrances', 'edges', 'items'].forEach(type => {
+                const list = [];
+                document.querySelectorAll(`#${type}-list .list-item`).forEach(item => {
+                    list.push({
+                        name: item.querySelector('input:nth-child(2)').value,
+                        desc: item.querySelector('input:nth-child(3)').value,
+                        quantity: item.querySelector('.item-quantity')?.value || '1'
                     });
                 });
-
-                const sheetData = {
-                    info: {
-                        name: document.getElementById('char-name')?.value || '',
-                        race: document.getElementById('char-race')?.value || '',
-                        rank: document.getElementById('char-rank')?.value || '',
-                        bene: document.getElementById('char-benes')?.value || '0',
-                        xp: document.getElementById('char-xp')?.value || '0',
-                        recursosExtravagante: document.getElementById('recursos-extravagante')?.value || '0',
-                        recursosRico: document.getElementById('recursos-rico')?.value || '0',
-                        recursosComum: document.getElementById('recursos-comum')?.value || '0',
-                        recursosModesto: document.getElementById('recursos-modesto')?.value || '0',
-                        recursosPobre: document.getElementById('recursos-pobre')?.value || '0',
-                    },
-                    attributes: {},
-                    derived: {
-                        firewallBonus: document.getElementById('firewall-bonus')?.value || '0',
-                        ciberneticoBonus: document.getElementById('cibernetico-bonus')?.value || '0',
-                        velocidadeBonus: document.getElementById('velocidade-bonus')?.value || '0',
-                        cargaBonus: document.getElementById('carga-bonus')?.value || '0',
-                        armorBonus: document.getElementById('armor-bonus')?.value || '0',
-                        vigorBonus: document.getElementById('vigor-bonus')?.value || '0',
-                    },
-                    conditions: {
-                        corpo: document.querySelector('input[name="corpo"]:checked')?.value || '0',
-                        mente: document.querySelector('input[name="mente"]:checked')?.value || '0',
-                        shield: shieldStatus
-                    },
-                    resources: {
-                        power: { current: document.getElementById('power-current')?.value || '0' },
-                        focus: { current: document.getElementById('focus-current')?.value || '0' },
-                        ram: { current: document.getElementById('ram-current')?.value || '0' },
-                    },
-                    lists: {
-                        skills: [],
-                        hindrances: itemLists.hindrances,
-                        edges: itemLists.edges,
-                        items: itemLists.items,
-                    },
-                    notes: document.getElementById('notes')?.value || '',
-                    assistant: {
-                        name: document.getElementById('assistant-name')?.value || '',
-                        type: document.getElementById('assistant-type')?.value || 'default',
-                        firewallBonus: document.getElementById('assistant-firewall-bonus')?.value || '0',
-                        processingBonus: document.getElementById('assistant-processing-bonus')?.value || '0',
-                        icePassivo: document.querySelector('input[name="assistant-ice-passivo"]:checked')?.value || 'd4',
-                        ramMax: document.getElementById('assistant-ram-max')?.value || '3',
-                        ramCurrent: document.getElementById('assistant-ram-current')?.value || '0',
-                        mods: {
-                            mod1: document.getElementById('assistant-mod1')?.value || '',
-                            mod2: document.getElementById('assistant-mod2')?.value || '',
-                            mod3: document.getElementById('assistant-mod3')?.value || '',
-                        },
-                        nodes: document.getElementById('assistant-nodes')?.value || '',
-                        skills: []
-                    },
-                    armor: {
-                        name: document.getElementById('armor-name')?.value || '',
-                        baseValue: document.getElementById('armor-value-base')?.value || '0',
-                        mods: armorMods
-                    },
-                    weapons: weapons,
-                    implants: implants
-                };
-
-                attributes.forEach(attr => {
-                    const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
-                    if (selectedDie) sheetData.attributes[attr] = selectedDie.value;
+                itemLists[type] = list;
+            });
+            
+            const implants = [];
+            document.querySelectorAll('#implants-list .list-item').forEach(item => {
+                implants.push({
+                    name: item.querySelector('input:nth-child(1)').value,
+                    location: item.querySelector('select:nth-child(2)').value,
+                    value: item.querySelector('select:nth-child(3)').value,
+                    ciberCost: item.querySelector('input:nth-child(4)').value,
+                    notes: item.querySelector('textarea:nth-child(6)').value,
+                    active: item.querySelector('input[type="checkbox"]').checked
                 });
-
-                document.querySelectorAll('#skills-list .list-item').forEach(item => {
-                    const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
-                    sheetData.lists.skills.push({
-                        name: item.querySelector('input[data-skill-name]').value,
-                        die: dieValue,
-                        bonus: item.querySelector('.bonus').value
-                    });
-                });
-
-                document.querySelectorAll('#assistant-skills-list .list-item').forEach(item => {
-                    const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
-                    sheetData.assistant.skills.push({
-                        name: item.querySelector('input[data-skill-name]').value,
-                        die: dieValue,
-                        bonus: item.querySelector('.bonus').value
-                    });
-                });
-
-                const dataStr = JSON.stringify(sheetData, null, 2);
-                const blob = new Blob([dataStr], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `ficha_${sheetData.info.name || 'personagem'}.json`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                alert('Ficha salva com sucesso! O arquivo foi baixado.');
-            }
-
-            function loadSheet() {
-                const fileInput = document.getElementById('load-file');
-                const file = fileInput.files[0];
-                if (!file) {
-                    alert('Por favor, selecione um arquivo JSON para carregar.');
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    try {
-                        const sheetData = JSON.parse(event.target.result);
-
-                        document.getElementById('char-name').value = sheetData.info?.name || '';
-                        document.getElementById('char-race').value = sheetData.info?.race || '';
-                        document.getElementById('char-rank').value = sheetData.info?.rank || '';
-                        document.getElementById('char-bene').value = sheetData.info?.bene || '0';
-                        document.getElementById('char-xp').value = sheetData.info?.xp || '0';
-                        document.getElementById('recursos-extravagante').value = sheetData.info?.recursosExtravagante || '0';
-                        document.getElementById('recursos-rico').value = sheetData.info?.recursosRico || '0';
-                        document.getElementById('recursos-comum').value = sheetData.info?.recursosComum || '0';
-                        document.getElementById('recursos-modesto').value = sheetData.info?.recursosModesto || '0';
-                        document.getElementById('recursos-pobre').value = sheetData.info?.recursosPobre || '0';
-
-                        document.getElementById('armor-bonus').value = sheetData.derived?.armorBonus || '0';
-                        document.getElementById('firewall-bonus').value = sheetData.derived?.firewallBonus || '0';
-                        document.getElementById('cibernetico-bonus').value = sheetData.derived?.ciberneticoBonus || '0';
-                        document.getElementById('velocidade-bonus').value = sheetData.derived?.velocidadeBonus || '0';
-                        document.getElementById('carga-bonus').value = sheetData.derived?.cargaBonus || '0';
-                        document.getElementById('vigor-bonus').value = sheetData.derived?.vigorBonus || '0';
-                        document.getElementById('notes').value = sheetData.notes || '';
-
-                        attributes.forEach(attr => {
-                            const dieValue = sheetData.attributes?.[attr] || 'd4';
-                            const radio = document.querySelector(`input[name="attr-${attr}"][value="${dieValue}"]`);
-                            if (radio) radio.checked = true;
-                        });
-                        if (sheetData.conditions?.corpo) {
-                            const radio = document.querySelector(`input[name="corpo"][value="${sheetData.conditions.corpo}"]`);
-                            if (radio) radio.checked = true;
-                        }
-                        if (sheetData.conditions?.mente) {
-                            const radio = document.querySelector(`input[name="mente"][value="${sheetData.conditions.mente}"]`);
-                            if (radio) radio.checked = true;
-                        }
-                        if (sheetData.conditions?.shield) {
-                            const shieldBoxes = document.querySelectorAll('#main-sheet .shield-box');
-                            sheetData.conditions.shield.forEach((isChecked, index) => {
-                                if (shieldBoxes[index]) {
-                                    shieldBoxes[index].checked = isChecked;
-                                }
-                            });
-                        }
-
-                        document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
-                        document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
-                        document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
-
-                        const skillsList = document.getElementById('skills-list');
-                        if (skillsList) {
-                            skillsList.innerHTML = '';
-                            (sheetData.lists?.skills || baseSkills).forEach(skill => {
-                                createSkillItem(skill.name, skill.die, skill.bonus, 'skills-list');
-                            });
-                        }
-                        document.getElementById('edges-list').innerHTML = '';
-                        (sheetData.lists?.edges || []).forEach(edge => addItem('edges', edge.name, edge.desc));
-                        document.getElementById('hindrances-list').innerHTML = '';
-                        (sheetData.lists?.hindrances || []).forEach(hindrance => addItem('hindrances', hindrance.name, hindrance.desc));
-                        document.getElementById('items-list').innerHTML = '';
-                        (sheetData.lists?.items || []).forEach(item => addItem('items', item.name, item.desc, item.quantity));
-
-                        if (sheetData.assistant) {
-                            document.getElementById('assistant-name').value = sheetData.assistant?.name || '';
-                            document.getElementById('assistant-type').value = sheetData.assistant?.type || 'default';
-                            document.getElementById('assistant-firewall-bonus').value = sheetData.assistant?.firewallBonus || '0';
-                            document.getElementById('assistant-processing-bonus').value = sheetData.assistant?.processingBonus || '0';
-                            const iceDie = sheetData.assistant?.icePassivo || 'd4';
-                            document.querySelector(`input[name="assistant-ice-passivo"][value="${iceDie}"]`).checked = true;
-                            document.getElementById('assistant-ram-max').value = sheetData.assistant?.ramMax || '3';
-                            document.getElementById('assistant-ram-current').value = sheetData.assistant?.ramCurrent || '0';
-                            document.getElementById('assistant-mod1').value = sheetData.assistant?.mods?.mod1 || '';
-                            document.getElementById('assistant-mod2').value = sheetData.assistant?.mods?.mod2 || '';
-                            document.getElementById('assistant-mod3').value = sheetData.assistant?.mods?.mod3 || '';
-                            document.getElementById('assistant-nodes').value = sheetData.assistant?.nodes || '';
-
-                            const assistantSkillsList = document.getElementById('assistant-skills-list');
-                            if (assistantSkillsList) {
-                                assistantSkillsList.innerHTML = '';
-                                (sheetData.assistant?.skills || baseAssistantSkills).forEach(skill => {
-                                    createSkillItem(skill.name, skill.die, skill.bonus, 'assistant-skills-list');
-                                });
-                            }
-                        }
-
-                        if (sheetData.armor) {
-                            document.getElementById('armor-name').value = sheetData.armor.name || '';
-                            document.getElementById('armor-value-base').value = sheetData.armor.baseValue || '0';
-                            
-                            const modsList = document.getElementById('armor-mods-list');
-                            if (modsList) {
-                                modsList.innerHTML = '';
-                                (sheetData.armor.mods || []).forEach(mod => {
-                                    addArmorMod(mod.name, mod.bonus);
-                                });
-                            }
-                        }
-                        
-                        const weaponsList = document.getElementById('weapons-list');
-                        if (weaponsList) {
-                            weaponsList.innerHTML = '';
-                            (sheetData.weapons || []).forEach(weapon => {
-                                addWeapon(weapon.name, weapon.damage, weapon.weight, weapon.value, weapon.notes, weapon.mods, weapon.quantity);
-                            });
-                        }
-                        
-                        if (sheetData.implants) {
-                            const implantsList = document.getElementById('implants-list');
-                            if (implantsList) {
-                                implantsList.innerHTML = '';
-                                (sheetData.implants || []).forEach(implant => {
-                                    addImplant(implant.name, implant.location, implant.value, implant.ciberCost, implant.notes, implant.active);
-                                });
-                            }
-                        }
-
-                        updateAllSheets();
-                        alert('Ficha carregada com sucesso!');
-
-                    } catch (error) {
-                        alert('Erro ao processar o arquivo. Certifique-se de que é um arquivo JSON válido.');
-                        console.error('Erro ao carregar a ficha:', error);
-                    }
-                };
-                reader.readAsText(file);
-            }
-
-            window.onload = function () {
-                addAttributeSelectors();
-                createInitialSkills();
-                createAssistantSkills();
-                updateAllSheets();
+            });
+            const sheetData = {
+                info: {
+                    name: document.getElementById('char-name')?.value || '',
+                    race: document.getElementById('char-race')?.value || '',
+                    rank: document.getElementById('char-rank')?.value || '',
+                    bene: document.getElementById('char-benes')?.value || '0',
+                    xp: document.getElementById('char-xp')?.value || '0',
+                    recursosExtravagante: document.getElementById('recursos-extravagante')?.value || '0',
+                    recursosRico: document.getElementById('recursos-rico')?.value || '0',
+                    recursosComum: document.getElementById('recursos-comum')?.value || '0',
+                    recursosModesto: document.getElementById('recursos-modesto')?.value || '0',
+                    recursosPobre: document.getElementById('recursos-pobre')?.value || '0',
+                },
+                attributes: {},
+                derived: {
+                    firewallBonus: document.getElementById('firewall-bonus')?.value || '0',
+                    ciberneticoBonus: document.getElementById('cibernetico-bonus')?.value || '0',
+                    velocidadeBonus: document.getElementById('velocidade-bonus')?.value || '0',
+                    cargaBonus: document.getElementById('carga-bonus')?.value || '0',
+                    armorBonus: document.getElementById('armor-bonus')?.value || '0',
+                    vigorBonus: document.getElementById('vigor-bonus')?.value || '0',
+                },
+                conditions: {
+                    corpo: document.querySelector('input[name="corpo"]:checked')?.value || '0',
+                    mente: document.querySelector('input[name="mente"]:checked')?.value || '0',
+                    shield: shieldStatus
+                },
+                resources: {
+                    power: { current: document.getElementById('power-current')?.value || '0' },
+                    focus: { current: document.getElementById('focus-current')?.value || '0' },
+                    ram: { current: document.getElementById('ram-current')?.value || '0' },
+                },
+                lists: {
+                    skills: [],
+                    hindrances: itemLists.hindrances,
+                    edges: itemLists.edges,
+                    items: itemLists.items,
+                },
+                notes: document.getElementById('notes')?.value || '',
+                assistant: {
+                    name: document.getElementById('assistant-name')?.value || '',
+                    type: document.getElementById('assistant-type')?.value || 'default',
+                    firewallBonus: document.getElementById('assistant-firewall-bonus')?.value || '0',
+                    processingBonus: document.getElementById('assistant-processing-bonus')?.value || '0',
+                    icePassivo: document.querySelector('input[name="assistant-ice-passivo"]:checked')?.value || 'd4',
+                    ramMax: document.getElementById('assistant-ram-max')?.value || '3',
+                    ramCurrent: document.getElementById('assistant-ram-current')?.value || '0',
+                    mods: {
+                        mod1: document.getElementById('assistant-mod1')?.value || '',
+                        mod2: document.getElementById('assistant-mod2')?.value || '',
+                        mod3: document.getElementById('assistant-mod3')?.value || '',
+                    },
+                    nodes: document.getElementById('assistant-nodes')?.value || '',
+                    skills: []
+                },
+                armor: {
+                    name: document.getElementById('armor-name')?.value || '',
+                    baseValue: document.getElementById('armor-value-base')?.value || '0',
+                    mods: armorMods
+                },
+                weapons: weapons,
+                implants: implants
             };
-        </script>
+            attributes.forEach(attr => {
+                const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
+                if (selectedDie) sheetData.attributes[attr] = selectedDie.value;
+            });
+            document.querySelectorAll('#skills-list .list-item').forEach(item => {
+                const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
+                sheetData.lists.skills.push({
+                    name: item.querySelector('input[data-skill-name]').value,
+                    die: dieValue,
+                    bonus: item.querySelector('.bonus').value
+                });
+            });
+            document.querySelectorAll('#assistant-skills-list .list-item').forEach(item => {
+                const dieValue = item.querySelector('input[type="radio"]:checked')?.value || '1d4-2';
+                sheetData.assistant.skills.push({
+                    name: item.querySelector('input[data-skill-name]').value,
+                    die: dieValue,
+                    bonus: item.querySelector('.bonus').value
+                });
+            });
+            const dataStr = JSON.stringify(sheetData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ficha_${sheetData.info.name || 'personagem'}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            alert('Ficha salva com sucesso! O arquivo foi baixado.');
+        }
+        function loadSheet() {
+            const fileInput = document.getElementById('load-file');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Por favor, selecione um arquivo JSON para carregar.');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                try {
+                    const sheetData = JSON.parse(event.target.result);
+                    document.getElementById('char-name').value = sheetData.info?.name || '';
+                    document.getElementById('char-race').value = sheetData.info?.race || '';
+                    document.getElementById('char-rank').value = sheetData.info?.rank || '';
+                    document.getElementById('char-benes').value = sheetData.info?.bene || '0';
+                    document.getElementById('char-xp').value = sheetData.info?.xp || '0';
+                    document.getElementById('recursos-extravagante').value = sheetData.info?.recursosExtravagante || '0';
+                    document.getElementById('recursos-rico').value = sheetData.info?.recursosRico || '0';
+                    document.getElementById('recursos-comum').value = sheetData.info?.recursosComum || '0';
+                    document.getElementById('recursos-modesto').value = sheetData.info?.recursosModesto || '0';
+                    document.getElementById('recursos-pobre').value = sheetData.info?.recursosPobre || '0';
+                    document.getElementById('armor-bonus').value = sheetData.derived?.armorBonus || '0';
+                    document.getElementById('firewall-bonus').value = sheetData.derived?.firewallBonus || '0';
+                    document.getElementById('cibernetico-bonus').value = sheetData.derived?.ciberneticoBonus || '0';
+                    document.getElementById('velocidade-bonus').value = sheetData.derived?.velocidadeBonus || '0';
+                    document.getElementById('carga-bonus').value = sheetData.derived?.cargaBonus || '0';
+                    document.getElementById('vigor-bonus').value = sheetData.derived?.vigorBonus || '0';
+                    document.getElementById('notes').value = sheetData.notes || '';
+                    attributes.forEach(attr => {
+                        const dieValue = sheetData.attributes?.[attr] || 'd4';
+                        const radio = document.querySelector(`input[name="attr-${attr}"][value="${dieValue}"]`);
+                        if (radio) radio.checked = true;
+                    });
+                    if (sheetData.conditions?.corpo) {
+                        const radio = document.querySelector(`input[name="corpo"][value="${sheetData.conditions.corpo}"]`);
+                        if (radio) radio.checked = true;
+                    }
+                    if (sheetData.conditions?.mente) {
+                        const radio = document.querySelector(`input[name="mente"][value="${sheetData.conditions.mente}"]`);
+                        if (radio) radio.checked = true;
+                    }
+                    if (sheetData.conditions?.shield) {
+                        const shieldBoxes = document.querySelectorAll('#main-sheet .shield-box');
+                        sheetData.conditions.shield.forEach((isChecked, index) => {
+                            if (shieldBoxes[index]) {
+                                shieldBoxes[index].checked = isChecked;
+                            }
+                        });
+                    }
+                    document.getElementById('power-current').value = sheetData.resources?.power?.current || '0';
+                    document.getElementById('focus-current').value = sheetData.resources?.focus?.current || '0';
+                    document.getElementById('ram-current').value = sheetData.resources?.ram?.current || '0';
+                    const skillsList = document.getElementById('skills-list');
+                    if (skillsList) {
+                        skillsList.innerHTML = '';
+                        (sheetData.lists?.skills || baseSkills).forEach(skill => {
+                            createSkillItem(skill.name, skill.die, skill.bonus, 'skills-list');
+                        });
+                    }
+                    document.getElementById('edges-list').innerHTML = '';
+                    (sheetData.lists?.edges || []).forEach(edge => addItem('edges', edge.name, edge.desc));
+                    document.getElementById('hindrances-list').innerHTML = '';
+                    (sheetData.lists?.hindrances || []).forEach(hindrance => addItem('hindrances', hindrance.name, hindrance.desc));
+                    document.getElementById('items-list').innerHTML = '';
+                    (sheetData.lists?.items || []).forEach(item => addItem('items', item.name, item.desc, item.quantity));
+                    if (sheetData.assistant) {
+                        document.getElementById('assistant-name').value = sheetData.assistant?.name || '';
+                        document.getElementById('assistant-type').value = sheetData.assistant?.type || 'default';
+                        document.getElementById('assistant-firewall-bonus').value = sheetData.assistant?.firewallBonus || '0';
+                        document.getElementById('assistant-processing-bonus').value = sheetData.assistant?.processingBonus || '0';
+                        const iceDie = sheetData.assistant?.icePassivo || 'd4';
+                        document.querySelector(`input[name="assistant-ice-passivo"][value="${iceDie}"]`).checked = true;
+                        document.getElementById('assistant-ram-max').value = sheetData.assistant?.ramMax || '3';
+                        document.getElementById('assistant-ram-current').value = sheetData.assistant?.ramCurrent || '0';
+                        document.getElementById('assistant-mod1').value = sheetData.assistant?.mods?.mod1 || '';
+                        document.getElementById('assistant-mod2').value = sheetData.assistant?.mods?.mod2 || '';
+                        document.getElementById('assistant-mod3').value = sheetData.assistant?.mods?.mod3 || '';
+                        document.getElementById('assistant-nodes').value = sheetData.assistant?.nodes || '';
+                        const assistantSkillsList = document.getElementById('assistant-skills-list');
+                        if (assistantSkillsList) {
+                            assistantSkillsList.innerHTML = '';
+                            (sheetData.assistant?.skills || baseAssistantSkills).forEach(skill => {
+                                createSkillItem(skill.name, skill.die, skill.bonus, 'assistant-skills-list');
+                            });
+                        }
+                    }
+                    if (sheetData.armor) {
+                        document.getElementById('armor-name').value = sheetData.armor.name || '';
+                        document.getElementById('armor-value-base').value = sheetData.armor.baseValue || '0';
+                        
+                        const modsList = document.getElementById('armor-mods-list');
+                        if (modsList) {
+                            modsList.innerHTML = '';
+                            (sheetData.armor.mods || []).forEach(mod => {
+                                addArmorMod(mod.name, mod.bonus);
+                            });
+                        }
+                    }
+                    
+                    const rangedWeaponsList = document.getElementById('ranged-weapons-list');
+                    const meleeWeaponsList = document.getElementById('melee-weapons-list');
+                    if (rangedWeaponsList && meleeWeaponsList) {
+                        rangedWeaponsList.innerHTML = '';
+                        meleeWeaponsList.innerHTML = '';
+                        (sheetData.weapons || []).forEach(weapon => {
+                            if (weapon.type === 'ranged') {
+                                addWeapon('ranged', weapon.name, weapon.damage, weapon.weight, weapon.value, weapon.notes, weapon.mods, weapon.quantity);
+                            } else {
+                                addWeapon('melee', weapon.name, weapon.damage, weapon.weight, weapon.value, weapon.notes, weapon.mods, weapon.quantity);
+                            }
+                        });
+                    }
+                    
+                    if (sheetData.implants) {
+                        const implantsList = document.getElementById('implants-list');
+                        if (implantsList) {
+                            implantsList.innerHTML = '';
+                            (sheetData.implants || []).forEach(implant => {
+                                addImplant(implant.name, implant.location, implant.value, implant.ciberCost, implant.notes, implant.active);
+                            });
+                        }
+                    }
+                    updateAllSheets();
+                    alert('Ficha carregada com sucesso!');
+                } catch (error) {
+                    alert('Erro ao processar o arquivo. Certifique-se de que é um arquivo JSON válido.');
+                    console.error('Erro ao carregar a ficha:', error);
+                }
+            };
+            reader.readAsText(file);
+        }
+        window.onload = function () {
+            addAttributeSelectors();
+            createInitialSkills();
+            createAssistantSkills();
+            updateAllSheets();
+        };
+    </script>
 </body>
-
 </html>
