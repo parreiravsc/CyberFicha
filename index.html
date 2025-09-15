@@ -23,13 +23,18 @@
             --color-alert: #cccc00;
             --color-danger: #800000;
             /* Novas cores para o boneco */
-            --implant-organs: #00ffff; /* Azul-claro para órgãos */
-            --implant-face: #ff0000;   /* Vermelho para face */
-            --implant-neural: #ffa500; /* Laranja para neural */
+            --implant-organs: #00ffff;
+            /* Azul-claro para órgãos */
+            --implant-face: #ff0000;
+            /* Vermelho para face */
+            --implant-neural: #ffa500;
+            /* Laranja para neural */
         }
+
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto Mono', monospace;
             margin: 0;
@@ -38,6 +43,7 @@
             line-height: 1.6;
             text-shadow: 0 0 2px var(--accent-blue);
         }
+
         /* Container principal com layout vertical */
         .sheet-container {
             max-width: 600px;
@@ -52,6 +58,7 @@
             position: relative;
             overflow: hidden;
         }
+
         /* Efeito de glitch sutil no fundo */
         .sheet-container::before {
             content: '';
@@ -67,6 +74,7 @@
             pointer-events: none;
             z-index: 0;
         }
+
         .header {
             text-align: center;
             border-bottom: 2px solid var(--accent-purple);
@@ -75,6 +83,7 @@
             position: relative;
             z-index: 1;
         }
+
         h1,
         h2,
         h3 {
@@ -87,16 +96,20 @@
             margin-bottom: 15px;
             text-shadow: 0 0 5px var(--accent-green);
         }
+
         h1 {
             font-size: 2.2em;
             text-transform: uppercase;
         }
+
         h2 {
             font-size: 1.2em;
         }
+
         h3 {
             font-size: 1.0em;
         }
+
         .section {
             background-color: var(--input-bg);
             border: 1px solid var(--border-light);
@@ -108,6 +121,7 @@
             position: relative;
             z-index: 1;
         }
+
         .section::before {
             content: '';
             position: absolute;
@@ -119,6 +133,7 @@
             pointer-events: none;
             z-index: -1;
         }
+
         label {
             display: block;
             margin-top: 10px;
@@ -126,6 +141,7 @@
             color: var(--accent-blue);
             text-transform: uppercase;
         }
+
         input[type="text"],
         input[type="number"],
         textarea,
@@ -142,6 +158,7 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             font-size: 0.9em;
         }
+
         input:focus,
         textarea:focus,
         select:focus {
@@ -149,45 +166,55 @@
             box-shadow: inset 0 0 5px var(--accent-green), 0 0 5px var(--accent-green);
             outline: none;
         }
+
         textarea {
             resize: vertical;
             min-height: 80px;
         }
+
         .flex-row {
             display: flex;
             align-items: center;
             gap: 15px;
             margin-top: 10px;
         }
+
         .flex-row label {
             margin: 0;
             color: var(--accent-purple);
         }
+
         .flex-row input {
             width: auto;
             flex-grow: 0;
         }
+
         .xp-group {
             display: flex;
             align-items: center;
             gap: 5px;
         }
+
         .xp-group label {
             margin: 0;
             color: var(--accent-purple);
         }
+
         .xp-group input {
             width: 50px;
         }
+
         .dice-selector {
             display: flex;
             gap: 5px;
             justify-content: space-around;
             margin-top: 10px;
         }
+
         .dice-selector input[type="radio"] {
             display: none;
         }
+
         .dice-selector label {
             display: flex;
             justify-content: center;
@@ -204,17 +231,20 @@
             transition: all 0.2s;
             box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
         }
+
         .list-section .dice-selector label,
         .assistant-section .dice-selector label {
             width: auto;
             padding: 0 10px;
         }
+
         .dice-selector label:hover {
             background-color: #3f3f5a;
             border-color: var(--accent-blue);
             color: var(--accent-blue);
             box-shadow: inset 0 0 5px var(--accent-blue), 0 0 5px rgba(0, 255, 255, 0.3);
         }
+
         .dice-selector input[type="radio"]:checked+label {
             background-color: var(--accent-blue);
             color: black;
@@ -222,6 +252,7 @@
             box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0, 0, 0, 0.8);
             text-shadow: none;
         }
+
         .dice-selector input[type="radio"]:checked+label::before {
             content: '>';
             position: absolute;
@@ -229,6 +260,7 @@
             color: var(--accent-purple);
             font-size: 0.8em;
         }
+
         .list-item {
             display: flex;
             flex-wrap: wrap;
@@ -241,25 +273,30 @@
             border-radius: 3px;
             box-shadow: inset 0 0 3px rgba(255, 0, 255, 0.1);
         }
+
         .list-item input {
             flex-grow: 1;
             border: 1px dashed var(--accent-purple);
             background-color: #1a1a2e;
         }
+
         .list-item .bonus {
             width: 60px;
             text-align: center;
             color: var(--accent-green);
         }
+
         .list-item .weapon-info {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
+
         .weapon-info .flex-row input {
             flex-grow: 1;
         }
+
         .weapon-controls {
             display: flex;
             flex-wrap: wrap;
@@ -267,11 +304,18 @@
             justify-content: flex-end;
             margin-top: 10px;
         }
+        
+        .effect-input {
+            width: 100%;
+            margin-top: 5px;
+        }
+
         .mods-section {
             margin-top: 15px;
             padding-top: 10px;
             border-top: 1px dashed var(--border-light);
         }
+
         .section-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -281,6 +325,7 @@
             margin-bottom: 10px;
             font-size: 0.9em;
         }
+
         .add-button,
         .remove-button {
             background-color: var(--accent-blue);
@@ -295,18 +340,22 @@
             box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
             transition: background-color 0.2s, box-shadow 0.2s;
         }
+
         .add-button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 8px var(--accent-green);
         }
+
         .remove-button {
             background-color: #b30000;
             box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
         }
+
         .remove-button:hover {
             background-color: #ff0000;
             box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
         }
+
         .controls {
             display: flex;
             flex-direction: column;
@@ -318,6 +367,7 @@
             position: relative;
             z-index: 1;
         }
+
         .controls button,
         .controls input[type="file"] {
             background-color: var(--accent-blue);
@@ -333,25 +383,30 @@
             box-shadow: 0 0 10px var(--accent-blue);
             transition: background-color 0.3s, box-shadow 0.3s;
         }
+
         .controls button:hover {
             background-color: var(--accent-green);
             box-shadow: 0 0 15px var(--accent-green);
         }
+
         .controls input[type="file"]:hover {
             background-color: var(--accent-purple);
             box-shadow: 0 0 10px var(--accent-purple);
         }
+
         .controls label {
             text-align: center;
             color: var(--text-light);
             font-family: 'Orbitron', sans-serif;
             margin-bottom: -10px;
         }
+
         .wounds-fatigue div {
             margin-top: 15px;
             padding-top: 10px;
             border-top: 1px dashed var(--border-light);
         }
+
         .wounds-fatigue h3 {
             border-bottom: none;
             margin-top: 5px;
@@ -360,9 +415,11 @@
             font-size: 1.1em;
             text-shadow: 0 0 3px var(--accent-purple);
         }
+
         .wounds-fatigue input[type="radio"] {
             display: none;
         }
+
         .wounds-fatigue input[type="radio"]+label {
             display: inline-flex;
             justify-content: center;
@@ -379,9 +436,11 @@
             font-weight: bold;
             font-size: 1.1em;
         }
+
         .wounds-fatigue input[type="checkbox"] {
             display: none;
         }
+
         .wounds-fatigue input[type="checkbox"]+label {
             display: inline-flex;
             justify-content: center;
@@ -398,10 +457,12 @@
             font-weight: bold;
             font-size: 1.1em;
         }
+
         input[type="radio"]:checked+label,
         input[type="checkbox"]:checked+label {
             transform: scale(1.1);
         }
+
         /* Cores de status de combate */
         input[name="corpo"][value="-1"]:checked+label,
         input[name="mente"][value="-1"]:checked+label {
@@ -410,6 +471,7 @@
             box-shadow: 0 0 8px var(--color-ok);
             color: black;
         }
+
         input[name="corpo"][value="-2"]:checked+label,
         input[name="mente"][value="-2"]:checked+label {
             background-color: var(--color-alert);
@@ -417,6 +479,7 @@
             box-shadow: 0 0 8px var(--color-alert);
             color: black;
         }
+
         input[name="corpo"][value="-3"]:checked+label,
         input[name="mente"][value="-3"]:checked+label {
             background-color: var(--color-danger);
@@ -424,6 +487,7 @@
             box-shadow: 0 0 8px var(--color-danger);
             color: black;
         }
+
         /* Estilos para o Vigor calculado */
         input[name="vigor_calc"][value="-1"]:checked+label {
             background-color: var(--color-ok);
@@ -431,22 +495,26 @@
             box-shadow: 0 0 8px var(--color-ok);
             color: black;
         }
+
         input[name="vigor_calc"][value="-2"]:checked+label {
             background-color: var(--color-alert);
             border-color: var(--color-alert);
             box-shadow: 0 0 8px var(--color-alert);
             color: black;
         }
+
         input[name="vigor_calc"][value="-3"]:checked+label {
             background-color: var(--color-danger);
             border-color: var(--color-danger);
             box-shadow: 0 0 8px var(--color-danger);
             color: black;
         }
+
         /* Estilos para o Escudo Cibernético */
         .wounds-fatigue input[name="shield"] {
             display: none;
         }
+
         .wounds-fatigue input[name="shield"]+label {
             display: inline-flex;
             justify-content: center;
@@ -463,6 +531,7 @@
             font-weight: bold;
             font-size: 1.1em;
         }
+
         .wounds-fatigue input[name="shield"]:checked+label {
             background-color: var(--accent-blue);
             color: black;
@@ -471,7 +540,7 @@
             text-shadow: none;
             transform: scale(1.1);
         }
-        
+
         /* Estilos para a nova ficha de implantes */
         .body-map {
             display: flex;
@@ -482,35 +551,62 @@
             height: 300px;
             margin-bottom: 20px;
         }
+
         .human-figure {
             position: relative;
             width: 200px;
             height: 300px;
         }
+
         .human-figure path {
             fill: #e0e0e0;
             opacity: 0.1;
             transition: fill 0.3s, filter 0.3s;
         }
+
         .body-part-active {
             filter: drop-shadow(0 0 5px var(--accent-green));
             opacity: 0.8 !important;
         }
-        #cortex-path.body-part-active { fill: var(--accent-green); }
-        #organs-path.body-part-active { fill: var(--implant-organs); }
-        #arms-path.body-part-active { fill: var(--accent-green); }
-        #legs-path.body-part-active { fill: var(--accent-green); }
-        #face-path.body-part-active { fill: var(--implant-face); }
-        #skin-path.body-part-active { fill: var(--accent-green); }
-        #neural-path.body-part-active { fill: var(--implant-neural); }
+
+        #cortex-path.body-part-active {
+            fill: var(--accent-green);
+        }
+
+        #organs-path.body-part-active {
+            fill: var(--implant-organs);
+        }
+
+        #arms-path.body-part-active {
+            fill: var(--accent-green);
+        }
+
+        #legs-path.body-part-active {
+            fill: var(--accent-green);
+        }
+
+        #face-path.body-part-active {
+            fill: var(--implant-face);
+        }
+
+        #skin-path.body-part-active {
+            fill: var(--accent-green);
+        }
+
+        #neural-path.body-part-active {
+            fill: var(--implant-neural);
+        }
+
         .implant-active-toggle {
             display: flex;
             align-items: center;
             gap: 5px;
         }
+
         .implant-active-toggle input[type="checkbox"] {
             display: none;
         }
+
         .implant-active-toggle label {
             display: block;
             width: 30px;
@@ -522,6 +618,7 @@
             transition: background-color 0.3s;
             margin: 0;
         }
+
         .implant-active-toggle label::after {
             content: '';
             position: absolute;
@@ -533,49 +630,60 @@
             border-radius: 50%;
             transition: left 0.3s, background-color 0.3s;
         }
+
         .implant-active-toggle input[type="checkbox"]:checked+label {
             background-color: var(--accent-green);
         }
+
         .implant-active-toggle input[type="checkbox"]:checked+label::after {
             left: 17px;
             background-color: #fff;
         }
+
         .implant-location-select {
             width: 100%;
             margin-top: 5px;
         }
+
         .implant-item-row {
             display: flex;
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
         }
+
         .implant-item-row .implant-cost-group {
             display: flex;
             align-items: center;
             gap: 5px;
         }
+
         .implant-item-row .implant-cost-group label {
             margin: 0;
             color: var(--accent-purple);
             font-size: 0.9em;
             text-transform: uppercase;
         }
+
         .implant-item-row input[type="number"] {
             width: 60px;
         }
+
         .implant-item-row select {
             flex-grow: 1;
             width: auto;
         }
+
         .list-item input[type="text"] {
             flex-grow: 1;
             width: auto;
         }
+
         .list-item textarea {
             width: 100%;
             min-height: 50px;
         }
+
         /* Estilos para as abas */
         .tab-buttons {
             display: flex;
@@ -583,6 +691,7 @@
             gap: 10px;
             margin-bottom: 20px;
         }
+
         .tab-button {
             flex-grow: 1;
             background-color: var(--input-bg);
@@ -596,6 +705,7 @@
             text-transform: uppercase;
             box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
+
         .tab-button.active {
             background-color: var(--accent-blue);
             color: black;
@@ -603,14 +713,64 @@
             box-shadow: 0 0 10px var(--accent-green);
             text-shadow: none;
         }
+
         .tab-content {
             display: none;
         }
+
         .tab-content.active {
             display: block;
         }
+
+        .info-level-selector {
+            display: flex;
+            gap: 5px;
+            justify-content: flex-start;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .info-level-selector input[type="radio"] {
+            display: none;
+        }
+
+        .info-level-selector label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            min-width: 80px;
+            padding: 8px 12px;
+            border: 2px solid var(--border-light);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            background-color: var(--input-bg);
+            color: var(--text-light);
+            transition: all 0.2s;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            text-transform: none;
+            /* Keep text as is */
+        }
+
+        .info-level-selector label:hover {
+            background-color: #3f3f5a;
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            box-shadow: inset 0 0 5px var(--accent-blue), 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+
+        .info-level-selector input[type="radio"]:checked+label {
+            background-color: var(--accent-green);
+            color: black;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green), inset 0 0 8px rgba(0, 0, 0, 0.8);
+            text-shadow: none;
+        }
     </style>
 </head>
+
 <body>
     <div class="sheet-container">
         <div class="header">
@@ -624,7 +784,9 @@
         <div class="tab-buttons">
             <button class="tab-button" onclick="showTab('armor-sheet', this)">Armadura</button>
             <button class="tab-button" onclick="showTab('weapons-sheet', this)">Armas</button>
+            <button class="tab-button" onclick="showTab('consumables-sheet', this)">Consumíveis</button>
             <button class="tab-button" onclick="showTab('implants-sheet', this)">Implantes</button>
+            <button class="tab-button" onclick="showTab('information-sheet', this)">Informações</button>
         </div>
         <div id="main-sheet" class="tab-content active">
             <div class="section">
@@ -953,11 +1115,32 @@
                 </div>
             </div>
         </div>
+        <div id="consumables-sheet" class="tab-content">
+            <div class="section consumables-section">
+                <h2><span style="color: var(--accent-blue);">&gt;</span> Consumíveis & Utilitários <span
+                        style="color: var(--accent-blue);">&lt;</span></h2>
+                <div class="list-section">
+                    <h3>Drogas e Medicamentos</h3>
+                    <div id="drugs-list"></div>
+                    <button class="add-button" onclick="addConsumable('drug')">+ Adicionar Droga/Med</button>
+                </div>
+                <div class="list-section" style="margin-top: 20px;">
+                    <h3>Venenos e Toxinas</h3>
+                    <div id="poisons-list"></div>
+                    <button class="add-button" onclick="addConsumable('poison')">+ Adicionar Veneno</button>
+                </div>
+                <div class="list-section" style="margin-top: 20px;">
+                    <h3>Explosivos</h3>
+                    <div id="explosives-list"></div>
+                    <button class="add-button" onclick="addConsumable('explosive')">+ Adicionar Explosivo</button>
+                </div>
+            </div>
+        </div>
         <div id="implants-sheet" class="tab-content">
             <div class="section implants-section">
                 <h2><span style="color: var(--accent-blue);">&gt;</span> Implantes Cibernéticos <span
                         style="color: var(--accent-blue);">&lt;</span></h2>
-                
+
                 <div class="flex-row" style="justify-content: space-around;">
                     <div class="flex-row">
                         <label>Limite Cibernético</label>
@@ -970,7 +1153,7 @@
                         <input type="number" id="total-implant-cost" readonly style="width: 70px;">
                     </div>
                 </div>
-                
+
                 <div class="body-map">
                     <svg class="human-figure" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
                         <g id="body-parts-base">
@@ -983,9 +1166,12 @@
                         </g>
                         <g id="body-parts-active">
                             <path id="cortex-path" d="M100 20 C120 20 120 40 100 40 C80 40 80 20 100 20 Z" data-part="córtex" />
-                            <path id="organs-path" d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z" data-part="órgãos" />
-                            <path id="arms-path" d="M70 70 C80 70 80 120 70 120 Z M130 70 C120 70 120 120 130 120 Z" data-part="braços" />
-                            <path id="legs-path" d="M80 150 C90 150 90 250 80 250 Z M120 150 C110 150 110 250 120 250 Z" data-part="pernas" />
+                            <path id="organs-path" d="M90 60 C110 60 110 120 90 120 Z M90 50 C110 50 110 60 90 60 Z"
+                                data-part="órgãos" />
+                            <path id="arms-path" d="M70 70 C80 70 80 120 70 120 Z M130 70 C120 70 120 120 130 120 Z"
+                                data-part="braços" />
+                            <path id="legs-path" d="M80 150 C90 150 90 250 80 250 Z M120 150 C110 150 110 250 120 250 Z"
+                                data-part="pernas" />
                             <path id="face-path" d="M100 20 C115 25 115 35 100 40 C85 35 85 25 100 20 Z" data-part="face" />
                             <path id="skin-path" d="M100 20 C130 20 130 280 100 280 C70 280 70 20 100 20 Z" data-part="pele" />
                             <path id="neural-path" d="M98 45 C102 45 102 270 98 270 C94 270 94 45 98 45 Z" data-part="neural" />
@@ -995,6 +1181,16 @@
                 <div class="list-section">
                     <div id="implants-list"></div>
                     <button class="add-button" onclick="addImplant()">+ Novo Implante</button>
+                </div>
+            </div>
+        </div>
+        <div id="information-sheet" class="tab-content">
+            <div class="section information-section">
+                <h2><span style="color: var(--accent-blue);">&gt;</span> Informações & Contatos <span
+                        style="color: var(--accent-blue);">&lt;</span></h2>
+                <div class="list-section">
+                    <div id="information-list"></div>
+                    <button class="add-button" onclick="addInformation()">+ Adicionar Informação</button>
                 </div>
             </div>
         </div>
@@ -1040,7 +1236,7 @@
             });
             document.getElementById(tabId).classList.add('active');
             button.classList.add('active');
-            
+
             updateAllSheets();
         }
         function updateAllSheets() {
@@ -1188,7 +1384,7 @@
                 const checkbox = costInput.closest('.list-item').querySelector('input[type="checkbox"]');
                 return sum + (checkbox?.checked ? (parseInt(costInput.value) || 0) : 0);
             }, 0);
-            
+
             if (document.getElementById('base-ciber-limit')) {
                 document.getElementById('base-ciber-limit').value = baseCiberLimit;
             }
@@ -1292,7 +1488,7 @@
             bonusInput.placeholder = 'Bônus';
             bonusInput.value = bonus;
             bonusInput.oninput = updateAllSheets;
-            
+
             const removeButton = document.createElement('button');
             removeButton.className = 'remove-button';
             removeButton.textContent = 'X';
@@ -1322,7 +1518,7 @@
             nameInput.oninput = updateAllSheets;
             const flexRow = document.createElement('div');
             flexRow.className = 'flex-row';
-            
+
             const damageLabel = document.createElement('label');
             damageLabel.textContent = 'Dano:';
             const damageInput = document.createElement('input');
@@ -1331,7 +1527,7 @@
             damageInput.style.width = '80px';
             damageInput.value = damage;
             damageInput.oninput = updateAllSheets;
-            
+
             const weightLabel = document.createElement('label');
             weightLabel.textContent = 'Peso:';
             const weightInput = document.createElement('input');
@@ -1369,14 +1565,14 @@
             notesTextarea.style.minHeight = '50px';
             notesTextarea.value = notes;
             notesTextarea.oninput = updateAllSheets;
-            
+
             weaponInfo.appendChild(nameInput);
             weaponInfo.appendChild(flexRow);
             weaponInfo.appendChild(notesTextarea);
-            
+
             const weaponControls = document.createElement('div');
             weaponControls.className = 'weapon-controls';
-            
+
             const toggleModsButton = document.createElement('button');
             toggleModsButton.className = 'add-button';
             toggleModsButton.textContent = 'Mods (+)';
@@ -1458,7 +1654,60 @@
             itemDiv.appendChild(removeButton);
             list.appendChild(itemDiv);
         }
-        
+
+        function addConsumable(type, name = '', cost = '', effects = ['', '', ''], quantity = 1) {
+            let listId;
+            if (type === 'drug') listId = 'drugs-list';
+            else if (type === 'poison') listId = 'poisons-list';
+            else if (type === 'explosive') listId = 'explosives-list';
+            else return;
+
+            const list = document.getElementById(listId);
+            if (!list) return;
+
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+            itemDiv.dataset.consumableType = type;
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = 'Nome';
+            nameInput.value = name;
+
+            const costInput = document.createElement('input');
+            costInput.type = 'text';
+            costInput.placeholder = 'Custo';
+            costInput.value = cost;
+            costInput.style.width = '80px';
+
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.placeholder = 'Qtd.';
+            quantityInput.value = quantity;
+            quantityInput.style.width = '50px';
+
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => itemDiv.remove();
+
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(costInput);
+            itemDiv.appendChild(quantityInput);
+            itemDiv.appendChild(removeButton);
+
+            effects.forEach((effect, index) => {
+                const effectInput = document.createElement('input');
+                effectInput.type = 'text';
+                effectInput.className = 'effect-input';
+                effectInput.placeholder = `Efeito ${index + 1}`;
+                effectInput.value = effect;
+                itemDiv.appendChild(effectInput);
+            });
+
+            list.appendChild(itemDiv);
+        }
+
         function addImplant(name = '', location = 'córtex', value = 'Comum', ciberCost = 1, notes = '', active = true) {
             const list = document.getElementById('implants-list');
             if (!list) return;
@@ -1482,7 +1731,7 @@
             `;
             locationSelect.value = location;
             locationSelect.onchange = updateAllSheets;
-            
+
             const valueSelect = document.createElement('select');
             valueSelect.className = 'implant-value';
             valueSelect.innerHTML = `
@@ -1524,7 +1773,7 @@
                 list.removeChild(itemDiv);
                 updateAllSheets();
             };
-            
+
             activeToggle.appendChild(activeCheckbox);
             activeToggle.appendChild(activeLabel);
             const row1 = document.createElement('div');
@@ -1532,7 +1781,7 @@
             row1.appendChild(implantName);
             row1.appendChild(locationSelect);
             row1.appendChild(valueSelect);
-            
+
             const row2 = document.createElement('div');
             row2.className = 'implant-item-row';
             const ciberCostGroup = document.createElement('div');
@@ -1591,6 +1840,53 @@
             }
             list.appendChild(itemDiv);
         }
+        function addInformation(name = '', desc = '', level = 'Conhecimento Geral') {
+            const list = document.getElementById('information-list');
+            if (!list) return;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'list-item';
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = 'Nome da Informação ou Contato';
+            nameInput.value = name;
+
+            const descTextarea = document.createElement('textarea');
+            descTextarea.placeholder = 'Detalhes, descrição, localização...';
+            descTextarea.value = desc;
+
+            const levelSelectorContainer = document.createElement('div');
+            levelSelectorContainer.className = 'info-level-selector';
+            const levelOptions = ['Informação Privada', 'Conhecimento Restrito', 'Conhecimento Geral', 'Extravagante', 'Rico', 'Comum', 'Modesto', 'Pobre'];
+
+            levelOptions.forEach(opt => {
+                const radioId = `info-level-${Date.now()}-${opt.replace(/\s/g, '')}`;
+                const radioInput = document.createElement('input');
+                radioInput.type = 'radio';
+                radioInput.id = radioId;
+                radioInput.name = `info-level-${Date.now()}`;
+                radioInput.value = opt;
+                if (opt === level) {
+                    radioInput.checked = true;
+                }
+                const radioLabel = document.createElement('label');
+                radioLabel.htmlFor = radioId;
+                radioLabel.textContent = opt;
+                levelSelectorContainer.appendChild(radioInput);
+                levelSelectorContainer.appendChild(radioLabel);
+            });
+
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-button';
+            removeButton.textContent = 'X';
+            removeButton.onclick = () => list.removeChild(itemDiv);
+
+            itemDiv.appendChild(nameInput);
+            itemDiv.appendChild(descTextarea);
+            itemDiv.appendChild(levelSelectorContainer);
+            itemDiv.appendChild(removeButton);
+            list.appendChild(itemDiv);
+        }
         function saveSheet() {
             const armorMods = [];
             document.querySelectorAll('#armor-mods-list .list-item').forEach(item => {
@@ -1626,8 +1922,21 @@
                     });
                 });
             });
-            const shieldStatus = Array.from(document.querySelectorAll('#main-sheet .shield-box')).map(box => box.checked);
             
+            const consumables = [];
+            ['drugs-list', 'poisons-list', 'explosives-list'].forEach(listId => {
+                document.querySelectorAll(`#${listId} > .list-item`).forEach(itemDiv => {
+                    const type = itemDiv.dataset.consumableType;
+                    const name = itemDiv.querySelector('input:nth-child(1)').value;
+                    const cost = itemDiv.querySelector('input:nth-child(2)').value;
+                    const quantity = itemDiv.querySelector('input:nth-child(3)').value;
+                    const effects = Array.from(itemDiv.querySelectorAll('.effect-input')).map(input => input.value);
+                    consumables.push({ type, name, cost, effects, quantity });
+                });
+            });
+            
+            const shieldStatus = Array.from(document.querySelectorAll('#main-sheet .shield-box')).map(box => box.checked);
+
             const itemLists = {};
             ['hindrances', 'edges', 'items'].forEach(type => {
                 const list = [];
@@ -1640,7 +1949,7 @@
                 });
                 itemLists[type] = list;
             });
-            
+
             const implants = [];
             document.querySelectorAll('#implants-list .list-item').forEach(item => {
                 implants.push({
@@ -1652,6 +1961,16 @@
                     active: item.querySelector('input[type="checkbox"]').checked
                 });
             });
+
+            const informationList = [];
+            document.querySelectorAll('#information-list .list-item').forEach(item => {
+                informationList.push({
+                    name: item.querySelector('input[type="text"]').value,
+                    desc: item.querySelector('textarea').value,
+                    level: item.querySelector('.info-level-selector input[type="radio"]:checked')?.value || 'Conhecimento Geral'
+                });
+            });
+
             const sheetData = {
                 info: {
                     name: document.getElementById('char-name')?.value || '',
@@ -1713,7 +2032,9 @@
                     mods: armorMods
                 },
                 weapons: weapons,
-                implants: implants
+                consumables: consumables,
+                implants: implants,
+                information: informationList
             };
             attributes.forEach(attr => {
                 const selectedDie = document.querySelector(`input[name="attr-${attr}"]:checked`);
@@ -1836,7 +2157,7 @@
                     if (sheetData.armor) {
                         document.getElementById('armor-name').value = sheetData.armor.name || '';
                         document.getElementById('armor-value-base').value = sheetData.armor.baseValue || '0';
-                        
+
                         const modsList = document.getElementById('armor-mods-list');
                         if (modsList) {
                             modsList.innerHTML = '';
@@ -1845,7 +2166,7 @@
                             });
                         }
                     }
-                    
+
                     const rangedWeaponsList = document.getElementById('ranged-weapons-list');
                     const meleeWeaponsList = document.getElementById('melee-weapons-list');
                     if (rangedWeaponsList && meleeWeaponsList) {
@@ -1859,7 +2180,14 @@
                             }
                         });
                     }
-                    
+
+                    ['drugs-list', 'poisons-list', 'explosives-list'].forEach(id => document.getElementById(id).innerHTML = '');
+                    if (sheetData.consumables) {
+                        (sheetData.consumables || []).forEach(c => {
+                            addConsumable(c.type, c.name, c.cost, c.effects, c.quantity);
+                        });
+                    }
+
                     if (sheetData.implants) {
                         const implantsList = document.getElementById('implants-list');
                         if (implantsList) {
@@ -1869,6 +2197,17 @@
                             });
                         }
                     }
+
+                    if (sheetData.information) {
+                        const infoList = document.getElementById('information-list');
+                        if (infoList) {
+                            infoList.innerHTML = '';
+                            (sheetData.information || []).forEach(info => {
+                                addInformation(info.name, info.desc, info.level);
+                            });
+                        }
+                    }
+
                     updateAllSheets();
                     alert('Ficha carregada com sucesso!');
                 } catch (error) {
@@ -1880,10 +2219,12 @@
         }
         window.onload = function () {
             addAttributeSelectors();
+            addAssistantSelectors();
             createInitialSkills();
             createAssistantSkills();
             updateAllSheets();
         };
     </script>
 </body>
+
 </html>
